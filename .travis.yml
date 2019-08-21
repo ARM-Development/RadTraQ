@@ -1,0 +1,26 @@
+sudo: false
+language: python
+env:
+      global:
+       # Doctr deploy key for AdamTheisen/RadTraQ
+        - secure: "YY6Z2vou0YDAOnAYi7C6ep4kgZUnx+2NgGwMQNozCpLmRuAKCH6hVkMEpSYfQH2Jvpleo4y3/AUOV+MLKPjs4jCdJinsRMT4jocK7H7+wQt8u2S8ILMZn+5Vcc8wYICmKSMTHn1+Kv6E+8Bb0bFsy2QACkPfm59SDQ0TNmA3V+bg5/75ziAKQ3jhYorBtuHsENOCn0+jbVaZ5/WmXKW2SywSaA71PAg2XIAOljp39YepEWNR+Nk5/skFl5v1WxZRr36Z1XgeFcqc1U+DttX95lB1RP9BLTO5O13qbBnF9S0N+8nhJEpjIhwwZBsUqrACHXVG+WazRD5s7jGkES3G0wIUsqlq99oCT8frU9shxz5x2Vu3UdeSOsqgwQCL7ogUEcm3ncs4BaCLRXaHPF2Bvj0KrDd/RujqvSXBST0eEnt+4QHslXG+0TH1SzjJlfCFBTKSo65bRa3bkglXune3UjnYcFKb4+OUKLhyzAmJ3DbEcQ4wiCxm7KicgweyYYDP+PWtw1qUY0uV9YEDfmIMmm+vwJVLx2RtGXWkK24eFs82wN9Feayk2z1iTjkSqrl2bPMXtXQFvrLC5NR6HnGGoiedcA2tYqcB/vgCNb0gQLOBlRqBdNK7GWnmpj4sHC9W5JPhVRemyoaKODoTynLh0XO0kah2mVQlZfCFVQLLEXY="
+
+matrix:
+    include:
+    - python: 3.6
+      env:
+        - PYTHON_VERSION="3.6"
+        - DOC_BUILD="true"     
+    - python: 3.7
+      sudo: yes
+      dist: xenial
+      env:
+        - PYTHON_VERSION="3.7"
+        - DOC_BUILD="true"
+install:
+    - source continuous_integration/install.sh
+script:
+    - eval xvfb-run pytest
+    - flake8 --max-line-length=115 --ignore=F401,E402,W504,W605
+after_success:
+    - source continuous_integration/build_docs.sh;
