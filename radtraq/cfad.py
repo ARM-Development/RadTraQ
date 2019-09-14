@@ -9,7 +9,7 @@ def plot_cfad(hist, x, y):
     plt.show()
     
 
-def calc_cfad(obj, variable, hvariable, xbins=None, log=True):
+def calc_cfad(obj, variable, hvariable, xbins=None, log=True, yint=20):
     #Currently assuming vertical point data from netcdf files
     data = obj[variable]
     height = obj[hvariable]
@@ -19,9 +19,10 @@ def calc_cfad(obj, variable, hvariable, xbins=None, log=True):
 
     hist = []
     for j, ht in enumerate(height):
-        h, bin_edge =  np.histogram(data[:,j], bins=xbins)
+        h, bin_edge =  np.histogram(data[:,j:j+yint], bins=xbins)
         if log is True:
             h = np.log10(h)
         hist.append(list(h))
+        j += yint
 
     return hist, xbins[:-1], height
