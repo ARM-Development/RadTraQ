@@ -6,6 +6,7 @@ def plot_cfad(hist, x, y):
 
     fig, ax = plt.subplots()
     cs = ax.contourf(x, y, hist, 50)
+    cbar = fig.colorbar(cs)
     plt.show()
     
 
@@ -15,7 +16,8 @@ def calc_cfad(obj, variable, hvariable, xbins=None, log=True, yint=20):
     height = obj[hvariable]
 
     if xbins is None:
-        xbins = np.linspace(-70, 40, 111)
+        xbins = np.linspace(-70, 50, 121)
+    print(xbins)
 
     hist = []
     for j, ht in enumerate(height):
