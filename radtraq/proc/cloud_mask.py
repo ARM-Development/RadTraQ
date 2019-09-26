@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import xarray as xr
 from scipy import signal
 from .noise import calc_noise_floor
-from .utils import range_correction
+from ..utils.corrections import range_correction
 
 def calc_cloud_mask(obj, variable, hvariable, noise_threshold=-45.,
                     threshold_offset=5.):

@@ -10,7 +10,7 @@ mask to the data
 import dask
 import numpy as np
 import matplotlib.pyplot as plt
-from .utils import range_correction
+from ..utils.corrections import range_correction
 
 def calc_noise_floor(obj, variable, hvariable):
     """
