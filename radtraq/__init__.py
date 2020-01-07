@@ -16,4 +16,5 @@ This contains code for radar quality assurance and tracking
 
 from . import proc
 from . import utils
-from . import graph
+from . import plotting
+from . import tests

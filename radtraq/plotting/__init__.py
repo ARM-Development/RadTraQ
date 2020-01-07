@@ -1,9 +1,9 @@
 """
 =========
-act.graph
+act.plotting
 =========
 
-.. currentmodule:: radtraq.graph
+.. currentmodule:: radtraq.plotting
 
 This module contains procedures for plotting up data
 
