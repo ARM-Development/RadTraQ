@@ -3,4 +3,5 @@ numpy
 scipy
 xarray
 matplotlib
+cython
 act-atmos
