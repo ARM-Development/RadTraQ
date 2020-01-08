@@ -2,7 +2,7 @@
 radtraq.cfad
 ------------
 
-Module for calculating and plotting a cfad using 
+Module for calculating and plotting a cfad using
 an act object as input
 
 """
@@ -22,7 +22,7 @@ def plot_cfad(hist, x, y):
         2D list of histogram data from calc_cfad
     x : list
         List of x values
-    y : list 
+    y : list
         List of y values
 
     Returns
@@ -34,9 +34,10 @@ def plot_cfad(hist, x, y):
 
     fig, ax = plt.subplots()
     cs = ax.contourf(x, y, hist, 50)
-    cbar = fig.colorbar(cs)
+    fig.colorbar(cs)
 
     return ax
+
 
 def calc_cfad(obj, variable, hvariable, xbins=None):
     """
@@ -48,9 +49,9 @@ def calc_cfad(obj, variable, hvariable, xbins=None):
         ACT object containing vertical point data
     variable : string
         Variable to calculate CFAD for
-    hvariable : string 
+    hvariable : string
         Variable name for the height data
-    xbins : list 
+    xbins : list
         List of bins to calculate cfad for
 
     Returns
@@ -71,7 +72,7 @@ def calc_cfad(obj, variable, hvariable, xbins=None):
 
     dsk = []
     for j in range(len(height)):
-        a = dask.delayed(np.histogram)(data[:,j], bins=xbins)
+        a = dask.delayed(np.histogram)(data[:, j], bins=xbins)
         dsk.append(a)
 
     hist = dask.compute(*dsk)
