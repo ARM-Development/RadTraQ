@@ -4,4 +4,5 @@ scipy
 xarray
 matplotlib
 cython
+netcdf4
 act-atmos
