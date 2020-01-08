@@ -9,8 +9,8 @@ mask to the data
 
 import dask
 import numpy as np
-import matplotlib.pyplot as plt
 from ..utils.corrections import range_correction
+
 
 def calc_noise_floor(obj, variable, hvariable):
     """
@@ -21,9 +21,9 @@ def calc_noise_floor(obj, variable, hvariable):
     obj : xarray object
         ACT object with data
     variable : string
-        Variable name to calculate from.  Should be 
+        Variable name to calculate from.  Should be
         a reflectivity
-    hvariable : string 
+    hvariable : string
         Height variable to use for calculations
 
     Returns
@@ -38,14 +38,14 @@ def calc_noise_floor(obj, variable, hvariable):
 
     n_t, n_h = np.shape(data)
 
-    noise = np.full(n_t, -100.)
+    # noise = np.full(n_t, -100.)
     task = []
     for i in range(n_t):
-        task.append(dask.delayed(cloud_threshold)(data[i,:], 1, n_h))
-
+        task.append(dask.delayed(cloud_threshold)(data[i, :], 1, n_h))
     result = dask.compute(*task)
 
     return result
+
 
 def cloud_threshold(data, n_avg, nffts):
     """
