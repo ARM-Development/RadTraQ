@@ -8,6 +8,7 @@ Radar Tracking and Quality (RadTraQ) Documentation
 
 .. toctree::
    :maxdepth: 4
+   :hidden:
    :caption: Documentation
 
    source/auto_examples/index.rst

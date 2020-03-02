@@ -5,7 +5,6 @@
 # from the environment for the first two.
 SPHINXOPTS    ?= "-W"
 SPHINXBUILD   ?= sphinx-build
-SPHINXPROJ    = PackagingScientificPython
 SOURCEDIR     = source
 BUILDDIR      = build
 

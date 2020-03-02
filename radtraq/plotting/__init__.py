@@ -11,9 +11,9 @@ various aspects of the data
 ..autosummary::
     :toctree: generated/
 
-    cfad.calc_cfad
-    cfad.plot_cfad
-    profile.plot_avg_profile
+    calc_cfad
+    plot_cfad
+    plot_avg_profile
 
 """
 
