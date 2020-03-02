@@ -1,14 +1,19 @@
 """
-=========
-act.plotting
-=========
+================
+radtraq.plotting
+================
 
 .. currentmodule:: radtraq.plotting
 
-This module contains procedures for plotting up data
+This module contains procedures for plotting
+various aspects of the data
 
 ..autosummary::
     :toctree: generated/
+
+    cfad.calc_cfad
+    cfad.plot_cfad
+    profile.plot_avg_profile
 
 """
 

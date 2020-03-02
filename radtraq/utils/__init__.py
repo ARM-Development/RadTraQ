@@ -1,7 +1,7 @@
 """
-=========
-act.utils
-=========
+=============
+radtraq.utils
+=============
 
 .. currentmodule:: radtraq.utils
 

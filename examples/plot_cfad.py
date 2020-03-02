@@ -1,3 +1,12 @@
+"""
+Example on how to calculate and plot cfad
+-----------------------------------------
+
+This example shows how to calculate and plot a cfad
+
+"""
+
+
 import radtraq
 import act
 import matplotlib.pyplot as plt

@@ -1,3 +1,12 @@
+"""
+Example on how to calculate and plot cloud masks
+------------------------------------------------
+
+This example shows how to calculate a cloud mask and plot data
+
+"""
+
+
 import radtraq
 import act
 import matplotlib.pyplot as plt

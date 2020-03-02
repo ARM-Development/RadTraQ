@@ -1,3 +1,13 @@
+"""
+Example on how to calculate and plot average profiles
+-----------------------------------------------------
+
+This example shows how to calculate and plot average profiles
+from masked data
+
+"""
+
+
 import radtraq
 import act
 import matplotlib.pyplot as plt

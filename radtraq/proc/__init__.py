@@ -1,7 +1,7 @@
 """
-==============
-act.cloud_mask
-==============
+==================
+radtraq.cloud_mask
+==================
 
 .. currentmodule:: radtraq.cloud_mask
 

@@ -1,6 +1,6 @@
 """
-radtraq.cfad
-------------
+radtraq.plotting.cfad
+---------------------
 
 Module for calculating and plotting a cfad using
 an act object as input

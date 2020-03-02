@@ -1,12 +1,11 @@
 """
-=====================
-act.tests (act.tests)
-=====================
+=============
+radtraq.tests
+=============
 
-.. currentmodule:: act.tests
+.. currentmodule:: radtraq.tests
 
-This module contains sample files used for testing the ARM Community Toolkit.
-Files in this module should only be used for testing, not production.
+This module contains sample files used for testing RadTraQ
 
 .. autosummary::
     :toctree: generated/

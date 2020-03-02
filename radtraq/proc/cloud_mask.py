@@ -1,6 +1,6 @@
 """
 radtraq.cloud_mask
--------------
+------------------
 
 Module for calculating cloud masks based off of the
 noise floor calculations in radtraq.noise
