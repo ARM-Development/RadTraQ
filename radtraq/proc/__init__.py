@@ -14,3 +14,4 @@ This module contains procedures for creating a cloud mask.
 
 from .cloud_mask import calc_cloud_mask
 from .noise import calc_noise_floor
+from .profile import calculate_avg_profile
