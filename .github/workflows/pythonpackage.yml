@@ -36,5 +36,5 @@ jobs:
         pip install pytest
         pytest
     - name: Sphinx Build
-        uses: ammaraskar/sphinx-action@0.4
+      uses: ammaraskar/sphinx-action@0.4
 
