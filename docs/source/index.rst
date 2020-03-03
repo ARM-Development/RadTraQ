@@ -6,6 +6,7 @@ Radar Tracking and Quality (RadTraQ) Documentation
    :hidden:
    :caption: Documentation
 
+   source/auto_examples/index.rst
    API/index.rst
 
 .. toctree::
