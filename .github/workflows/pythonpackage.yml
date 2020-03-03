@@ -35,3 +35,11 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
+    - name: Build documentation
+      run: |
+        conda install -c conda-forge -q sphinx doctr
+        pip install sphinx_gallery
+        pip install sphinx-copybutton
+        cd docs
+        make clean
+        make html
