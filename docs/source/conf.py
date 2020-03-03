@@ -21,10 +21,6 @@ project = 'RadTraq'
 copyright = '2020, Adam Theisen'
 author = 'Adam Theisen'
 
-# The full version, including alpha/beta/rc tags
-release = '0.0.1'
-
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -79,6 +75,10 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 import radtraq
+# The short X.Y version.
+version = radtraq.__version__
+# The full version, including alpha/beta/rc tags.
+release = radtraq.__version__
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'

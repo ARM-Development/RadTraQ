@@ -8,7 +8,7 @@ import xarray as xr
 import numpy as np
 
 
-def calculate_avg_profile(_obj, variable=None, mask='mask2', mask_val=1, first_height=500.,
+def calc_avg_profile(_obj, variable=None, mask='mask2', mask_val=1, first_height=500.,
                           height='range', ygrid=None):
     """
     Function for calculating average profiles from data after

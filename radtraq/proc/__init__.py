@@ -1,17 +1,21 @@
 """
-==================
-radtraq.cloud_mask
-==================
+============
+radtraq.proc
+============
 
-.. currentmodule:: radtraq.cloud_mask
+.. currentmodule:: radtraq.proc
 
 This module contains procedures for creating a cloud mask.
 
-..autosummary::
+.. autosummary::
     :toctree: generated/
+
+    calc_cloud_mask
+    calc_noise_floor
+    calc_avg_profile
 
 """
 
 from .cloud_mask import calc_cloud_mask
 from .noise import calc_noise_floor
-from .profile import calculate_avg_profile
+from .profile import calc_avg_profile

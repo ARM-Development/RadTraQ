@@ -8,7 +8,7 @@ radtraq.plotting
 This module contains procedures for plotting
 various aspects of the data
 
-..autosummary::
+.. autosummary::
     :toctree: generated/
 
     calc_cfad

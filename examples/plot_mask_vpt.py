@@ -31,7 +31,7 @@ fh = 1500.
 ygrid = np.arange(fh, 15000, 50)
 
 # Calculate average profiles
-ge = radtraq.proc.profile.calculate_avg_profile(ge, variable=variable, first_height=fh, ygrid=ygrid)
+ge = radtraq.proc.profile.calc_avg_profile(ge, variable=variable, first_height=fh, ygrid=ygrid)
 
 # Showing how to do this for multiple radars
 # Set up dictionary for profile comparison plotting
