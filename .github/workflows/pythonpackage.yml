@@ -35,7 +35,3 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
-    - name: Sphinx Build
-      uses: ammaraskar/sphinx-action@0.4
-      with:
-        docs-folder: "docs/"
