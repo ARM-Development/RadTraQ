@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 
 # Read in example data
 f = radtraq.tests.sample_files.EXAMPLE_KAZR
+print(f)
 obj = act.io.armfiles.read_netcdf(f)
 
 # Calculate CFAD histogram
