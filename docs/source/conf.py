@@ -40,10 +40,10 @@ extensions = [
     'sphinx_gallery.gen_gallery',
     'sphinx.ext.napoleon'
 ]
-sphinx_gallery_conf = {
-    'examples_dirs': '../../examples',
-    'gallery_dirs': 'source/auto_examples'
-}
+#sphinx_gallery_conf = {
+#    'examples_dirs': '../../examples',
+#    'gallery_dirs': 'source/auto_examples'
+#}
 
 # Configuration options for plot_directive. See:
 # https://github.com/matplotlib/matplotlib/blob/f3ed922d935751e08494e5fb5311d3050a3b637b/lib/matplotlib/sphinxext/plot_directive.py#L81
