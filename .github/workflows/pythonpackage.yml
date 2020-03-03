@@ -37,8 +37,8 @@ jobs:
         pytest
     - name: Build documentation
       run: |
+        python setup.py install
         pip install ipython
-        pip install act
         conda install -c conda-forge -q sphinx doctr
         pip install sphinx_gallery
         pip install sphinx-copybutton
