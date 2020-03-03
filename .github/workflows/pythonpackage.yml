@@ -35,3 +35,6 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
+    - name: Build documentation
+      run: |
+        make html
