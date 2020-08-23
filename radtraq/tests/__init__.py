@@ -14,3 +14,4 @@ This module contains sample files used for testing RadTraQ
 """
 
 from .sample_files import (EXAMPLE_KAZR)
+from .sample_files import (EXAMPLE_RASTER)

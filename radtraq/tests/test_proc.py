@@ -2,6 +2,7 @@ import radtraq
 import pytest
 import act
 
+
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_cloud_mask():
     f = radtraq.tests.sample_files.EXAMPLE_KAZR
