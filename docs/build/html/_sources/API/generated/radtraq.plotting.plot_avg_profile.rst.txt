@@ -1,4 +1,4 @@
-radtraq.plotting.plot\_avg\_profile
+﻿radtraq.plotting.plot\_avg\_profile
 ===================================
 
 .. currentmodule:: radtraq.plotting

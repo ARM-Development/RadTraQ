@@ -19,4 +19,3 @@ This module contains procedures for creating a cloud mask.
 from .cloud_mask import calc_cloud_mask
 from .noise import calc_noise_floor
 from .profile import calc_avg_profile
-from .corner_reflector import plot_cr_raster
