@@ -27,7 +27,7 @@ def test_corner_reflector():
     np.testing.assert_almost_equal(data['min'], -64.46, decimal=2)
     np.testing.assert_almost_equal(data['az_max'], 2.30, decimal=2)
     np.testing.assert_almost_equal(data['el_max'], 0.90, decimal=2)
-    np.testing.assert_almost_equal(data['el_top'], 1.31, decimal=2)
+    np.testing.assert_almost_equal(data['el_top'], 1.32, decimal=2)
 
     fig = plt.gcf()
     return fig
