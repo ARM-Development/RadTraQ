@@ -40,6 +40,10 @@ jobs:
         pytest
 
   docs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
