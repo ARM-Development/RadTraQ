@@ -41,7 +41,6 @@ jobs:
     - name: Documentation
       uses: ammaraskar/sphinx-action@master
       with:
-        pre-build-command: "python setup.py install"
         docs-folder: "docs/"
 
   docs:
