@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         sudo apt-get install libproj-dev proj-data proj-bin
         sudo apt-get install libgeos-dev
-        apt-get install python3-sphinx
+        sudo apt-get install python3-sphinx
         pip install --upgrade cython numpy pyshp six
         pip install -r requirements.txt
     - name: Lint with flake8
