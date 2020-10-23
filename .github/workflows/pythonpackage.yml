@@ -1,12 +1,12 @@
 name: RadTRAQ
 
 on:
-  pull_request:
-    types: [assigned, opened, synchronize, reopened]
+- push
+#  pull_request:
+#    types: [assigned, opened, synchronize, reopened]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -38,3 +38,10 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
+
+    - name: Documentation
+      - uses: actions/checkout@v1
+      - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+
