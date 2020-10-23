@@ -38,8 +38,9 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
-    - name: Documentation
-      uses: ammaraskar/sphinx-action@master
-      with:
-        pre-build-command: "apt-get install python3.7 && python setup.py install"
-        docs-folder: "docs/"
+        sphinx-build -b html docs/source docs/build/
+#    - name: Documentation
+#      uses: ammaraskar/sphinx-action@master
+#      with:
+#        pre-build-command: "python setup.py install"
+#        docs-folder: "docs/"
