@@ -40,7 +40,7 @@ jobs:
         pip install pytest
         pytest
     - name: Docs
-      working-directory: ./doc
+      working-directory: ./docs
       run: |
         make html
 #    - name: Documentation
