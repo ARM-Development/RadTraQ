@@ -40,7 +40,6 @@ jobs:
         pytest
 
   docs:
-    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
@@ -52,8 +51,7 @@ jobs:
         python -m pip install --upgrade pip
         sudo apt-get install libproj-dev proj-data proj-bin
         sudo apt-get install libgeos-dev
-        pip install h5py
-        pip install netcdf4
+        sudo apt-get install libhdf5-serial-dev
         pip install --upgrade cython numpy pyshp six
         pip install -r requirements.txt
     - name: Documentation
