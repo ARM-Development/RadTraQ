@@ -38,6 +38,11 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
+    - name: Documentation
+      uses: ammaraskar/sphinx-action@master
+      with:
+        pre-build-command: "python setup.py install"
+        docs-folder: "docs/"
 
   docs:
     runs-on: ubuntu-latest
@@ -55,6 +60,7 @@ jobs:
         python -m pip install --upgrade pip
         sudo apt-get install libproj-dev proj-data proj-bin
         sudo apt-get install libgeos++-dev
+        sudo apt-get install python-yaml
         sudo apt-get install libhdf5-serial-dev
         pip install numpy
         pip install --upgrade cython pyshp six
