@@ -41,31 +41,5 @@ jobs:
     - name: Documentation
       uses: ammaraskar/sphinx-action@master
       with:
-        docs-folder: "docs/"
-
-  docs:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.7]
-    steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        sudo apt-get install libproj-dev proj-data proj-bin
-        sudo apt-get install libgeos++-dev
-        sudo apt-get install python-yaml
-        sudo apt-get install libhdf5-serial-dev
-        pip install numpy
-        pip install --upgrade cython pyshp six
-        pip install -r requirements.txt
-    - name: Documentation
-      uses: ammaraskar/sphinx-action@master
-      with:
         pre-build-command: "python setup.py install"
         docs-folder: "docs/"
