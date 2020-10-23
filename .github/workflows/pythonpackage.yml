@@ -39,7 +39,10 @@ jobs:
         python setup.py install
         pip install pytest
         pytest
-        sphinx-build -b html docs/source docs/build/
+    - name: Docs
+      run: |
+        working-directory: ./doc
+        make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
 #      with:
