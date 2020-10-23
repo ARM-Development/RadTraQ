@@ -41,5 +41,5 @@ jobs:
     - name: Documentation
       uses: ammaraskar/sphinx-action@master
       with:
-        pre-build-command: "python setup.py install"
+        pre-build-command: "sudo apt-get instaall python3.7 && python setup.py install"
         docs-folder: "docs/"
