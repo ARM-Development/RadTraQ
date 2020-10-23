@@ -6,6 +6,8 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+    - run: |
+        python setup.py install
     - uses: actions/checkout@v1
     - uses: ammaraskar/sphinx-action@master
       with:
