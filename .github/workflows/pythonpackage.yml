@@ -39,9 +39,8 @@ jobs:
         pip install pytest
         pytest
     - name: Documentation
-      run: |
-        python setup.py install
       uses: ammaraskar/sphinx-action@master
       with:
+        pre-build-command: "python setup.py install"
         docs-folder: "docs/"
 
