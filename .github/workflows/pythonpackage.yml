@@ -43,7 +43,7 @@ jobs:
       working-directory: ./docs
       run: |
         pip install setuptools
-        sudo python ../setup.py install
+        sudo python3 ../setup.py install
         make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
