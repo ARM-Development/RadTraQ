@@ -8,7 +8,7 @@ import sys
 # and/or pip.
 min_version = (3, 6)
 if sys.version_info < min_version:
-    sys.exit(error)
+    sys.exit('Wrong Version')
 
 here = path.abspath(path.dirname(__file__))
 
