@@ -44,7 +44,7 @@ jobs:
       run: |
         pip install setuptools
         python ../setup.py install
-        make html
+        sudo make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
 #      with:

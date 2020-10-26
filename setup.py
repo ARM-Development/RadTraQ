@@ -20,8 +20,8 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
 
 
 setup(
-    name='TestRepo',
-    description="Package for working with atmospheric time series datasets",
+    name='RadTraQ',
+    description="Package for tracking radar calibrataion and quality"
     author="Adam Theisen",
     author_email='atheisen@anl.gov',
     packages=find_packages(exclude=['docs', 'tests']),
