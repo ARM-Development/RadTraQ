@@ -47,4 +47,5 @@ jobs:
       working-directory: ./docs
       run: |
         make html
-        ls build
+        git commit -a -m "Documentation build"
+        git push
