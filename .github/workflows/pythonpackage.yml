@@ -42,6 +42,8 @@ jobs:
     - name: Docs
       working-directory: ./docs
       run: |
+        pwd
+        which python
         python ../setup.py install
         make html
 #    - name: Documentation

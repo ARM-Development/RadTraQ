@@ -27,7 +27,7 @@ setup(
     packages=find_packages(exclude=['docs', 'tests']),
     entry_points={'console_scripts': []},
     include_package_data=True,
-    package_data={'testrepo': []},
+    package_data={'RadTraQ': []},
     install_requires=requirements,
     license="BSD (3-clause)",
 )
