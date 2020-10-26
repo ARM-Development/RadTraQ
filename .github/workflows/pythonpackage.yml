@@ -45,6 +45,7 @@ jobs:
         pwd
         ls
         pip install sphinx-rtd-theme
+        pip install ipython
         make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
