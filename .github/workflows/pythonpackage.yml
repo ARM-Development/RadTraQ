@@ -43,8 +43,8 @@ jobs:
       working-directory: ./docs
       run: |
         pwd
-        which python
-        python ../setup.py install
+        ls
+        pip install sphinx-rtd-theme
         make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
