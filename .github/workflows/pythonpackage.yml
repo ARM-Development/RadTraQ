@@ -47,5 +47,7 @@ jobs:
       working-directory: ./docs
       run: |
         make html
-        git commit -a -m "Documentation build"
+        git config --global user.name 'Github Action'
+        git config --global user.email 'AdamTheisen@users.noreply.github.com'
+        git commit -am "Documentation build"
         git push
