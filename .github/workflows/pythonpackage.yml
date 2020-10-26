@@ -49,4 +49,4 @@ jobs:
         git config --global user.name 'Github Action'
         git config --global user.email 'AdamTheisen@users.noreply.github.com'
         git commit -am "Documentation build Github Action"
-        git push origin master
+        git push origin HEAD:master
