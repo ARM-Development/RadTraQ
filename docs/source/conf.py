@@ -74,12 +74,6 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-import radtraq
-# The short X.Y version.
-version = radtraq.__version__
-# The full version, including alpha/beta/rc tags.
-release = radtraq.__version__
-
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
