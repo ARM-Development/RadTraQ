@@ -47,7 +47,7 @@ jobs:
         pip install sphinx-rtd-theme
         pip install ipython
         pip install sphinx_copybutton
-        pip insatll sphinx_gallery
+        pip install sphinx_gallery
         make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
