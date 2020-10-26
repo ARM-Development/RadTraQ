@@ -42,9 +42,8 @@ jobs:
     - name: Docs
       working-directory: ./docs
       run: |
-        pip install setuptools
         python ../setup.py install
-        sudo make html
+        make html
 #    - name: Documentation
 #      uses: ammaraskar/sphinx-action@master
 #      with:
