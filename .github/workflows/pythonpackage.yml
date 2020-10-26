@@ -47,6 +47,6 @@ jobs:
       run: |
         make html
         git config --global user.name 'Github Action'
-        git config --global user.email 'AdamTheisen@users.noreply.github.com'
+        git config --global user.email 'action@github.com'
         git commit -am "Documentation build Github Action"
         git push origin HEAD:master
