@@ -18,7 +18,6 @@ jobs:
           sudo apt-get install libproj-dev proj-data proj-bin
           sudo apt-get install libgeos-dev
           sudo apt-get install python3-sphinx
-          pip install pathlib
           pip install --upgrade cython numpy pyshp six
           pip install sphinx-rtd-theme
           pip install ipython
