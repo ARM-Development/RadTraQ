@@ -19,7 +19,8 @@ jobs:
           sudo apt-get install python3-sphinx
           pip3 install wheel
           pip3 install setuptools
-          pip3 install --upgrade cython numpy pyshp six cartopy
+          pip3 install --upgrade cython numpy pyshp six
+          pip3 install cartopy
           pip3 install sphinx-rtd-theme
           pip3 install ipython
           pip3 install sphinx_copybutton
