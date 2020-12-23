@@ -30,9 +30,9 @@ jobs:
           pip3 install sphinx_gallery
           pip3 install pyproj
           pip3 install -r requirements.txt
-          python3 setup.py install
+          sudo python3 setup.py install
           cd docs
-          make html
+          sudo make html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
