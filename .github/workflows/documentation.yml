@@ -25,7 +25,6 @@ jobs:
           pip3 install --upgrade cython numpy pyshp six
           pip3 install cartopy
           pip3 install ipython
-          pip3 install sphinx-build
           pip3 install sphinx-rtd-theme
           pip3 install sphinx_copybutton
           pip3 install sphinx_gallery
