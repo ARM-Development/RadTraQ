@@ -14,7 +14,6 @@ jobs:
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
-          python -m pip3 install --upgrade pip3
           sudo apt-get install libproj-dev proj-data proj-bin
           sudo apt-get install libgeos-dev
           sudo apt-get install python3-sphinx
