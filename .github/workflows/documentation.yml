@@ -1,7 +1,5 @@
 name: Build and Deploy
-on:
-  pull_request:
-    types: [assigned, opened, synchronize, reopened]
+on: push
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
