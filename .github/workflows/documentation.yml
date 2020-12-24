@@ -32,9 +32,7 @@ jobs:
           pip3 install -r requirements.txt
           sudo python3 setup.py install
           cd docs
-          ls
-          which sphinx-build
-	  sudo make html -n
+	  make html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
