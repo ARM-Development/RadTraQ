@@ -34,7 +34,7 @@ jobs:
           cd docs
           ls
           which sphinx-build
-	  sudo make -n html
+	  sudo make html -n
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
