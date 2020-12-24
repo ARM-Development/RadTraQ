@@ -1,7 +1,7 @@
 # RadTraQ
 Radar Tracking of Quality
 
-![](https://github.com/AdamTheisen/RadTraQ/workflows/RadTRAQ/badge.svg)
+![](https://github.com/ARM-Development/RadTraQ/workflows/RadTRAQ/badge.svg)
 
 Work in progress!
 
