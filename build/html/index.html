@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,33 +11,35 @@
   
 
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-
-  
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-rendered-html.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="RadTraq Example Gallery" href="source/auto_examples/index.html" /> 
@@ -55,7 +56,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> RadTraq
+            <a href="#" class="icon icon-home" alt="Documentation Home"> RadTraq
           
 
           
@@ -82,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -102,6 +104,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -140,7 +143,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
       <li>Radar Tracking and Quality (RadTraQ) Documentation</li>
     
@@ -170,9 +173,10 @@
 </div>
 <div class="section" id="radar-tracking-and-quality-toolkit-radtraq">
 <h1>Radar Tracking and Quality Toolkit (RadTraQ)<a class="headerlink" href="#radar-tracking-and-quality-toolkit-radtraq" title="Permalink to this headline">¶</a></h1>
-<p>RadTraQ is a set of tools to help with analyzing radar data for quality
-and tracking that quality and calibration over time.  It is currently a
-work in progress.</p>
+<p>This is a repository of codes that were initially coded up in IDL in the ARM DQ Office for use with the ARM cloud radars.  In transitioning the code to python, it makes sense to open-source it so that others can benefit and even provide back.  Currently, the code is using dask to quickly calculate and plot up CFADs and calculate the noise floor based on code from Pavlos Kollias and Ieng Jo while they were with McGill University.</p>
+<p>Kollias, P., I. Jo, P. Borque, A. Tatarevic, K. Lamer, N. Bharadwaj, K. Widener, K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data Quality Control and Processing. J. Atmos. Oceanic Technol., 31, 583–598, <a class="reference external" href="https://doi.org/10.1175/JTECH-D-13-00045.1">https://doi.org/10.1175/JTECH-D-13-00045.1</a></p>
+<p>Code to come includes using the noise floor to calculate the cloud mask, retrieve vertical average profiles of radar variables in cloud, and more.
+~</p>
 </div>
 
 
@@ -193,11 +197,19 @@ work in progress.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Adam Theisen
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -208,7 +220,6 @@ work in progress.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
