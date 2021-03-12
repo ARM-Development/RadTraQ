@@ -12,6 +12,9 @@ Radar Tracking and Quality (RadTraQ) Documentation
 .. toctree::
    :maxdepth: 1
    :hidden:
+   :caption: Github Repository
+   Github Repository <https://github.com/ARM-Development/RadTraQ>
+   
    :caption: Getting Help
 
    GitHub Issue Tracker <https://github.com/AdamTheisen/RadTraQ/issues>
