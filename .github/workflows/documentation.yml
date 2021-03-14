@@ -34,7 +34,7 @@ jobs:
           pip3 install -r requirements.txt
           sudo python3 setup.py install
           cd docs
-          sudo make html
+          make html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
