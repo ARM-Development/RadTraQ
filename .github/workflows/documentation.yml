@@ -19,6 +19,7 @@ jobs:
           #sudo apt-get install libproj-dev proj-data
           #sudo apt-get install proj-bin
           #sudo apt-get install libgeos-dev
+          sudo echo "$HOME/.local/bin" >> $GITHUB_PATH
           pip3 install versioneer
           pip3 install wheel
           pip3 install setuptools
