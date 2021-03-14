@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>radtraq.proc.calc_avg_profile &mdash; RadTraq 0+unknown documentation</title>
   
@@ -21,7 +21,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -31,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -57,7 +61,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> RadTraq
+            <a href="../../index.html" class="icon icon-home"> RadTraq
           
 
           
@@ -106,9 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../utils.html">radtraq.utils</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption"><span class="caption-text">Getting Help</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ARM-Development/RadTraQ">Github Repository</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/AdamTheisen/RadTraQ/issues">GitHub Issue Tracker</a></li>
 </ul>
 
@@ -150,6 +152,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -165,7 +169,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/API/generated/radtraq.proc.calc_avg_profile.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -181,30 +185,34 @@
             
   <div class="section" id="radtraq-proc-calc-avg-profile">
 <h1>radtraq.proc.calc_avg_profile<a class="headerlink" href="#radtraq-proc-calc-avg-profile" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<dl class="function">
 <dt id="radtraq.proc.calc_avg_profile">
-<code class="sig-prename descclassname">radtraq.proc.</code><code class="sig-name descname">calc_avg_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_obj</span></em>, <em class="sig-param"><span class="n">variable</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">'mask2'</span></em>, <em class="sig-param"><span class="n">mask_val</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">first_height</span><span class="o">=</span><span class="default_value">500.0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">'range'</span></em>, <em class="sig-param"><span class="n">ygrid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#calc_avg_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.proc.calc_avg_profile" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">radtraq.proc.</code><code class="descname">calc_avg_profile</code><span class="sig-paren">(</span><em>_obj</em>, <em>variable=None</em>, <em>mask='mask2'</em>, <em>mask_val=1</em>, <em>first_height=500.0</em>, <em>height='range'</em>, <em>ygrid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#calc_avg_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.proc.calc_avg_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for calculating average profiles from data after
 applying the cloud mask</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>_obj</strong> (<em>xarray Dataset</em>) – xarray object with all the data</p></li>
-<li><p><strong>variable</strong> (<em>list</em>) – List of variables to average</p></li>
-<li><p><strong>mask</strong> (<em>string</em>) – Name of mask in file to apply to data</p></li>
-<li><p><strong>mask_val</strong> (<em>int</em>) – Value of mask to threshold on</p></li>
-<li><p><strong>first_height</strong> (<em>float</em>) – First height to start the analysis.  Start at 500 to throw out non-meteorological echo</p></li>
-<li><p><strong>height</strong> (<em>string</em>) – Name of the height variable to use</p></li>
-<li><p><strong>ygrid</strong> (<em>numpy array or list</em>) – Numpy array of ygrid values to interpolate to</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>_obj</strong> (<em>xarray Dataset</em>) – xarray object with all the data</li>
+<li><strong>variable</strong> (<em>list</em>) – List of variables to average</li>
+<li><strong>mask</strong> (<em>string</em>) – Name of mask in file to apply to data</li>
+<li><strong>mask_val</strong> (<em>int</em>) – Value of mask to threshold on</li>
+<li><strong>first_height</strong> (<em>float</em>) – First height to start the analysis.  Start at 500 to throw out non-meteorological echo</li>
+<li><strong>height</strong> (<em>string</em>) – Name of the height variable to use</li>
+<li><strong>ygrid</strong> (<em>numpy array or list</em>) – Numpy array of ygrid values to interpolate to</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>_obj</strong> – xarray dataset with new variables added</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>xarray Dataset</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>_obj</strong> – xarray dataset with new variables added</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xarray Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -214,37 +222,29 @@ applying the cloud mask</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../utils.html" class="btn btn-neutral float-right" title="radtraq.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="radtraq.proc.calc_noise_floor.html" class="btn btn-neutral float-left" title="radtraq.proc.calc_noise_floor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../utils.html" class="btn btn-neutral float-right" title="radtraq.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="radtraq.proc.calc_noise_floor.html" class="btn btn-neutral float-left" title="radtraq.proc.calc_noise_floor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Adam Theisen
+        &#169; Copyright 2020, Adam Theisen.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-﻿radtraq.proc.calc\_cloud\_mask
+radtraq.proc.calc\_cloud\_mask
 ==============================
 
 .. currentmodule:: radtraq.proc

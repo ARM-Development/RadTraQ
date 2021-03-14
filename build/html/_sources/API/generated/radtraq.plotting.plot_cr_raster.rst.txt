@@ -1,4 +1,4 @@
-﻿radtraq.plotting.plot\_cr\_raster
+radtraq.plotting.plot\_cr\_raster
 =================================
 
 .. currentmodule:: radtraq.plotting

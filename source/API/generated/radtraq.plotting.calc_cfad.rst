@@ -1,4 +1,4 @@
-﻿radtraq.plotting.calc\_cfad
+radtraq.plotting.calc\_cfad
 ===========================
 
 .. currentmodule:: radtraq.plotting

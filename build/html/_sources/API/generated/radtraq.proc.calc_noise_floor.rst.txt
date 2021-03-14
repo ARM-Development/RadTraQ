@@ -1,4 +1,4 @@
-﻿radtraq.proc.calc\_noise\_floor
+radtraq.proc.calc\_noise\_floor
 ===============================
 
 .. currentmodule:: radtraq.proc

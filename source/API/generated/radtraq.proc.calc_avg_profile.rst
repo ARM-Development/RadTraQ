@@ -1,4 +1,4 @@
-﻿radtraq.proc.calc\_avg\_profile
+radtraq.proc.calc\_avg\_profile
 ===============================
 
 .. currentmodule:: radtraq.proc

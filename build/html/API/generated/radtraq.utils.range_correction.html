@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>radtraq.utils.range_correction &mdash; RadTraq 0+unknown documentation</title>
   
@@ -21,7 +21,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -31,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -56,7 +60,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> RadTraq
+            <a href="../../index.html" class="icon icon-home"> RadTraq
           
 
           
@@ -103,9 +107,7 @@
 </li>
 </ul>
 </li>
-</ul>
-<p class="caption"><span class="caption-text">Getting Help</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ARM-Development/RadTraQ">Github Repository</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/AdamTheisen/RadTraQ/issues">GitHub Issue Tracker</a></li>
 </ul>
 
@@ -147,6 +149,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -162,7 +166,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/API/generated/radtraq.utils.range_correction.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -178,25 +182,29 @@
             
   <div class="section" id="radtraq-utils-range-correction">
 <h1>radtraq.utils.range_correction<a class="headerlink" href="#radtraq-utils-range-correction" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<dl class="function">
 <dt id="radtraq.utils.range_correction">
-<code class="sig-prename descclassname">radtraq.utils.</code><code class="sig-name descname">range_correction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">height</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/utils/corrections.html#range_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.utils.range_correction" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">radtraq.utils.</code><code class="descname">range_correction</code><span class="sig-paren">(</span><em>data</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/utils/corrections.html#range_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.utils.range_correction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Corrects reflectivity for range to help get the
 correct noise floor values</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>xarray DataArray</em>) – xarray data array</p></li>
-<li><p><strong>height</strong> (<em>xarray DataArray</em>) – Heights over which to correct the data for</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>xarray DataArray</em>) – xarray data array</li>
+<li><strong>height</strong> (<em>xarray DataArray</em>) – Heights over which to correct the data for</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>data</strong> – Returns a range corrected variable</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> – Returns a range corrected variable</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -206,35 +214,28 @@ correct noise floor values</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../utils.html" class="btn btn-neutral float-left" title="radtraq.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../utils.html" class="btn btn-neutral float-left" title="radtraq.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Adam Theisen
+        &#169; Copyright 2020, Adam Theisen.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

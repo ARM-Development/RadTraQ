@@ -8,12 +8,7 @@ Radar Tracking and Quality (RadTraQ) Documentation
 
    source/auto_examples/index.rst
    API/index.rst
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Getting Help
-
+   Github Repository <https://github.com/ARM-Development/RadTraQ>
    GitHub Issue Tracker <https://github.com/AdamTheisen/RadTraQ/issues>
 
 

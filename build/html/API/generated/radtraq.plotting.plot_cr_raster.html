@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>radtraq.plotting.plot_cr_raster &mdash; RadTraq 0+unknown documentation</title>
   
@@ -21,7 +21,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -31,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -57,7 +61,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> RadTraq
+            <a href="../../index.html" class="icon icon-home"> RadTraq
           
 
           
@@ -107,9 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../utils.html">radtraq.utils</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption"><span class="caption-text">Getting Help</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ARM-Development/RadTraQ">Github Repository</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/AdamTheisen/RadTraQ/issues">GitHub Issue Tracker</a></li>
 </ul>
 
@@ -151,6 +153,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -166,7 +170,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/API/generated/radtraq.plotting.plot_cr_raster.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -182,47 +186,52 @@
             
   <div class="section" id="radtraq-plotting-plot-cr-raster">
 <h1>radtraq.plotting.plot_cr_raster<a class="headerlink" href="#radtraq-plotting-plot-cr-raster" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<dl class="function">
 <dt id="radtraq.plotting.plot_cr_raster">
-<code class="sig-prename descclassname">radtraq.plotting.</code><code class="sig-name descname">plot_cr_raster</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">field</span><span class="o">=</span><span class="default_value">'reflectivity'</span></em>, <em class="sig-param"><span class="n">target_range</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fig</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delta_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delta_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">az_limits</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">el_limits</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vmin</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vmax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">title_flag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">axislabels</span><span class="o">=</span><span class="default_value">[None, None]</span></em>, <em class="sig-param"><span class="n">axislabels_flag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">colorbar_flag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">colorbar_label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">colorbar_orient</span><span class="o">=</span><span class="default_value">'vertical'</span></em>, <em class="sig-param"><span class="n">noplot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/corner_reflector.html#plot_cr_raster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.plotting.plot_cr_raster" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">radtraq.plotting.</code><code class="descname">plot_cr_raster</code><span class="sig-paren">(</span><em>obj, field='reflectivity', target_range=None, ax=None, fig=None, delta_x=None, delta_y=None, az_limits=None, el_limits=None, vmin=None, vmax=None, cmap=None, title=None, title_flag=True, axislabels=[None, None], axislabels_flag=True, colorbar_flag=True, colorbar_label=None, colorbar_orient='vertical', noplot=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/corner_reflector.html#plot_cr_raster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.plotting.plot_cr_raster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot a corner reflector raster scan</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>field</strong> (<em>String</em>) – Field to plot if other than reflectivity</p></li>
-<li><p><strong>target_range</strong> (<em>Float</em>) – Estimated range of the corner reflector</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>field</strong> (<em>String</em>) – Field to plot if other than reflectivity</li>
+<li><strong>target_range</strong> (<em>Float</em>) – Estimated range of the corner reflector</li>
 </ul>
-</dd>
-<dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ax</strong> (<em>Axis</em>) – Axis to plot on. None will use the current axis.</p></li>
-<li><p><strong>fig</strong> (<em>Figure</em>) – Figure to add the colorbar to. None will use the current figure.</p></li>
-<li><p><strong>delta_x</strong> (<em>Float</em>) – Azimuth grid spacing for griddata</p></li>
-<li><p><strong>delta_y</strong> (<em>Float</em>) – Elevation grid spacing for griddata</p></li>
-<li><p><strong>az_limits</strong> (<em>list</em>) – Azimuth limits in form [min, max]</p></li>
-<li><p><strong>el_limits</strong> (<em>list</em>) – Elevation limits in form [min, max]</p></li>
-<li><p><strong>vmin</strong> (<em>float</em>) – Luminance minimum value, None for default value.</p></li>
-<li><p><strong>vmax</strong> (<em>float</em>) – Luminance maximum value, None for default value.</p></li>
-<li><p><strong>cmap</strong> (<em>str or None</em>) – Matplotlib colormap name. None will use the default colormap for
-the field being plotted as specified by the Py-ART configuration.</p></li>
-<li><p><strong>title</strong> (<em>str</em>) – Title to label plot with, None to use default title generated from
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Other Parameters:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>ax</strong> (<em>Axis</em>) – Axis to plot on. None will use the current axis.</li>
+<li><strong>fig</strong> (<em>Figure</em>) – Figure to add the colorbar to. None will use the current figure.</li>
+<li><strong>delta_x</strong> (<em>Float</em>) – Azimuth grid spacing for griddata</li>
+<li><strong>delta_y</strong> (<em>Float</em>) – Elevation grid spacing for griddata</li>
+<li><strong>az_limits</strong> (<em>list</em>) – Azimuth limits in form [min, max]</li>
+<li><strong>el_limits</strong> (<em>list</em>) – Elevation limits in form [min, max]</li>
+<li><strong>vmin</strong> (<em>float</em>) – Luminance minimum value, None for default value.</li>
+<li><strong>vmax</strong> (<em>float</em>) – Luminance maximum value, None for default value.</li>
+<li><strong>cmap</strong> (<em>str or None</em>) – Matplotlib colormap name. None will use the default colormap for
+the field being plotted as specified by the Py-ART configuration.</li>
+<li><strong>title</strong> (<em>str</em>) – Title to label plot with, None to use default title generated from
 the field and sweep parameters. Parameter is ignored if title_flag
-is False.</p></li>
-<li><p><strong>title_flag</strong> (<em>bool</em>) – True to add a title to the plot, False does not add a title.</p></li>
-<li><p><strong>axislabels</strong> (<em>(str, str)</em>) – 2-tuple of x-axis, y-axis labels. None for either label will use
+is False.</li>
+<li><strong>title_flag</strong> (<em>bool</em>) – True to add a title to the plot, False does not add a title.</li>
+<li><strong>axislabels</strong> (<em>(str, str)</em>) – 2-tuple of x-axis, y-axis labels. None for either label will use
 the default axis label. Parameter is ignored if axislabels_flag is
-False.</p></li>
-<li><p><strong>axislabels_flag</strong> (<em>bool</em>) – True to add label the axes, False does not label the axes.</p></li>
-<li><p><strong>colorbar_flag</strong> (<em>bool</em>) – True to add a colorbar with label to the axis. False leaves off
-the colorbar.</p></li>
-<li><p><strong>colorbar_label</strong> (<em>str</em>) – Colorbar label, None will use a default label generated from the
-field information.</p></li>
-<li><p><strong>ticks</strong> (<em>array</em>) – Colorbar custom tick label locations.</p></li>
-<li><p><strong>ticklabs</strong> (<em>array</em>) – Colorbar custom tick labels.</p></li>
-<li><p><strong>colorbar_orient</strong> (<em>‘vertical’ or ‘horizontal’</em>) – Colorbar orientation.</p></li>
+False.</li>
+<li><strong>axislabels_flag</strong> (<em>bool</em>) – True to add label the axes, False does not label the axes.</li>
+<li><strong>colorbar_flag</strong> (<em>bool</em>) – True to add a colorbar with label to the axis. False leaves off
+the colorbar.</li>
+<li><strong>colorbar_label</strong> (<em>str</em>) – Colorbar label, None will use a default label generated from the
+field information.</li>
+<li><strong>ticks</strong> (<em>array</em>) – Colorbar custom tick label locations.</li>
+<li><strong>ticklabs</strong> (<em>array</em>) – Colorbar custom tick labels.</li>
+<li><strong>colorbar_orient</strong> (<em>‘vertical’ or ‘horizontal’</em>) – Colorbar orientation.</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -232,37 +241,29 @@ field information.</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../proc.html" class="btn btn-neutral float-right" title="radtraq.proc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="radtraq.plotting.plot_avg_profile.html" class="btn btn-neutral float-left" title="radtraq.plotting.plot_avg_profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../proc.html" class="btn btn-neutral float-right" title="radtraq.proc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="radtraq.plotting.plot_avg_profile.html" class="btn btn-neutral float-left" title="radtraq.plotting.plot_avg_profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Adam Theisen
+        &#169; Copyright 2020, Adam Theisen.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

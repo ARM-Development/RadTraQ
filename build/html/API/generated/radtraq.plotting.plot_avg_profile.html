@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>radtraq.plotting.plot_avg_profile &mdash; RadTraq 0+unknown documentation</title>
   
@@ -21,7 +21,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -31,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -57,7 +61,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> RadTraq
+            <a href="../../index.html" class="icon icon-home"> RadTraq
           
 
           
@@ -107,9 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../utils.html">radtraq.utils</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption"><span class="caption-text">Getting Help</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ARM-Development/RadTraQ">Github Repository</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/AdamTheisen/RadTraQ/issues">GitHub Issue Tracker</a></li>
 </ul>
 
@@ -151,6 +153,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -166,7 +170,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/API/generated/radtraq.plotting.plot_avg_profile.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -182,24 +186,28 @@
             
   <div class="section" id="radtraq-plotting-plot-avg-profile">
 <h1>radtraq.plotting.plot_avg_profile<a class="headerlink" href="#radtraq-plotting-plot-avg-profile" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<dl class="function">
 <dt id="radtraq.plotting.plot_avg_profile">
-<code class="sig-prename descclassname">radtraq.plotting.</code><code class="sig-name descname">plot_avg_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rad_dict</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">[0, None]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/profile.html#plot_avg_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.plotting.plot_avg_profile" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">radtraq.plotting.</code><code class="descname">plot_avg_profile</code><span class="sig-paren">(</span><em>rad_dict, ylim=[0, None]</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/profile.html#plot_avg_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.plotting.plot_avg_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for plotting up average profiles including differences</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>rad_dict</strong> (<em>dict</em>) – Dictionary of objects and variables to process.  See example</p></li>
-<li><p><strong>ylim</strong> (<em>list</em>) – ylimits to use</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>rad_dict</strong> (<em>dict</em>) – Dictionary of objects and variables to process.  See example</li>
+<li><strong>ylim</strong> (<em>list</em>) – ylimits to use</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>ax</strong> – Returns the axis handle for additional updates if needed</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>matplotlib ax handle</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> – Returns the axis handle for additional updates if needed</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib ax handle</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -209,37 +217,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="radtraq.plotting.plot_cr_raster.html" class="btn btn-neutral float-right" title="radtraq.plotting.plot_cr_raster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="radtraq.plotting.plot_cfad.html" class="btn btn-neutral float-left" title="radtraq.plotting.plot_cfad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="radtraq.plotting.plot_cr_raster.html" class="btn btn-neutral float-right" title="radtraq.plotting.plot_cr_raster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="radtraq.plotting.plot_cfad.html" class="btn btn-neutral float-left" title="radtraq.plotting.plot_cfad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Adam Theisen
+        &#169; Copyright 2020, Adam Theisen.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
