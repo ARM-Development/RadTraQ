@@ -19,6 +19,7 @@ jobs:
           sudo apt-get install libproj-dev proj-data
           sudo apt-get install proj-bin
           sudo apt-get install libgeos-dev
+          pip3 install versioneer
           pip3 install wheel
           pip3 install setuptools
           pip3 install --upgrade cython numpy pyshp six
