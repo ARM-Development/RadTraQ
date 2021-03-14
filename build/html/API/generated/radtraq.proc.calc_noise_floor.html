@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -34,12 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
-        <script type="text/javascript" src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -185,30 +184,26 @@
             
   <div class="section" id="radtraq-proc-calc-noise-floor">
 <h1>radtraq.proc.calc_noise_floor<a class="headerlink" href="#radtraq-proc-calc-noise-floor" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="radtraq.proc.calc_noise_floor">
-<code class="descclassname">radtraq.proc.</code><code class="descname">calc_noise_floor</code><span class="sig-paren">(</span><em>obj</em>, <em>variable</em>, <em>hvariable</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/noise.html#calc_noise_floor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.proc.calc_noise_floor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">radtraq.proc.</span></code><code class="sig-name descname"><span class="pre">calc_noise_floor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hvariable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/noise.html#calc_noise_floor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.proc.calc_noise_floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main function for getting the noise floor</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>obj</strong> (<em>xarray object</em>) – ACT object with data</li>
-<li><strong>variable</strong> (<em>string</em>) – Variable name to calculate from.  Should be
-a reflectivity</li>
-<li><strong>hvariable</strong> (<em>string</em>) – Height variable to use for calculations</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>xarray object</em>) – ACT object with data</p></li>
+<li><p><strong>variable</strong> (<em>string</em>) – Variable name to calculate from.  Should be
+a reflectivity</p></li>
+<li><p><strong>hvariable</strong> (<em>string</em>) – Height variable to use for calculations</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>result</strong> – Returns the noise floor values for each time sample</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – Returns the noise floor values for each time sample</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

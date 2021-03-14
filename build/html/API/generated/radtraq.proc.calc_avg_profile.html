@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -34,12 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
-        <script type="text/javascript" src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -185,34 +184,30 @@
             
   <div class="section" id="radtraq-proc-calc-avg-profile">
 <h1>radtraq.proc.calc_avg_profile<a class="headerlink" href="#radtraq-proc-calc-avg-profile" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="radtraq.proc.calc_avg_profile">
-<code class="descclassname">radtraq.proc.</code><code class="descname">calc_avg_profile</code><span class="sig-paren">(</span><em>_obj</em>, <em>variable=None</em>, <em>mask='mask2'</em>, <em>mask_val=1</em>, <em>first_height=500.0</em>, <em>height='range'</em>, <em>ygrid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#calc_avg_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.proc.calc_avg_profile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">radtraq.proc.</span></code><code class="sig-name descname"><span class="pre">calc_avg_profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mask2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'range'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ygrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#calc_avg_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.proc.calc_avg_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for calculating average profiles from data after
 applying the cloud mask</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>_obj</strong> (<em>xarray Dataset</em>) – xarray object with all the data</li>
-<li><strong>variable</strong> (<em>list</em>) – List of variables to average</li>
-<li><strong>mask</strong> (<em>string</em>) – Name of mask in file to apply to data</li>
-<li><strong>mask_val</strong> (<em>int</em>) – Value of mask to threshold on</li>
-<li><strong>first_height</strong> (<em>float</em>) – First height to start the analysis.  Start at 500 to throw out non-meteorological echo</li>
-<li><strong>height</strong> (<em>string</em>) – Name of the height variable to use</li>
-<li><strong>ygrid</strong> (<em>numpy array or list</em>) – Numpy array of ygrid values to interpolate to</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_obj</strong> (<em>xarray Dataset</em>) – xarray object with all the data</p></li>
+<li><p><strong>variable</strong> (<em>list</em>) – List of variables to average</p></li>
+<li><p><strong>mask</strong> (<em>string</em>) – Name of mask in file to apply to data</p></li>
+<li><p><strong>mask_val</strong> (<em>int</em>) – Value of mask to threshold on</p></li>
+<li><p><strong>first_height</strong> (<em>float</em>) – First height to start the analysis.  Start at 500 to throw out non-meteorological echo</p></li>
+<li><p><strong>height</strong> (<em>string</em>) – Name of the height variable to use</p></li>
+<li><p><strong>ygrid</strong> (<em>numpy array or list</em>) – Numpy array of ygrid values to interpolate to</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>_obj</strong> – xarray dataset with new variables added</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xarray Dataset</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>_obj</strong> – xarray dataset with new variables added</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>xarray Dataset</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

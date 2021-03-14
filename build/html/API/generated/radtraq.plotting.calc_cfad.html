@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -34,12 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
-        <script type="text/javascript" src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -186,32 +185,28 @@
             
   <div class="section" id="radtraq-plotting-calc-cfad">
 <h1>radtraq.plotting.calc_cfad<a class="headerlink" href="#radtraq-plotting-calc-cfad" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="radtraq.plotting.calc_cfad">
-<code class="descclassname">radtraq.plotting.</code><code class="descname">calc_cfad</code><span class="sig-paren">(</span><em>obj</em>, <em>variable</em>, <em>hvariable</em>, <em>xbins=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/cfad.html#calc_cfad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#radtraq.plotting.calc_cfad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">radtraq.plotting.</span></code><code class="sig-name descname"><span class="pre">calc_cfad</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hvariable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/cfad.html#calc_cfad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.plotting.calc_cfad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for plotting up CFAD given 2D histogram, x, and y</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>object</strong> (<em>xarray Dataset</em>) – ACT object containing vertical point data</li>
-<li><strong>variable</strong> (<em>string</em>) – Variable to calculate CFAD for</li>
-<li><strong>hvariable</strong> (<em>string</em>) – Variable name for the height data</li>
-<li><strong>xbins</strong> (<em>list</em>) – List of bins to calculate cfad for</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object</strong> (<em>xarray Dataset</em>) – ACT object containing vertical point data</p></li>
+<li><p><strong>variable</strong> (<em>string</em>) – Variable to calculate CFAD for</p></li>
+<li><p><strong>hvariable</strong> (<em>string</em>) – Variable name for the height data</p></li>
+<li><p><strong>xbins</strong> (<em>list</em>) – List of bins to calculate cfad for</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
-<li><strong>hist</strong> (<em>list</em>) – 2D List of histogram results</li>
-<li><strong>xbins</strong> (<em>list</em>) – List of xbins that were used</li>
-<li><strong>height</strong> (<em>list</em>) – List of heights from the hvariable</li>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>hist</strong> (<em>list</em>) – 2D List of histogram results</p></li>
+<li><p><strong>xbins</strong> (<em>list</em>) – List of xbins that were used</p></li>
+<li><p><strong>height</strong> (<em>list</em>) – List of heights from the hvariable</p></li>
 </ul>
 </p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
