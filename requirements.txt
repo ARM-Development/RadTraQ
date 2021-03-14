@@ -1,5 +1,4 @@
 #List required packages in this file, one per line
-versioneer
 numpy
 scipy
 xarray
