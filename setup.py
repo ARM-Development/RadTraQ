@@ -1,6 +1,7 @@
 from os import path
 from setuptools import setup, find_packages
 import sys
+import versioneer
 
 
 # NOTE: This file must remain Python 2 compatible for the foreseeable future,
@@ -40,4 +41,6 @@ setup(
     package_data={'radtraq': []},
     install_requires=requirements,
     license="BSD (3-clause)",
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
 )
