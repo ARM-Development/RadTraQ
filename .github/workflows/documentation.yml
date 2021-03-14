@@ -16,10 +16,8 @@ jobs:
         run: |
           sudo apt-get update
           pip3 install --upgrade pip
-          #sudo apt-get install libproj-dev proj-data
-          #sudo apt-get install proj-bin
-          #sudo apt-get install libgeos-dev
-          sudo echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/lib" >> $GITHUB_PATH
           pip3 install versioneer
           pip3 install wheel
           pip3 install setuptools
