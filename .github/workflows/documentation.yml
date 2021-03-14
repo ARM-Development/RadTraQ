@@ -16,8 +16,8 @@ jobs:
         run: |
           sudo apt-get update
           pip3 install --upgrade pip
-          pip3 install --force-reinstall versioneer
           pip3 install wheel
+          sudo pip3 install --force-reinstall versioneer
           pip3 install setuptools
           pip3 install --upgrade cython numpy pyshp six
           pip3 install ipython
