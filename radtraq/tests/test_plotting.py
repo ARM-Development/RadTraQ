@@ -1,27 +1,28 @@
-import radtraq
+from radtraq.tests.sample_files import EXAMPLE_KAZR
+from radtraq.tests.sample_files import EXAMPLE_RASTER
+from radtraq.plotting.cfad import calc_cfad, plot_cfad
+from radtraq.plotting.corner_reflector import plot_cr_raster
 import pytest
-import act
+from act.io.armfiles import read_netcdf
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_plotting():
-    f = radtraq.tests.sample_files.EXAMPLE_KAZR
-    obj = act.io.armfiles.read_netcdf(f)
+    obj = read_netcdf(EXAMPLE_KAZR)
 
     np.seterr(divide='ignore')
-    hist, x, y = radtraq.plotting.cfad.calc_cfad(obj, 'reflectivity_copol', 'range')
-    display = radtraq.plotting.cfad.plot_cfad(hist, x, y)
+    data_array = calc_cfad(obj, 'reflectivity_copol')
+    dims = data_array.dims
+    display = plot_cfad(data_array, data_array[dims[1]], data_array[dims[0]])
     return display.figure
 
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_corner_reflector():
-    f = radtraq.tests.sample_files.EXAMPLE_RASTER
-    obj = act.io.armfiles.read_netcdf(f)
-    data = radtraq.plotting.corner_reflector.plot_cr_raster(
-        obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
+    obj = read_netcdf(EXAMPLE_RASTER)
+    data = plot_cr_raster(obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
 
     np.testing.assert_almost_equal(data['max'], 12.03, decimal=2)
     np.testing.assert_almost_equal(data['min'], -64.46, decimal=2)
@@ -31,3 +32,7 @@ def test_corner_reflector():
 
     fig = plt.gcf()
     return fig
+
+if __name__ == '__main__':
+#    test_plotting()
+    test_corner_reflector()
