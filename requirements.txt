@@ -6,3 +6,4 @@ matplotlib
 cython
 netcdf4
 act-atmos
+pint
