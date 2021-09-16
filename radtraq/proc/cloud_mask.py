@@ -11,62 +11,86 @@ import dask
 import numpy as np
 import xarray as xr
 from scipy import signal
+
 from .noise import calc_noise_floor
 from ..utils.corrections import range_correction
 
 
-def calc_cloud_mask(obj, variable, hvariable, noise_threshold=-45.,
-                    threshold_offset=5.):
+def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
+                    threshold_offset=5., counts_threshold=12):
     """
-    Main function for getting the noise floor
+    Main function for calculating the cloud mask
 
     Parameters
     ----------
-    obj : xarray object
+    obj : Xarray.dataset
         ACT object with data
     variable : string
-        Variable name to calculate from.  Should be
-        a reflectivity
-    hvariable : string
-        Height variable to use for calculations
+        Variable name to calculate. Should be a reflectivity.
+    height_variable : string
+        Height variable name to use for calculations. If not provided will
+        attempt to use coordinates of data variable.
+    noise_threshold : float
+        Threshold value used for noise detection. Greater than this value.
+    threshold_offset : float
+        Threshold offset value used for noise detection
+    counts_threshold : int
+        Threshold of counts used to determine mask. Greater than or equal to this value.
+
 
     Returns
     -------
-    result : list
-        Returns the noise floor values for each time sample
+    result : Xarray.dataset
+        Returns the updated dataset with noise floor masks added for each time sample
 
     """
 
-    noise = calc_noise_floor(obj, variable, hvariable)
+    noise = calc_noise_floor(obj, variable, height_variable)
 
-    # mask = np.full(np.shape(obj[variable]), 0)
-    mask2 = np.full(np.shape(obj[variable]), 0)
     noise_thresh = np.nanmin(np.vstack([noise, np.full(np.shape(obj[variable])[0],
                              noise_threshold)]), axis=0) + threshold_offset
 
-    data = range_correction(obj[variable].values, obj[hvariable].values)
+    data = range_correction(obj, variable, height_variable=height_variable)
+
     task = []
     for i in range(np.shape(data)[0]):
         task.append(dask.delayed(first_mask)(data[i, :], noise_thresh[i]))
 
     result = dask.compute(task)
-    mask1 = [list(r) for r in result[0]]
+    mask1 = np.array(result[0])
 
-    counts = signal.convolve2d(mask1, np.ones((4, 4)), mode='same')
-    index = np.where(counts >= 12)
-    mask2 = np.zeros(np.shape(data))
-    mask2[index] = 1.
+    counts = signal.convolve2d(mask1, np.ones((4, 4), dtype=int), mode='same')
+    mask2 = np.zeros_like(data, dtype=np.int16)
+    mask2[counts >= counts_threshold] = 1
 
+    # Convert masks from numpy arrays to dask arrays, matching the chunksize
+    # of data in Xarray dataset.
+    mask1 = dask.array.from_array(mask1, chunks=obj[variable].data.chunksize)
+    mask2 = dask.array.from_array(mask2, chunks=obj[variable].data.chunksize)
+
+    # Add masks to dataset
     coords = obj[variable].coords
-    obj['mask1'] = xr.DataArray(mask1, coords=coords)
-    obj['mask2'] = xr.DataArray(mask2, coords=coords)
+    obj['cloud_mask_1'] = xr.DataArray(
+        mask1, coords=coords,
+        attrs={'long_name': 'Cloud mask 1 (linear profile)',
+               'units': '1',
+               'comment': 'The mask is calculated with a '
+               'linear mask along each time profile.',
+               'flag_values': [0, 1], 'flag_meanings': ['no_cloud', 'cloud'],
+               'variable_used': variable})
+    obj['cloud_mask_2'] = xr.DataArray(
+        mask2, coords=coords,
+        attrs={'long_name': 'Cloud mask 2 (2D box)', 'units': '1',
+               'comment': 'The mask uses a 2D box to '
+               'filter out noise.', 'flag_values': [0, 1],
+               'flag_meanings': ['no_cloud', 'cloud'],
+               'variable_used': variable})
 
     return obj
 
 
 def first_mask(data, noise_threshold):
-    index = np.where(data > noise_threshold)
-    mask = np.zeros(np.shape(data)[0])
-    mask[index] = 1
+    mask = np.zeros_like(data, dtype=np.int16)
+    mask[data > noise_threshold] = 1
 
     return mask
