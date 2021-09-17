@@ -123,7 +123,7 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
 
     # Plot data using pcolormesh
     if noplot is False:
-        pm = ax.pcolormesh(xi[0, :], yi[:, 0], grid, vmin=vmin, vmax=vmax, cmap=cmap)
+        pm = ax.pcolormesh(xi[0, :], yi[:, 0], grid, vmin=vmin, vmax=vmax, cmap=cmap, shading='auto')
         ax.plot(xi[max_ind], yi[max_ind], 'w+', ms=10)
         ax.plot(xi[max_ind], yi[diff_index, max_ind[1]], 'wx', ms=10)
 
