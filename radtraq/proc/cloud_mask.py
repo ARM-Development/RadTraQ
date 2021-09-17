@@ -45,6 +45,12 @@ def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
 
     """
 
+    if not isinstance(obj, xr.core.dataset.Dataset):
+        raise ValueError('Please use a valid Xarray.Dataset')
+
+    if not isinstance(variable, str):
+        raise ValueError('Please Specify a Variable Name')
+
     noise = calc_noise_floor(obj, variable, height_variable)
 
     noise_thresh = np.nanmin(np.vstack([noise, np.full(np.shape(obj[variable])[0],
