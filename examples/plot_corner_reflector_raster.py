@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
 
 # Process and plot raster file
-data = radtraq.plotting.corner_reflector.plot_cr_raster(obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
+data = radtraq.plotting.corner_reflector.plot_cr_raster(obj, target_range=478.,
+                                                        el_limits=[-0.5, 2.5], noplot=False)
 plt.show()
 obj.close()

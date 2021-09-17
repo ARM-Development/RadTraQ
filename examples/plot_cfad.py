@@ -18,5 +18,5 @@ data_array = radtraq.plotting.cfad.calc_cfad(obj, 'reflectivity_copol')
 
 # Plot CFAD histogram
 dims = data_array.dims
-display = plot_cfad(data_array, data_array[dims[1]], data_array[dims[0]])
+display = radtraq.plotting.cfad.plot_cfad(data_array, data_array[dims[1]], data_array[dims[0]])
 plt.show()
