@@ -1,6 +1,7 @@
 import numpy as np
 import pint
 import warnings
+import xarray as xr
 
 from radtraq.utils.dataset_utils import get_height_variable_name
 
@@ -26,6 +27,9 @@ def range_correction(obj, variable, height_variable=None):
         Returns a range corrected DataArray matching varible name
 
     """
+
+    if not isinstance(obj, xr.core.dataset.Dataset):
+        raise ValueError('Please use a valid Xarray.Dataset')
 
     if height_variable is None:
         height_variable = get_height_variable_name(obj, variable)
