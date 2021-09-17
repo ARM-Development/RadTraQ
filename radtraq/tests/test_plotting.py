@@ -33,6 +33,7 @@ def test_corner_reflector():
     fig = plt.gcf()
     return fig
 
+
 if __name__ == '__main__':
-#    test_plotting()
+    test_plotting()
     test_corner_reflector()
