@@ -9,7 +9,11 @@ an act object as input
 
 import dask
 import numpy as np
+import warnings
 import matplotlib.pyplot as plt
+import xarray as xr
+
+from radtraq.utils.dataset_utils import get_height_variable_name
 
 
 def plot_cfad(hist, x, y):
@@ -39,33 +43,34 @@ def plot_cfad(hist, x, y):
     return ax
 
 
-def calc_cfad(obj, variable, hvariable, xbins=None):
+def calc_cfad(obj, variable, height_variable=None, xbins=None):
     """
-    Function for plotting up CFAD given 2D histogram, x, and y
+    Function for calculating CFAD
 
     Parameters
     ----------
-    object : xarray Dataset
+    object : Xarray.Dataset
         ACT object containing vertical point data
     variable : string
-        Variable to calculate CFAD for
-    hvariable : string
-        Variable name for the height data
+        Variable to calculate CFAD
+    height_variable : string
+        Name of the height variable to use. If set to None, will attempt to determine
+        by using coordinate varible name.
     xbins : list
-        List of bins to calculate cfad for
+        List of bins to calculate CFAD. If None will calcualte a default.
 
     Returns
     -------
-    hist : list
-        2D List of histogram results
-    xbins : list
-        List of xbins that were used
-    height : list
-        List of heights from the hvariable
+    data_array : Xarray.DataArray
+        DataArray containg results from CFAD analysis and coordinate variables
 
     """
+    # Determine height coordinate varible name.
+    if height_variable is None:
+        height_variable = get_height_variable_name(obj, variable)
+
     data = obj[variable]
-    height = obj[hvariable]
+    height = obj[height_variable]
 
     if xbins is None:
         xbins = np.linspace(-70, 50, 121)
@@ -73,10 +78,19 @@ def calc_cfad(obj, variable, hvariable, xbins=None):
     dsk = []
     for j in range(len(height)):
         a = dask.delayed(np.histogram)(data[:, j], bins=xbins)
-        dsk.append(a)
+        dsk.append(a[0])
 
     hist = dask.compute(*dsk)
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=RuntimeWarning,
+                                message='.*divide by zero encountered in log10.*')
+        hist = np.log10(np.array(hist))
 
-    hist = [np.log10(h[0]) for h in hist]
+    coords = {'x': xbins[:-1], height_variable: height}
+    dims = [height_variable, "x"]
+    attrs = {'long_name': f'CFAD for {variable}', 'units': '1'}
 
-    return hist, xbins[:-1], height
+    data_array = xr.DataArray(data=hist, dims=dims, coords=coords, attrs=attrs)
+    data_array['x'].attrs = {'long_name': 'X bins for CFAD', 'units': '1'}
+
+    return data_array

@@ -45,10 +45,10 @@ def plot_avg_profile(rad_dict, ylim=[0, None]):
         height = [d for d in dims if 'time' not in d][0]
 
         # Plot average profiles
-        ax[0].plot(obj[variable+'_avg_prof'], obj[height], label=d)
+        ax[0].plot(obj[variable + '_avg_prof'], obj[height], label=d)
 
         # Add mean profiles to one array
-        all_mean.append(obj[variable+'_avg_prof'].values)
+        all_mean.append(obj[variable + '_avg_prof'].values)
         height_units = obj[height].attrs['units']
 
     # Set up plot and add legend
@@ -72,7 +72,7 @@ def plot_avg_profile(rad_dict, ylim=[0, None]):
 
             # Calculate differences, make label, and plot
             diff = all_mean[j] - all_mean[i]
-            lab = ' '.join([p2, '-', p+':', str(round(np.nanmean(diff), 2))])
+            lab = ' '.join([p2, '-', p + ':', str(round(np.nanmean(diff), 2))])
             ax[1].plot(diff, rad_dict[p]['object'][height], label=lab)
 
     # Set up plot and add legend
