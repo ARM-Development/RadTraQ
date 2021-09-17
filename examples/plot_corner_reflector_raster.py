@@ -19,6 +19,5 @@ obj = read_netcdf(EXAMPLE_RASTER)
 
 # Process and plot raster file
 data = plot_cr_raster(obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
-
 plt.show()
 obj.close()
