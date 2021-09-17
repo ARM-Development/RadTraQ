@@ -17,8 +17,8 @@ obj = read_netcdf(EXAMPLE_KAZR)
 
 # Calculate CFAD histogram
 data_array = calc_cfad(obj, 'reflectivity_copol')
-dims = data_array.dims
 
 # Plot CFAD histogram
+dims = data_array.dims
 display = plot_cfad(data_array, data_array[dims[1]], data_array[dims[0]])
 plt.show()
