@@ -1,3 +1,6 @@
+import xarray as xr
+
+
 def get_height_variable_name(obj, variable=None):
     """
     Determines the height variable name in the Dataset using variable
@@ -16,7 +19,10 @@ def get_height_variable_name(obj, variable=None):
         Height variable name
 
     """
-    if variable is None:
+    if not isinstance(obj, xr.core.dataset.Dataset):
+        raise ValueError('Please use a valid Xarray.Dataset')
+
+    if not isinstance(variable, str):
         raise ValueError('Please Specify a Variable Name')
 
     height_variable = None
