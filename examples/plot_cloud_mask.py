@@ -7,19 +7,18 @@ This example shows how to calculate a cloud mask and plot data
 """
 
 
-from radtraq.tests.sample_files import EXAMPLE_KAZR
-from radtraq.proc.cloud_mask import calc_cloud_mask
+import radtraq
 import act
 import matplotlib.pyplot as plt
 
 # Read in sample data using ACT
-obj = act.io.armfiles.read_netcdf(EXAMPLE_KAZR)
+obj = act.io.armfiles.read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 # Resample data for ease of processing
 obj = obj.resample(time='1min').nearest()
 
 # Calculate and apply cloud mask
-obj = calc_cloud_mask(obj, 'reflectivity_copol')
+obj = radtraq.proc.cloud_mask.calc_cloud_mask(obj, 'reflectivity_copol')
 obj = obj.where(obj['cloud_mask_2'] == 1)
 
 # Plot data using ACT
