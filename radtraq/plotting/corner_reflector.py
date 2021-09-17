@@ -4,7 +4,6 @@ from scipy.interpolate import griddata
 import pandas as pd
 
 
-
 def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=None,
                    delta_x=None, delta_y=None, az_limits=None, el_limits=None,
                    vmin=None, vmax=None, cmap=None, title=None, title_flag=True,
@@ -94,9 +93,9 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
         max_el = el_limits[1]
 
     if delta_x is None:
-        delta_x = max_az-min_az
+        delta_x = max_az - min_az
     if delta_y is None:
-        delta_y = max_el-min_el
+        delta_y = max_el - min_el
 
     # Get range closest to target_range
     if target_range is None:
@@ -107,8 +106,8 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
     data = data[:, target_index]
 
     # Get azimuth and elevation onto a meshgrid
-    xi, yi = np.meshgrid(np.linspace(min_az, max_az, int(delta_x/0.01)),
-                         np.linspace(min_el, max_el, int(delta_y/0.01)))
+    xi, yi = np.meshgrid(np.linspace(min_az, max_az, int(delta_x / 0.01)),
+                         np.linspace(min_el, max_el, int(delta_y / 0.01)))
 
     # Grid up the data for plotting
     grid = griddata((az, el), data, (xi, yi), method='linear')
@@ -116,17 +115,17 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
     diff = np.diff(grid[:, max_ind[0]], n=1)
     idx = (diff == np.nanmin(diff))
     diff_index = np.where(idx)[0][-1]
-    maxstr = 'Max: ' + str(round(grid[max_ind],2))
-    minstr = 'Min: ' + str(round(np.nanmin(grid),2))
-    azstr = 'Az (max): ' + str(round(xi[max_ind],1))
-    elstr = 'El (max): ' + str(round(yi[max_ind],1))
-    eltopstr = 'El (top): ' + str(round(yi[diff_index, max_ind[1]],1))
+    maxstr = 'Max: ' + str(round(grid[max_ind], 2))
+    minstr = 'Min: ' + str(round(np.nanmin(grid), 2))
+    azstr = 'Az (max): ' + str(round(xi[max_ind], 1))
+    elstr = 'El (max): ' + str(round(yi[max_ind], 1))
+    eltopstr = 'El (top): ' + str(round(yi[diff_index, max_ind[1]], 1))
 
     # Plot data using pcolormesh
     if noplot is False:
         pm = ax.pcolormesh(xi[0, :], yi[:, 0], grid, vmin=vmin, vmax=vmax, cmap=cmap)
         ax.plot(xi[max_ind], yi[max_ind], 'w+', ms=10)
-        ax.plot(xi[max_ind], yi[diff_index,max_ind[1]], 'wx', ms=10)
+        ax.plot(xi[max_ind], yi[diff_index, max_ind[1]], 'wx', ms=10)
 
         # Add text information
         ax.text(0.88, 0.9, maxstr, fontsize=8, transform=plt.gcf().transFigure)
