@@ -9,18 +9,15 @@ the corner reflector location information
 """
 
 
-import radtraq
-import act
+from radtraq.tests.sample_files import EXAMPLE_RASTER
+from radtraq.plotting.corner_reflector import plot_cr_raster
+from act.io.armfiles import read_netcdf
 import matplotlib.pyplot as plt
 
 # Read in sample data using ACT
-f = radtraq.tests.sample_files.EXAMPLE_RASTER
-obj = act.io.armfiles.read_netcdf(f)
+obj = read_netcdf(EXAMPLE_RASTER)
 
 # Process and plot raster file
-data = radtraq.plotting.corner_reflector.plot_cr_raster(obj, target_range=478.,
-                                                      el_limits=[-0.5, 2.5], noplot=False)
-print(data)
-
+data = plot_cr_raster(obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
 plt.show()
 obj.close()
