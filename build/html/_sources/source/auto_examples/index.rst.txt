@@ -13,27 +13,6 @@ Different examples on how to use RadTraq
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate and plot a cfad">
-
-.. only:: html
-
- .. figure:: /source/auto_examples/images/thumb/sphx_glr_plot_cfad_thumb.png
-     :alt: Example on how to calculate and plot cfad
-
-     :ref:`sphx_glr_source_auto_examples_plot_cfad.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /source/auto_examples/plot_cfad
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot out a corner reflector raster scan which also analyzes the data ...">
 
 .. only:: html
@@ -52,6 +31,27 @@ Different examples on how to use RadTraq
    :hidden:
 
    /source/auto_examples/plot_corner_reflector_raster
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate and plot a cfad">
+
+.. only:: html
+
+ .. figure:: /source/auto_examples/images/thumb/sphx_glr_plot_cfad_thumb.png
+     :alt: Example on how to calculate and plot cfad
+
+     :ref:`sphx_glr_source_auto_examples_plot_cfad.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /source/auto_examples/plot_cfad
 
 .. raw:: html
 
