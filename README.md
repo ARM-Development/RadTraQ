@@ -1,5 +1,5 @@
-Radar Tracking of Quality (RadTraQ)
-===================================
+Radar Tracking and Quality Toolkit (RadTraQ)
+============================================
 
 ![](https://github.com/ARM-Development/RadTraQ/workflows/RadTRAQ/badge.svg)
 

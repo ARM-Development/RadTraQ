@@ -14,9 +14,11 @@ Radar Tracking and Quality (RadTraQ) Documentation
 
 Radar Tracking and Quality Toolkit (RadTraQ)
 ============================================
-This is a repository of codes that were initially coded up in IDL in the ARM DQ Office for use with the ARM cloud radars.  In transitioning the code to python, it makes sense to open-source it so that others can benefit and even provide back.  Currently, the code is using dask to quickly calculate and plot up CFADs and calculate the noise floor based on code from Pavlos Kollias and Ieng Jo while they were with McGill University.
+RadTraQ is a python library housing routines related to assessing and monitoring the quality of a radar's quality and calibration. This library is a work in progress, currently housing scipts to plot radar CFADs, plot and analyze corner reflector scans, calculate noise floors, create cloud masks, and plot up average profiles for comparisons.
 
-Kollias, P., I. Jo, P. Borque, A. Tatarevic, K. Lamer, N. Bharadwaj, K. Widener, K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data Quality Control and Processing. J. Atmos. Oceanic Technol., 31, 583–598, https://doi.org/10.1175/JTECH-D-13-00045.1
+<img src="https://arm-development.github.io/RadTraQ/build/html/_images/sphx_glr_plot_corner_reflector_raster_001.png" height="150"> <img src="https://arm-development.github.io/RadTraQ/build/html/_images/sphx_glr_plot_cloud_mask_001.png" height="150"> <img src="https://arm-development.github.io/RadTraQ/build/html/_images/sphx_glr_plot_mask_vpt_001.png" height="150">
 
-Code to come includes using the noise floor to calculate the cloud mask, retrieve vertical average profiles of radar variables in cloud, and more.
-~                                        
+Check out the [documentation](https://arm-development.github.io/RadTraQ/build/html/index.html) and [example gallery](https://arm-development.github.io/RadTraQ/build/html/source/auto_examples/index.html) for more details.
+
+Papers that these routines are based on will be listed in the documentation for each relevant function.
+
