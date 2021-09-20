@@ -50,6 +50,13 @@ def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
     obj : Xarray.Dataset
         xarray dataset with new variables added
 
+    References
+    ----------
+    Kollias, P., I. Jo, P. Borque, A. Tatarevic, K. Lamer, N. Bharadwaj, K. Widener,
+    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data
+    Quality Control and Processing. J. Atmos. Oceanic Technol., 31, 583–598,
+    https://doi.org/10.1175/JTECH-D-13-00045.1
+
     """
 
     # Check for variables to process
