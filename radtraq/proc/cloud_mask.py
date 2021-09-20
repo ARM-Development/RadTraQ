@@ -46,7 +46,7 @@ def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
     References
     ----------
     Kollias, P., I. Jo, P. Borque, A. Tatarevic, K. Lamer, N. Bharadwaj, K. Widener,
-    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data 
+    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data
     Quality Control and Processing. J. Atmos. Oceanic Technol., 31, 583–598,
     https://doi.org/10.1175/JTECH-D-13-00045.1
 

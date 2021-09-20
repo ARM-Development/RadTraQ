@@ -36,7 +36,7 @@ def calc_noise_floor(obj, variable, height_variable=None):
     References
     ----------
     Kollias, P., I. Jo, P. Borque, A. Tatarevic, K. Lamer, N. Bharadwaj, K. Widener,
-    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data 
+    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data
     Quality Control and Processing. J. Atmos. Oceanic Technol., 31, 583–598,
     https://doi.org/10.1175/JTECH-D-13-00045.1
 
@@ -66,7 +66,7 @@ def calc_noise_floor(obj, variable, height_variable=None):
 
 def cloud_threshold(data, n_avg=1., nffts=None):
     """
-    Calculates the noise floor 
+    Calculates the noise floor
 
     Parameters
     ----------
@@ -85,7 +85,7 @@ def cloud_threshold(data, n_avg=1., nffts=None):
     References
     ----------
     Kollias, P., I. Jo, P. Borque, A. Tatarevic, K. Lamer, N. Bharadwaj, K. Widener,
-    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data 
+    K. Johnson, and E.E. Clothiaux, 2014: Scanning ARM Cloud Radars. Part II: Data
     Quality Control and Processing. J. Atmos. Oceanic Technol., 31, 583–598,
     https://doi.org/10.1175/JTECH-D-13-00045.1
 
