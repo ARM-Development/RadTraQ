@@ -11,6 +11,7 @@ This module contains sample files used for testing RadTraQ
     :toctree: generated/
 
     EXAMPLE_KAZR
+    EXAMPLE_RASTER
 """
 
 from .sample_files import (EXAMPLE_KAZR, EXAMPLE_RASTER)

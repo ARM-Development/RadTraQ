@@ -32,15 +32,15 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
 
 setup(
     name='RadTraQ',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description="Python package for weather radar quality tracking",
     author="Adam Theisen",
     author_email='atheisen@anl.gov',
-    packages=find_packages(exclude=['docs', 'tests']),
+    packages=find_packages(),
     entry_points={'console_scripts': []},
     include_package_data=True,
     package_data={'radtraq': []},
     install_requires=requirements,
     license="BSD (3-clause)",
-    version=versioneer.get_version(),
-    cmdclass=versioneer.get_cmdclass(),
 )
