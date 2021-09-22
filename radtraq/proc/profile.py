@@ -170,3 +170,8 @@ def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
             pass
 
     return obj
+
+
+def extract_profile(obj, azimiuth=None, range_dist=None):
+
+    print(obj)

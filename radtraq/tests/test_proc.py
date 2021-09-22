@@ -27,6 +27,13 @@ def test_calc_avg_profile():
     assert np.isclose(np.nansum(ge[profile_variables[1]].values), -3882.646)
 
 
+def test_extract_profile():
+    f = radtraq.tests.sample_files.EXAMPLE_KAZR
+    ge = act.io.armfiles.read_netcdf(f)
+    radtraq.proc.profile.extract_profile(obj)
+
+
 if __name__ == '__main__':
-    test_cloud_mask()
-    test_calc_avg_profile()
+#    test_cloud_mask()
+#    test_calc_avg_profile()
+    test_extract_profile()
