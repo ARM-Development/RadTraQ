@@ -28,12 +28,22 @@ def test_calc_avg_profile():
 
 
 def test_extract_profile():
-    f = radtraq.tests.sample_files.EXAMPLE_KAZR
-    ge = act.io.armfiles.read_netcdf(f)
-    radtraq.proc.profile.extract_profile(obj)
+    drop_variables = ['base_time', 'time_offset', 'longitude', 'latitude',
+                      'altitued', 'altitude_agl']
+    drop_variables = []
+    f = radtraq.tests.sample_files.EXAMPLE_PPI
+    obj = act.io.armfiles.read_netcdf(f, drop_variables=drop_variables)
+    profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124, ground_range=13094)
+    assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 0.44637424)
+    assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), -4.4807444)
+
+    variables = ['reflectivity', 'co_to_crosspol_correlation_coeff', 'mean_doppler_velocity']
+    profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124,
+                                                       ground_range=13094, variables=variables)
+    assert (set(profile_obj.keys()) - set(variables)) == set(['lat', 'lon', 'alt'])
 
 
 if __name__ == '__main__':
-#    test_cloud_mask()
-#    test_calc_avg_profile()
+    test_cloud_mask()
+    test_calc_avg_profile()
     test_extract_profile()
