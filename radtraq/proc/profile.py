@@ -9,7 +9,6 @@ import numpy as np
 import warnings
 import pint
 from scipy import stats
-import copy
 
 from radtraq.proc.cloud_mask import calc_cloud_mask
 from radtraq.utils.dataset_utils import get_height_variable_name
