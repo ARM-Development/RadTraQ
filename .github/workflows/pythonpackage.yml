@@ -2,7 +2,7 @@ name: RadTRAQ
 
 on:
   pull_request:
-    types: [assigned, opened, synchronize, reopened]
+    types: [assigned, opened, synchronize, reopened, closed]
 
 jobs:
   build:
