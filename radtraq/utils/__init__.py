@@ -11,6 +11,7 @@ This module contains various utilities
     :toctree: generated/
 
     range_correction
+    calc_ground_range_and_height
 """
 
 # from .corrections import range_correction
