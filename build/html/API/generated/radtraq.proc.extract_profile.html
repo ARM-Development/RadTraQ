@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>radtraq.proc.extract_profile &mdash; RadTraq 0.post1+g023e170 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="radtraq.proc.extract_profile_at_lat_lon" href="radtraq.proc.extract_profile_at_lat_lon.html" />
+    <link rel="prev" title="radtraq.proc.calc_noise_floor" href="radtraq.proc.calc_noise_floor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> RadTraq
+          </a>
+              <div class="version">
+                0.post1+g023e170
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../source/auto_examples/index.html">RadTraq Example Gallery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">radtraq.plotting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../proc.html">radtraq.proc</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="radtraq.proc.calc_avg_profile.html">radtraq.proc.calc_avg_profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="radtraq.proc.calc_cloud_mask.html">radtraq.proc.calc_cloud_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="radtraq.proc.calc_noise_floor.html">radtraq.proc.calc_noise_floor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">radtraq.proc.extract_profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="radtraq.proc.extract_profile_at_lat_lon.html">radtraq.proc.extract_profile_at_lat_lon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">radtraq.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ARM-Development/RadTraQ">Github Repository</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/AdamTheisen/RadTraQ/issues">GitHub Issue Tracker</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RadTraq</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../proc.html">radtraq.proc</a> &raquo;</li>
+      <li>radtraq.proc.extract_profile</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/API/generated/radtraq.proc.extract_profile.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="radtraq-proc-extract-profile">
+<h1>radtraq.proc.extract_profile<a class="headerlink" href="#radtraq-proc-extract-profile" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="radtraq.proc.extract_profile">
+<span class="sig-prename descclassname"><span class="pre">radtraq.proc.</span></span><span class="sig-name descname"><span class="pre">extract_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_dist_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azimuth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'range'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_range_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'m'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elevation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#extract_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.proc.extract_profile" title="Permalink to this definition"></a></dt>
+<dd><p>Function for extracting vertical profile over a location from a PPI scan
+giving azimuth direction and ground range distance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Xarray.Dataset</em>) – Xarray object with all the data</p></li>
+<li><p><strong>azimuth</strong> (<em>float</em>) – Azimuth direction to extract profile in degrees</p></li>
+<li><p><strong>ground_dist</strong> (<em>float</em>) – Horizontal ground distance to extract profile</p></li>
+<li><p><strong>variables</strong> (<em>str, list, None</em>) – List of variables to extract profile</p></li>
+<li><p><strong>azimuth_range</strong> (<em>float, None</em>) – Range to use for tollerance in selecting azimuth to extract profile. If set to None
+will use the mode of azimuth differences. Assumed to be in degrees.</p></li>
+<li><p><strong>azimuth_name</strong> (<em>string</em>) – Variable name in Xarray object containing azimuth values.</p></li>
+<li><p><strong>range_name</strong> (<em>string</em>) – Variable name in Xarray object containing range values.</p></li>
+<li><p><strong>ground_range_units</strong> (<em>string</em>) – ground_dist units</p></li>
+<li><p><strong>elevation_name</strong> (<em>string</em>) – Variable name in Xarray object containing elevation values. Assumed to be in degrees.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>obj</strong> – Xarray Dataset with profile extracted and new coordinate variable height added
+or if unable to find profile returns None.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Xarray.Dataset or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="radtraq.proc.calc_noise_floor.html" class="btn btn-neutral float-left" title="radtraq.proc.calc_noise_floor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="radtraq.proc.extract_profile_at_lat_lon.html" class="btn btn-neutral float-right" title="radtraq.proc.extract_profile_at_lat_lon" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Adam Theisen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
