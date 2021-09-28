@@ -27,9 +27,10 @@ This example shows how to calculate a cloud mask and plot data
 
 
 
-.. image:: /source/auto_examples/images/sphx_glr_plot_cloud_mask_001.png
-    :alt: sgpkazrgeC1.a1 reflectivity_copol on 20190529
-    :class: sphx-glr-single-img
+.. image-sg:: /source/auto_examples/images/sphx_glr_plot_cloud_mask_001.png
+   :alt: sgpkazrgeC1.a1 reflectivity_copol on 20190529
+   :srcset: /source/auto_examples/images/sphx_glr_plot_cloud_mask_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -64,7 +65,7 @@ This example shows how to calculate a cloud mask and plot data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.826 seconds)
+   **Total running time of the script:** ( 0 minutes  0.763 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cloud_mask.py:

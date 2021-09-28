@@ -29,9 +29,10 @@ the corner reflector location information
 
 
 
-.. image:: /source/auto_examples/images/sphx_glr_plot_corner_reflector_raster_001.png
-    :alt: Corner Reflector Reflectivity 04/19/2013 01:21:53
-    :class: sphx-glr-single-img
+.. image-sg:: /source/auto_examples/images/sphx_glr_plot_corner_reflector_raster_001.png
+   :alt: Corner Reflector Reflectivity 04/19/2013 01:21:53
+   :srcset: /source/auto_examples/images/sphx_glr_plot_corner_reflector_raster_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -57,7 +58,7 @@ the corner reflector location information
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.657 seconds)
+   **Total running time of the script:** ( 0 minutes  0.564 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_corner_reflector_raster.py:
