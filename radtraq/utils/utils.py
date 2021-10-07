@@ -115,3 +115,64 @@ def calculate_azimuth_distance_from_lat_lon(curr_lat=None, curr_lon=None, target
     doc['azimuth'] = np.mod(azimuth, 360.0)
 
     return doc
+
+
+def calculate_dual_dop_lobes(coord_dict, min_crossing_angle=20):
+    """
+    Returns lat/lon of each dual dop lobe at 1 deg resolution
+
+    Parameters
+    ----------
+    coord_dict : dict
+        Dictionary of site coordinates {site: {'lat': 11.11, 'lon': 22.22}}
+    min_crossing_angle : float
+        Minimum crossing angle for dual doppler
+
+    Returns
+    -------
+    data : dict
+        Dictionary of lat, lon for each lobe
+
+    """
+    sites = list(coord_dict.keys())
+    theta_r = np.radians(min_crossing_angle)
+    data = {}
+    ct = 1
+    for i in range(len(sites)-1):
+        for j in range(1, len(sites)):
+            lon1 = coord_dict[sites[i]]['lon']
+            lon2 = coord_dict[sites[j]]['lon']
+            lat1 = coord_dict[sites[i]]['lat']
+            lat2 = coord_dict[sites[j]]['lat']
+
+            if lon2 > lon1:
+                dy = lat2 - lat1
+                dx = lon2 - lon1
+            else:
+                dy = lat1 - lat2
+                dx = lon1 - lon2
+
+            phi = np.arctan(dy / dx)
+
+            lon_midpoint = (lon1 + lon2) / 2.
+            lat_midpoint = (lat1 + lat2) / 2.
+            midpoint = np.sqrt((lon2 - lon1) ** 2. + (lat2 - lat1) ** 2.) / 2.
+
+            h = midpoint / np.tanh(theta_r / 2.)
+            h2 = midpoint * np.tanh(theta_r / 2.)
+            radius = (h + h2) / 2.
+
+            ycenter = radius - h2
+            ycenter2 = -1. * radius + h2
+
+            t = np.arange(-3.5, 3.5, 0.1)
+            lobe1_lon = (-1 * ycenter * np.sin(phi)) + lon_midpoint + (radius * np.cos(t))
+            lobe1_lat = ycenter * np.cos(phi) + lat_midpoint + (radius * np.sin(t))
+            lobe2_lon = ycenter * np.sin(phi) + lon_midpoint + (radius * np.cos(t))
+            lobe2_lat = ycenter2 * np.cos(phi) + lat_midpoint + (radius * np.sin(t))
+
+            data['lobe'+str(ct)] = {'lon': lobe1_lon, 'lat': lobe1_lat}
+            data['lobe'+str(ct + 1)] = {'lon': lobe2_lon, 'lat': lobe2_lat}
+            ct += 2
+
+    return data
