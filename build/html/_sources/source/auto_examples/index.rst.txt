@@ -55,6 +55,27 @@ Different examples on how to use RadTraq
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Example for using the utily to plot up dual doppler lobes. Can easily be used on cartopy maps u...">
+
+.. only:: html
+
+ .. figure:: /source/auto_examples/images/thumb/sphx_glr_plot_dual_doppler_lobes_thumb.png
+     :alt: Dual Doppler Lobe Utility
+
+     :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /source/auto_examples/plot_dual_doppler_lobes
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate a cloud mask and plot data">
 
 .. only:: html

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.utils.utils &mdash; RadTraq 0.post1+gee88c25 documentation</title>
+  <title>radtraq.utils.utils &mdash; RadTraq 0.post1+ge9d6f29 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+gee88c25
+                0.post1+ge9d6f29
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -195,6 +195,67 @@
     <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">azimuth</span><span class="p">,</span> <span class="mf">360.0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">doc</span></div>
+
+
+<div class="viewcode-block" id="calculate_dual_dop_lobes"><a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_dual_dop_lobes.html#radtraq.utils.calculate_dual_dop_lobes">[docs]</a><span class="k">def</span> <span class="nf">calculate_dual_dop_lobes</span><span class="p">(</span><span class="n">coord_dict</span><span class="p">,</span> <span class="n">min_crossing_angle</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns lat/lon of each dual dop lobe at 1 deg resolution</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coord_dict : dict</span>
+<span class="sd">        Dictionary of site coordinates {site: {&#39;lat&#39;: 11.11, &#39;lon&#39;: 22.22}}</span>
+<span class="sd">    min_crossing_angle : float</span>
+<span class="sd">        Minimum crossing angle for dual doppler</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data : dict</span>
+<span class="sd">        Dictionary of lat, lon for each lobe</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sites</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">coord_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">theta_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">min_crossing_angle</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">ct</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sites</span><span class="p">)):</span>
+            <span class="n">lon1</span> <span class="o">=</span> <span class="n">coord_dict</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span>
+            <span class="n">lon2</span> <span class="o">=</span> <span class="n">coord_dict</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="n">j</span><span class="p">]][</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span>
+            <span class="n">lat1</span> <span class="o">=</span> <span class="n">coord_dict</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
+            <span class="n">lat2</span> <span class="o">=</span> <span class="n">coord_dict</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="n">j</span><span class="p">]][</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">lon2</span> <span class="o">&gt;</span> <span class="n">lon1</span><span class="p">:</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span>
+                <span class="n">dx</span> <span class="o">=</span> <span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="n">lat1</span> <span class="o">-</span> <span class="n">lat2</span>
+                <span class="n">dx</span> <span class="o">=</span> <span class="n">lon1</span> <span class="o">-</span> <span class="n">lon2</span>
+
+            <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">dy</span> <span class="o">/</span> <span class="n">dx</span><span class="p">)</span>
+
+            <span class="n">lon_midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">lon1</span> <span class="o">+</span> <span class="n">lon2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+            <span class="n">lat_midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">lat1</span> <span class="o">+</span> <span class="n">lat2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+            <span class="n">midpoint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span><span class="p">)</span> <span class="o">**</span> <span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span><span class="p">)</span> <span class="o">**</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+
+            <span class="n">h</span> <span class="o">=</span> <span class="n">midpoint</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">theta_r</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span>
+            <span class="n">h2</span> <span class="o">=</span> <span class="n">midpoint</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">theta_r</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span>
+            <span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">h2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+
+            <span class="n">ycenter</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">-</span> <span class="n">h2</span>
+            <span class="n">ycenter2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">+</span> <span class="n">h2</span>
+
+            <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+            <span class="n">lobe1_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">ycenter</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span> <span class="o">+</span> <span class="n">lon_midpoint</span> <span class="o">+</span> <span class="p">(</span><span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">lobe1_lat</span> <span class="o">=</span> <span class="n">ycenter</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">lat_midpoint</span> <span class="o">+</span> <span class="p">(</span><span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">lobe2_lon</span> <span class="o">=</span> <span class="n">ycenter</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">lon_midpoint</span> <span class="o">+</span> <span class="p">(</span><span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">lobe2_lat</span> <span class="o">=</span> <span class="n">ycenter2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">lat_midpoint</span> <span class="o">+</span> <span class="p">(</span><span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;lobe&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ct</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">lobe1_lon</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="n">lobe1_lat</span><span class="p">}</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;lobe&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">lobe2_lon</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="n">lobe2_lat</span><span class="p">}</span>
+            <span class="n">ct</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
 </pre></div>
 
            </div>

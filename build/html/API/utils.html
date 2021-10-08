@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.utils &mdash; RadTraq 0.post1+gee88c25 documentation</title>
+  <title>radtraq.utils &mdash; RadTraq 0.post1+ge9d6f29 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="radtraq.utils.calc_ground_range_and_height" href="generated/radtraq.utils.calc_ground_range_and_height.html" />
+    <link rel="next" title="radtraq.utils.calculate_azimuth_distance_from_lat_lon" href="generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html" />
     <link rel="prev" title="radtraq.proc.extract_profile_at_lat_lon" href="generated/radtraq.proc.extract_profile_at_lat_lon.html" /> 
 </head>
 
@@ -38,7 +38,7 @@
             <a href="../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+gee88c25
+                0.post1+ge9d6f29
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,9 @@
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">radtraq.plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="proc.html">radtraq.proc</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">radtraq.utils</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/radtraq.utils.calc_ground_range_and_height.html">radtraq.utils.calc_ground_range_and_height</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html">radtraq.utils.calculate_azimuth_distance_from_lat_lon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/radtraq.utils.calculate_dual_dop_lobes.html">radtraq.utils.calculate_dual_dop_lobes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/radtraq.utils.calc_ground_range_and_height.html">radtraq.utils.calc_ground_range_and_height</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/radtraq.utils.get_height_variable_name.html">radtraq.utils.get_height_variable_name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/radtraq.utils.range_correction.html">radtraq.utils.range_correction</a></li>
 </ul>
@@ -101,16 +102,19 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html#radtraq.utils.calculate_azimuth_distance_from_lat_lon" title="radtraq.utils.calculate_azimuth_distance_from_lat_lon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_azimuth_distance_from_lat_lon</span></code></a>([...])</p></td>
+<td><p>Returns dictionary of distance and direction between two pairs of lat/lon values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/radtraq.utils.calculate_dual_dop_lobes.html#radtraq.utils.calculate_dual_dop_lobes" title="radtraq.utils.calculate_dual_dop_lobes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_dual_dop_lobes</span></code></a>(coord_dict[, ...])</p></td>
+<td><p>Returns lat/lon of each dual dop lobe at 1 deg resolution</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/radtraq.utils.calc_ground_range_and_height.html#radtraq.utils.calc_ground_range_and_height" title="radtraq.utils.calc_ground_range_and_height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_ground_range_and_height</span></code></a>(slant_range, ...)</p></td>
 <td><p>Function for calculating height and ground range from a slant range path</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html#radtraq.utils.calculate_azimuth_distance_from_lat_lon" title="radtraq.utils.calculate_azimuth_distance_from_lat_lon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_azimuth_distance_from_lat_lon</span></code></a>([...])</p></td>
-<td><p>Returns dictionary of distance and direction between two pairs of lat/lon values.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/radtraq.utils.get_height_variable_name.html#radtraq.utils.get_height_variable_name" title="radtraq.utils.get_height_variable_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_height_variable_name</span></code></a>(obj[, variable])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/radtraq.utils.get_height_variable_name.html#radtraq.utils.get_height_variable_name" title="radtraq.utils.get_height_variable_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_height_variable_name</span></code></a>(obj[, variable])</p></td>
 <td><p>Determines the height variable name in the Dataset using variable coordinate information.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/radtraq.utils.range_correction.html#radtraq.utils.range_correction" title="radtraq.utils.range_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">range_correction</span></code></a>(obj, variable[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/radtraq.utils.range_correction.html#radtraq.utils.range_correction" title="radtraq.utils.range_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">range_correction</span></code></a>(obj, variable[, ...])</p></td>
 <td><p>Corrects reflectivity for range to help get the correct noise floor values</p></td>
 </tr>
 </tbody>
@@ -124,7 +128,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="generated/radtraq.proc.extract_profile_at_lat_lon.html" class="btn btn-neutral float-left" title="radtraq.proc.extract_profile_at_lat_lon" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/radtraq.utils.calc_ground_range_and_height.html" class="btn btn-neutral float-right" title="radtraq.utils.calc_ground_range_and_height" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html" class="btn btn-neutral float-right" title="radtraq.utils.calculate_azimuth_distance_from_lat_lon" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
