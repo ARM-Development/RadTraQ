@@ -138,7 +138,7 @@ def calculate_dual_dop_lobes(coord_dict, min_crossing_angle=20):
     theta_r = np.radians(min_crossing_angle)
     data = {}
     ct = 1
-    for i in range(len(sites)-1):
+    for i in range(len(sites) - 1):
         for j in range(1, len(sites)):
             lon1 = coord_dict[sites[i]]['lon']
             lon2 = coord_dict[sites[j]]['lon']
@@ -171,8 +171,8 @@ def calculate_dual_dop_lobes(coord_dict, min_crossing_angle=20):
             lobe2_lon = ycenter * np.sin(phi) + lon_midpoint + (radius * np.cos(t))
             lobe2_lat = ycenter2 * np.cos(phi) + lat_midpoint + (radius * np.sin(t))
 
-            data['lobe'+str(ct)] = {'lon': lobe1_lon, 'lat': lobe1_lat}
-            data['lobe'+str(ct + 1)] = {'lon': lobe2_lon, 'lat': lobe2_lat}
+            data['lobe' + str(ct)] = {'lon': lobe1_lon, 'lat': lobe1_lat}
+            data['lobe' + str(ct + 1)] = {'lon': lobe2_lon, 'lat': lobe2_lat}
             ct += 2
 
     return data
