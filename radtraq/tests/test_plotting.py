@@ -6,6 +6,7 @@ import pytest
 from act.io.armfiles import read_netcdf
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 
 @pytest.mark.mpl_image_compare(tolerance=10)
@@ -24,11 +25,14 @@ def test_corner_reflector():
     obj = read_netcdf(EXAMPLE_RASTER)
     data = plot_cr_raster(obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
 
-    np.testing.assert_almost_equal(data['max'], 12.03, decimal=2)
-    np.testing.assert_almost_equal(data['min'], -64.46, decimal=2)
+    np.testing.assert_almost_equal(data['max'], 12.09, decimal=2)
+    np.testing.assert_almost_equal(data['min'], -64.89, decimal=2)
     np.testing.assert_almost_equal(data['az_max'], 2.30, decimal=2)
     np.testing.assert_almost_equal(data['el_max'], 0.90, decimal=2)
-    np.testing.assert_almost_equal(data['el_top'], 1.32, decimal=2)
+    np.testing.assert_almost_equal(data['el_top'], 1.38, decimal=2)
+    np.testing.assert_almost_equal(data['range'], 478.01, decimal=2)
+
+    assert isinstance(data['fig'], (Figure, ))
 
     fig = plt.gcf()
     return fig
