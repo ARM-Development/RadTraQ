@@ -82,6 +82,9 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
     if fig is None and ax is None and noplot is False:
         fig, ax = plt.subplots()
 
+    return_dic = {'max': None, 'min': None, 'az_max': None,
+                  'el_max': None, 'el_top': None, 'range': None, 'fig': None}
+
     # Get data and coordinate information
     az = obj[az_field].values
     el = obj[el_field].values
@@ -102,6 +105,11 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
             el_index = np.full(el.size, True)
 
         index = az_index & el_index
+        if np.sum(index) < 1:
+            print('Unable to extract data within azimuth or elevation limts. '
+                  'Returning without calculating value or making plot.')
+            return return_dic
+
         az = az[index]
         el = el[index]
         data = data[index, :]
@@ -109,6 +117,11 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
     if target_limits is not None:
         target_limits.sort()
         index = (rng >= target_limits[0]) & (rng <= target_limits[1])
+
+        if np.sum(index) < 1:
+            print('Unable to extract data within range limts. '
+                  'Returning without calculating value or making plot.')
+            return return_dic
 
         rng = rng[index]
         data = data[:, index]
@@ -146,8 +159,13 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
         diff[diff < -20] = np.nan
         top_index = np.nanargmin(np.diff(diff))
     except ValueError:
-        diff = grid[slice(max_ind[0] + 1, grid.shape[1]), max_ind[1]]
-        top_index = np.nanargmin(np.diff(diff))
+        try:
+            diff = grid[slice(max_ind[0] + 1, grid.shape[1]), max_ind[1]]
+            diff = np.array(diff)
+            top_index = np.nanargmin(np.diff(diff))
+        except ValueError:
+            print('Unable to correctly grid data. Returning without calculating value or making plot.')
+            return return_dic
 
     top_index += max_ind[0]
     top_index = (top_index, max_ind[1])
@@ -166,6 +184,7 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
     rngstr = 'Range: ' + str(round(target_range, 1))
 
     # Plot data using pcolormesh
+    return_fig = None
     if noplot is False:
         pm = ax.pcolormesh(xi[0, :], yi[:, 0], grid, vmin=vmin, vmax=vmax, cmap=cmap, shading='auto')
         ax.plot(xi[max_ind], yi[max_ind], 'w+', ms=10)
@@ -210,5 +229,14 @@ def plot_cr_raster(obj, field='reflectivity', target_range=None, ax=None, fig=No
             fig.colorbar(mappable=pm, label=colorbar_label,
                          orientation=colorbar_orient, ax=ax)
 
-    return {'max': data_max, 'min': data_min, 'az_max': az_max,
-            'el_max': el_max, 'el_top': el_top, 'range': target_range}
+            return_fig = fig
+
+    return_dic['max'] = data_max
+    return_dic['min'] = data_min
+    return_dic['az_max'] = az_max
+    return_dic['el_max'] = el_max
+    return_dic['el_top'] = el_top
+    return_dic['range'] = target_range
+    return_dic['fig'] = return_fig
+
+    return return_dic
