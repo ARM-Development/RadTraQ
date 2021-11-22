@@ -24,6 +24,9 @@ pip install --upgrade pip
 
 here = path.abspath(path.dirname(__file__))
 
+with open(path.join(here, 'README.md'), encoding='utf-8') as readme_file:
+    readme = readme_file.read()
+
 with open(path.join(here, 'requirements.txt')) as requirements_file:
     # Parse requirements.txt, ignoring any commented-out lines.
     requirements = [line for line in requirements_file.read().splitlines()
@@ -37,6 +40,8 @@ setup(
     description="Python package for weather radar quality tracking",
     author="Adam Theisen",
     author_email='atheisen@anl.gov',
+    long_description=readme,
+    long_description_content_type='text/x-rst',
     packages=find_packages(),
     entry_points={'console_scripts': []},
     include_package_data=True,
