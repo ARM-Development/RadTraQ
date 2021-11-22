@@ -37,6 +37,8 @@ setup(
     description="Python package for weather radar quality tracking",
     author="Adam Theisen",
     author_email='atheisen@anl.gov',
+    long_description=readme,
+    long_description_content_type='text/x-rst',
     packages=find_packages(),
     entry_points={'console_scripts': []},
     include_package_data=True,
