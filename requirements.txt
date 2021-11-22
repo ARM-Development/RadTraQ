@@ -2,7 +2,7 @@
 numpy
 scipy
 xarray
-matplotlib
+matplotlib<=3.4.3
 cython
 netcdf4
 act-atmos
