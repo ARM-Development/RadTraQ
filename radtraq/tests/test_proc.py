@@ -58,3 +58,15 @@ def test_extract_profile_at_lat_lon():
     profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(obj, 29.68, -95.08,
                                                                   variables=variables)
     assert (set(profile_obj.keys()) - set(variables)) == set(['lat', 'lon', 'alt'])
+
+
+def test_extract_rhi_profile():
+    f = radtraq.tests.sample_files.EXAMPLE_RHI
+    obj = act.io.armfiles.read_netcdf(f)
+    extracted_obj = radtraq.proc.profile.extract_rhi_profile(obj, variables='reflectivity')
+    assert np.isclose(np.nansum(extracted_obj['azimuth'].values), 809.95)
+    assert np.isclose(np.nansum(extracted_obj['elevation'].values), 540.11)
+    assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -201440.19)
+
+    extracted_obj = radtraq.proc.profile.extract_rhi_profile(obj, extracted_obj, variables='reflectivity')
+    assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -402880.38)

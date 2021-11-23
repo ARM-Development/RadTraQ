@@ -13,7 +13,8 @@ from act.utils.geo_utils import destination_azimuth_distance
 
 from radtraq.proc.cloud_mask import calc_cloud_mask
 from radtraq.utils.dataset_utils import get_height_variable_name
-from radtraq.utils.utils import calc_ground_range_and_height, calculate_azimuth_distance_from_lat_lon
+from radtraq.utils.utils import (calc_ground_range_and_height,
+                                 calculate_azimuth_distance_from_lat_lon)
 
 
 def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
@@ -176,9 +177,9 @@ def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
     return obj
 
 
-def extract_profile(obj, azimuth, ground_dist, variables=None, azimuth_range=None,
-                    ground_dist_range=200, azimuth_name='azimuth', range_name='range',
-                    ground_range_units='m', elevation_name="elevation"):
+def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
+                    azimuth_range=None, ground_dist_range=200, azimuth_name='azimuth',
+                    range_name='range', ground_range_units='m', elevation_name="elevation"):
 
     """
     Function for extracting vertical profile over a location from a PPI scan
@@ -187,16 +188,22 @@ def extract_profile(obj, azimuth, ground_dist, variables=None, azimuth_range=Non
     Parameters
     ----------
     obj : Xarray.Dataset
-        Xarray object with all the data
+        Xarray Dataset with all the data
     azimuth : float
         Azimuth direction to extract profile in degrees
     ground_dist : float
         Horizontal ground distance to extract profile
+    append_obj : Xarray.Dataset
+        Xarray Dataset to return with new profile appened.
     variables : str, list, None
         List of variables to extract profile
     azimuth_range : float, None
         Range to use for tollerance in selecting azimuth to extract profile. If set to None
         will use the mode of azimuth differences. Assumed to be in degrees.
+    ground_dist_range : float
+        Distance range window size allowed to extract profile. If the profile location is
+        off from lat/lon location by more than this distance, will not extract a profile
+        and will return None.
     azimuth_name : string
         Variable name in Xarray object containing azimuth values.
     range_name : string
@@ -215,6 +222,8 @@ def extract_profile(obj, azimuth, ground_dist, variables=None, azimuth_range=Non
     """
 
     profile_obj = None
+    if append_obj is not None:
+        profile_obj = append_obj
 
     # If no variable names provided get list of names by checking dimentions.
     if variables is None:
@@ -350,12 +359,16 @@ def extract_profile(obj, azimuth, ground_dist, variables=None, azimuth_range=Non
     del profile_obj[elevation_name]
     del profile_obj[azimuth_name]
 
+    if isinstance(append_obj, xr.core.dataset.Dataset):
+        profile_obj = xr.concat([append_obj, profile_obj], dim='time')
+
     return profile_obj
 
 
-def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, azimuth_name='azimuth',
+def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, append_obj=None, azimuth_name='azimuth',
                                range_name='range', elevation_name="elevation", azimuth_range=None,
-                               variables=None, lat_name_in_obj='lat', lon_name_in_obj='lon',):
+                               ground_dist_range=200, variables=None, lat_name_in_obj='lat',
+                               lon_name_in_obj='lon'):
 
     """
     Function for extracting vertical profile over a location defined by latitude
@@ -369,6 +382,8 @@ def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, azimuth_name='azim
         Latitude of desired profile in same units as latitued in obj
     desired_lon : float
         Longitude of desired profile in same units as longitude in obj
+    append_obj : Xarray.Dataset
+        Xarray Dataset to return with new profile appened.
     azimuth_name : str
         Name of azimuth variable in obj
     range_name : str
@@ -378,6 +393,10 @@ def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, azimuth_name='azim
     azimuth_range : float or None
         Range to use for tollerance in selecting azimuth to extract profile. If set to None
         will use the mode of azimuth differences. Assumed to be in degrees.
+    ground_dist_range : float
+        Distance range window size allowed to extract profile. If the profile location is
+        off from lat/lon location by more than this distance, will not extract a profile
+        and will return None.
     variables : str, list, None
         List of variables to extract profile
     lat_name_in_obj : str
@@ -402,9 +421,76 @@ def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, azimuth_name='azim
 
     result = calculate_azimuth_distance_from_lat_lon(lat, lon, desired_lat, desired_lon)
 
-    profile_obj = extract_profile(obj, result['azimuth'], result['distance'], variables=variables,
+    profile_obj = extract_profile(obj, result['azimuth'], result['distance'],
+                                  append_obj=append_obj, variables=variables,
                                   azimuth_range=azimuth_range, azimuth_name=azimuth_name,
                                   range_name=range_name, ground_range_units='m',
-                                  elevation_name=elevation_name)
+                                  elevation_name=elevation_name,
+                                  ground_dist_range=ground_dist_range)
 
     return profile_obj
+
+
+def extract_rhi_profile(obj, append_obj=None, variables=None,
+                        elevation_range=[89, 91], elevation_name="elevation",
+                        sweep_variables=['sweep_start_ray_index', 'sweep_end_ray_index']):
+    """
+    Function for extracting vertical profile over a location from a RHI scan
+
+    Parameters
+    ----------
+    obj : Xarray.Dataset
+        Xarray object with all the data. Requires the additional variables in sweep_variables
+        for finding sweeps. They will be removed from returned Dataset to allow concatination.
+    append_obj : Xarray.Dataset
+        If provided will append extracted profiles to this object.
+    variables : str, list, None
+        List of variables to return in extracted Dataset. If set to None returns all variables
+        in the Dataset.
+    elevation_range : list
+        Range of elevation values to use in subsetting to find a vertical profile. Will return
+        profile closest to 90 degrees for each RHI scan that fits within this range. If the
+        scan does not have a value within this range, will skip that scan. Assumed to be in degrees.
+    elevation_name : string
+        Variable name in Xarray object containing elevation values. Assumed to be in degrees.
+    sweep_variables : list of str
+        Variable names used to determine sweeps to extract profile.
+
+    Returns
+    -------
+    obj : Xarray.Dataset or None
+        Xarray Dataset with profile extracted and new coordinate variable height added
+        or if unable to find profile returns None.
+
+    """
+    if obj is None:
+        return append_obj
+
+    extract_index = []
+    for ii, _ in enumerate(obj[sweep_variables[0]].values):
+        index = np.arange(obj[sweep_variables[0]].values[ii],
+                          obj[sweep_variables[1]].values[ii], dtype=int)
+
+        index = index[0] + np.argmin(np.abs(obj[elevation_name].values[index] - 90.))
+        elevation = obj[elevation_name].values[index]
+        if elevation >= elevation_range[0] and elevation <= elevation_range[1]:
+            extract_index.append(index)
+
+    if len(extract_index) > 0:
+        obj = obj.isel(time=extract_index)
+
+        for var_name in sweep_variables:
+            del obj[var_name]
+
+        if variables is not None:
+            if isinstance(variables, str):
+                variables = [variables]
+
+            obj = obj[variables]
+
+        if isinstance(append_obj, xr.core.dataset.Dataset):
+            append_obj = xr.concat([append_obj, obj], dim='time')
+        else:
+            append_obj = obj
+
+    return append_obj
