@@ -286,14 +286,18 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
     profile_obj = xr.Dataset()
     profile_obj['time'] = temp_obj['time']
     profile_obj = profile_obj.assign_coords(height=height)
-    profile_obj['height'].attrs = {'long_name': 'Height above ground',
-                                   'units': temp_obj[range_name].attrs['units'],
-                                   'standard_name': 'height'}
 
     for var_name in variables:
         data = temp_obj[var_name].values[:, range_index]
         profile_obj[var_name] = xr.DataArray(data=data, dims=['time', 'height'],
                                              attrs=temp_obj[var_name].attrs)
+
+    # Adding attributes for coordinate variables after subsetting data because
+    # setting values to DataArray with dims defined clears the attributes.
+    profile_obj['time'].attrs = temp_obj['time'].attrs
+    profile_obj['height'].attrs = {'long_name': 'Height above ground',
+                                   'units': temp_obj[range_name].attrs['units'],
+                                   'standard_name': 'height'}
 
     # Add location variables
     # Get latitude variable name

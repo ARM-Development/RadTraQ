@@ -57,7 +57,9 @@ def test_extract_profile_at_lat_lon():
     variables = ['reflectivity', 'co_to_crosspol_correlation_coeff', 'mean_doppler_velocity']
     profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(obj, 29.68, -95.08,
                                                                   variables=variables)
+
     assert (set(profile_obj.keys()) - set(variables)) == set(['lat', 'lon', 'alt'])
+    assert profile_obj['height'].attrs['units'] == 'm'
 
 
 def test_extract_rhi_profile():
