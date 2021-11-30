@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+g8f07a2b documentation</title>
+  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+gd7cd874 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g8f07a2b
+                0.post1+gd7cd874
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -93,7 +93,8 @@
 
 <span class="kn">from</span> <span class="nn">radtraq.proc.cloud_mask</span> <span class="k">import</span> <span class="n">calc_cloud_mask</span>
 <span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="k">import</span> <span class="n">get_height_variable_name</span>
-<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="k">import</span> <span class="n">calc_ground_range_and_height</span><span class="p">,</span> <span class="n">calculate_azimuth_distance_from_lat_lon</span>
+<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="k">import</span> <span class="p">(</span><span class="n">calc_ground_range_and_height</span><span class="p">,</span>
+                                 <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="calc_avg_profile"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.calc_avg_profile.html#radtraq.proc.calc_avg_profile">[docs]</a><span class="k">def</span> <span class="nf">calc_avg_profile</span><span class="p">(</span><span class="n">_obj</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask_variable</span><span class="o">=</span><span class="s1">&#39;cloud_mask_2&#39;</span><span class="p">,</span>
@@ -256,9 +257,9 @@
     <span class="k">return</span> <span class="n">obj</span></div>
 
 
-<div class="viewcode-block" id="extract_profile"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile.html#radtraq.proc.extract_profile">[docs]</a><span class="k">def</span> <span class="nf">extract_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">,</span> <span class="n">ground_dist</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                    <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span> <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span>
-                    <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="extract_profile"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile.html#radtraq.proc.extract_profile">[docs]</a><span class="k">def</span> <span class="nf">extract_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">,</span> <span class="n">ground_dist</span><span class="p">,</span> <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
+                    <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for extracting vertical profile over a location from a PPI scan</span>
@@ -267,16 +268,22 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    obj : Xarray.Dataset</span>
-<span class="sd">        Xarray object with all the data</span>
+<span class="sd">        Xarray Dataset with all the data</span>
 <span class="sd">    azimuth : float</span>
 <span class="sd">        Azimuth direction to extract profile in degrees</span>
 <span class="sd">    ground_dist : float</span>
 <span class="sd">        Horizontal ground distance to extract profile</span>
+<span class="sd">    append_obj : Xarray.Dataset</span>
+<span class="sd">        Xarray Dataset to return with new profile appened.</span>
 <span class="sd">    variables : str, list, None</span>
 <span class="sd">        List of variables to extract profile</span>
 <span class="sd">    azimuth_range : float, None</span>
 <span class="sd">        Range to use for tollerance in selecting azimuth to extract profile. If set to None</span>
 <span class="sd">        will use the mode of azimuth differences. Assumed to be in degrees.</span>
+<span class="sd">    ground_dist_range : float</span>
+<span class="sd">        Distance range window size allowed to extract profile. If the profile location is</span>
+<span class="sd">        off from lat/lon location by more than this distance, will not extract a profile</span>
+<span class="sd">        and will return None.</span>
 <span class="sd">    azimuth_name : string</span>
 <span class="sd">        Variable name in Xarray object containing azimuth values.</span>
 <span class="sd">    range_name : string</span>
@@ -295,6 +302,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">profile_obj</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">append_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">append_obj</span>
 
     <span class="c1"># If no variable names provided get list of names by checking dimentions.</span>
     <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -357,14 +366,18 @@
     <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
     <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
     <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">profile_obj</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
-    <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Height above ground&#39;</span><span class="p">,</span>
-                                   <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
-                                   <span class="s1">&#39;standard_name&#39;</span><span class="p">:</span> <span class="s1">&#39;height&#39;</span><span class="p">}</span>
 
     <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="n">range_index</span><span class="p">]</span>
         <span class="n">profile_obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">],</span>
                                              <span class="n">attrs</span><span class="o">=</span><span class="n">temp_obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span>
+
+    <span class="c1"># Adding attributes for coordinate variables after subsetting data because</span>
+    <span class="c1"># setting values to DataArray with dims defined clears the attributes.</span>
+    <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span>
+    <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Height above ground&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
+                                   <span class="s1">&#39;standard_name&#39;</span><span class="p">:</span> <span class="s1">&#39;height&#39;</span><span class="p">}</span>
 
     <span class="c1"># Add location variables</span>
     <span class="c1"># Get latitude variable name</span>
@@ -430,12 +443,16 @@
     <span class="k">del</span> <span class="n">profile_obj</span><span class="p">[</span><span class="n">elevation_name</span><span class="p">]</span>
     <span class="k">del</span> <span class="n">profile_obj</span><span class="p">[</span><span class="n">azimuth_name</span><span class="p">]</span>
 
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">append_obj</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+        <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">append_obj</span><span class="p">,</span> <span class="n">profile_obj</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">profile_obj</span></div>
 
 
-<div class="viewcode-block" id="extract_profile_at_lat_lon"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile_at_lat_lon.html#radtraq.proc.extract_profile_at_lat_lon">[docs]</a><span class="k">def</span> <span class="nf">extract_profile_at_lat_lon</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">desired_lat</span><span class="p">,</span> <span class="n">desired_lon</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
+<div class="viewcode-block" id="extract_profile_at_lat_lon"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile_at_lat_lon.html#radtraq.proc.extract_profile_at_lat_lon">[docs]</a><span class="k">def</span> <span class="nf">extract_profile_at_lat_lon</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">desired_lat</span><span class="p">,</span> <span class="n">desired_lon</span><span class="p">,</span> <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
                                <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">,</span> <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lat_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="n">lon_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,):</span>
+                               <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lat_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                               <span class="n">lon_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for extracting vertical profile over a location defined by latitude</span>
@@ -449,6 +466,8 @@
 <span class="sd">        Latitude of desired profile in same units as latitued in obj</span>
 <span class="sd">    desired_lon : float</span>
 <span class="sd">        Longitude of desired profile in same units as longitude in obj</span>
+<span class="sd">    append_obj : Xarray.Dataset</span>
+<span class="sd">        Xarray Dataset to return with new profile appened.</span>
 <span class="sd">    azimuth_name : str</span>
 <span class="sd">        Name of azimuth variable in obj</span>
 <span class="sd">    range_name : str</span>
@@ -458,6 +477,10 @@
 <span class="sd">    azimuth_range : float or None</span>
 <span class="sd">        Range to use for tollerance in selecting azimuth to extract profile. If set to None</span>
 <span class="sd">        will use the mode of azimuth differences. Assumed to be in degrees.</span>
+<span class="sd">    ground_dist_range : float</span>
+<span class="sd">        Distance range window size allowed to extract profile. If the profile location is</span>
+<span class="sd">        off from lat/lon location by more than this distance, will not extract a profile</span>
+<span class="sd">        and will return None.</span>
 <span class="sd">    variables : str, list, None</span>
 <span class="sd">        List of variables to extract profile</span>
 <span class="sd">    lat_name_in_obj : str</span>
@@ -482,12 +505,79 @@
 
     <span class="n">result</span> <span class="o">=</span> <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">desired_lat</span><span class="p">,</span> <span class="n">desired_lon</span><span class="p">)</span>
 
-    <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">extract_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">],</span> <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+    <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">extract_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">],</span>
+                                  <span class="n">append_obj</span><span class="o">=</span><span class="n">append_obj</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
                                   <span class="n">azimuth_range</span><span class="o">=</span><span class="n">azimuth_range</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="n">azimuth_name</span><span class="p">,</span>
                                   <span class="n">range_name</span><span class="o">=</span><span class="n">range_name</span><span class="p">,</span> <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
-                                  <span class="n">elevation_name</span><span class="o">=</span><span class="n">elevation_name</span><span class="p">)</span>
+                                  <span class="n">elevation_name</span><span class="o">=</span><span class="n">elevation_name</span><span class="p">,</span>
+                                  <span class="n">ground_dist_range</span><span class="o">=</span><span class="n">ground_dist_range</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">profile_obj</span></div>
+
+
+<span class="k">def</span> <span class="nf">extract_rhi_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">elevation_range</span><span class="o">=</span><span class="p">[</span><span class="mi">89</span><span class="p">,</span> <span class="mi">91</span><span class="p">],</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">,</span>
+                        <span class="n">sweep_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sweep_start_ray_index&#39;</span><span class="p">,</span> <span class="s1">&#39;sweep_end_ray_index&#39;</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function for extracting vertical profile over a location from a RHI scan</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj : Xarray.Dataset</span>
+<span class="sd">        Xarray object with all the data. Requires the additional variables in sweep_variables</span>
+<span class="sd">        for finding sweeps. They will be removed from returned Dataset to allow concatination.</span>
+<span class="sd">    append_obj : Xarray.Dataset</span>
+<span class="sd">        If provided will append extracted profiles to this object.</span>
+<span class="sd">    variables : str, list, None</span>
+<span class="sd">        List of variables to return in extracted Dataset. If set to None returns all variables</span>
+<span class="sd">        in the Dataset.</span>
+<span class="sd">    elevation_range : list</span>
+<span class="sd">        Range of elevation values to use in subsetting to find a vertical profile. Will return</span>
+<span class="sd">        profile closest to 90 degrees for each RHI scan that fits within this range. If the</span>
+<span class="sd">        scan does not have a value within this range, will skip that scan. Assumed to be in degrees.</span>
+<span class="sd">    elevation_name : string</span>
+<span class="sd">        Variable name in Xarray object containing elevation values. Assumed to be in degrees.</span>
+<span class="sd">    sweep_variables : list of str</span>
+<span class="sd">        Variable names used to determine sweeps to extract profile.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    obj : Xarray.Dataset or None</span>
+<span class="sd">        Xarray Dataset with profile extracted and new coordinate variable height added</span>
+<span class="sd">        or if unable to find profile returns None.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">append_obj</span>
+
+    <span class="n">extract_index</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span>
+                          <span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+        <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">elevation_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">-</span> <span class="mf">90.</span><span class="p">))</span>
+        <span class="n">elevation</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">elevation_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">elevation</span> <span class="o">&gt;=</span> <span class="n">elevation_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">elevation</span> <span class="o">&lt;=</span> <span class="n">elevation_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">extract_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">extract_index</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">extract_index</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="n">sweep_variables</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="n">variables</span><span class="p">]</span>
+
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">append_obj</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+            <span class="n">append_obj</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">append_obj</span><span class="p">,</span> <span class="n">obj</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">append_obj</span> <span class="o">=</span> <span class="n">obj</span>
+
+    <span class="k">return</span> <span class="n">append_obj</span>
 </pre></div>
 
            </div>

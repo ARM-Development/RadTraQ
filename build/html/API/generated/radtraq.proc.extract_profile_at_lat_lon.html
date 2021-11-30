@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.extract_profile_at_lat_lon &mdash; RadTraq 0.post1+g8f07a2b documentation</title>
+  <title>radtraq.proc.extract_profile_at_lat_lon &mdash; RadTraq 0.post1+gd7cd874 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -38,7 +38,7 @@
             <a href="../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g8f07a2b
+                0.post1+gd7cd874
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -98,7 +98,7 @@
 <h1>radtraq.proc.extract_profile_at_lat_lon<a class="headerlink" href="#radtraq-proc-extract-profile-at-lat-lon" title="Permalink to this headline"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="radtraq.proc.extract_profile_at_lat_lon">
-<span class="sig-prename descclassname"><span class="pre">radtraq.proc.</span></span><span class="sig-name descname"><span class="pre">extract_profile_at_lat_lon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azimuth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'range'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elevation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat_name_in_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_name_in_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lon'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#extract_profile_at_lat_lon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.proc.extract_profile_at_lat_lon" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">radtraq.proc.</span></span><span class="sig-name descname"><span class="pre">extract_profile_at_lat_lon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azimuth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'range'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elevation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_dist_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat_name_in_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_name_in_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lon'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#extract_profile_at_lat_lon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.proc.extract_profile_at_lat_lon" title="Permalink to this definition"></a></dt>
 <dd><p>Function for extracting vertical profile over a location defined by latitude
 and longitude from a PPI scan</p>
 <dl class="field-list simple">
@@ -107,11 +107,15 @@ and longitude from a PPI scan</p>
 <li><p><strong>obj</strong> (<em>Xarray.Dataset</em>) – Xarray object with all the data</p></li>
 <li><p><strong>desired_lat</strong> (<em>float</em>) – Latitude of desired profile in same units as latitued in obj</p></li>
 <li><p><strong>desired_lon</strong> (<em>float</em>) – Longitude of desired profile in same units as longitude in obj</p></li>
+<li><p><strong>append_obj</strong> (<em>Xarray.Dataset</em>) – Xarray Dataset to return with new profile appened.</p></li>
 <li><p><strong>azimuth_name</strong> (<em>str</em>) – Name of azimuth variable in obj</p></li>
 <li><p><strong>range_name</strong> (<em>str</em>) – Name of range variable in obj</p></li>
 <li><p><strong>elevation_name</strong> (<em>str</em>) – Name of elevation variable in obj</p></li>
 <li><p><strong>azimuth_range</strong> (<em>float or None</em>) – Range to use for tollerance in selecting azimuth to extract profile. If set to None
 will use the mode of azimuth differences. Assumed to be in degrees.</p></li>
+<li><p><strong>ground_dist_range</strong> (<em>float</em>) – Distance range window size allowed to extract profile. If the profile location is
+off from lat/lon location by more than this distance, will not extract a profile
+and will return None.</p></li>
 <li><p><strong>variables</strong> (<em>str, list, None</em>) – List of variables to extract profile</p></li>
 <li><p><strong>lat_name_in_obj</strong> (<em>str</em>) – Name of latitude varible in object</p></li>
 <li><p><strong>lon_name_in_obj</strong> (<em>str</em>) – Name of longitude varible in object</p></li>

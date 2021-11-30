@@ -5,16 +5,16 @@
 
 Computation times
 =================
-**00:04.423** total execution time for **source_auto_examples** files:
+**00:03.378** total execution time for **source_auto_examples** files:
 
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``plot_cfad.py``)                                       | 00:01.710 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``plot_cfad.py``)                                       | 00:01.334 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py` (``plot_mask_vpt.py``)                               | 00:01.096 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py` (``plot_mask_vpt.py``)                               | 00:00.788 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py` (``plot_cloud_mask.py``)                           | 00:00.869 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py` (``plot_cloud_mask.py``)                           | 00:00.668 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py` (``plot_corner_reflector_raster.py``) | 00:00.644 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py` (``plot_corner_reflector_raster.py``) | 00:00.512 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py` (``plot_dual_doppler_lobes.py``)           | 00:00.104 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py` (``plot_dual_doppler_lobes.py``)           | 00:00.076 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
