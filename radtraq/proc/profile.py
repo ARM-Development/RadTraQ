@@ -198,8 +198,8 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
     variables : str, list, None
         List of variables to extract profile
     azimuth_range : float, None
-        Range to use for tollerance in selecting azimuth to extract profile. If set to None
-        will use the mode of azimuth differences. Assumed to be in degrees.
+        Range to used to determine if close to correct profile location. If set to None will
+        calculate using mode of difference. Assumed to be in degrees.
     ground_dist_range : float
         Distance range window size allowed to extract profile. If the profile location is
         off from lat/lon location by more than this distance, will not extract a profile
@@ -233,64 +233,77 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
                     len(set(obj[var_name].dims) - set(['time', range_name])) == 0):
                 variables.append(var_name)
 
-    if isinstance(variables, str):
+    elif isinstance(variables, str):
         variables = [variables]
 
     unit_registry = pint.UnitRegistry()
 
-    azimuth_da = obj[azimuth_name]
-    azimuth_values = azimuth_da.values
-    azimuth_values = azimuth_values * unit_registry.parse_expression(azimuth_da.attrs['units'])
-    azimuth_values = azimuth_values.to('degree').magnitude
-    azimuth_da.values = azimuth_values
-    azimuth_da.attrs['units'] = 'degree'
     if azimuth_range is None:
-        azimuth_range = np.floor(np.abs(np.diff(azimuth_da.values)))
+        azimuth_range = np.floor(np.abs(np.diff(obj[azimuth_name].values)))
         azimuth_range = stats.mode(azimuth_range).mode[0]
 
-    azimuth_index = np.argmin(np.abs(azimuth_da.values - azimuth))
-    azimuth_value = azimuth_da.values[azimuth_index]
-
-    # Check if azimuth and range match in PPI scan. If not return None
-    if not (np.abs(azimuth - azimuth_value)) <= (azimuth_range / 2.):
-        return profile_obj
-
-    temp_obj = obj.where((azimuth_da >= (azimuth_value - azimuth_range / 2.)) &
-                         (azimuth_da <= (azimuth_value + azimuth_range / 2.)), drop=True)
-
-    range_index = []
-    height = []
-    elevation = temp_obj[elevation_name].values
-    elevation = elevation * unit_registry.parse_expression(obj[elevation_name].attrs['units'])
-    elevation = elevation.to('degree').magnitude
-
     ground_dist = ground_dist * unit_registry.parse_expression(ground_range_units)
-    ground_dist = ground_dist.to(temp_obj[range_name].attrs['units']).magnitude
+    ground_dist = ground_dist.to(obj[range_name].attrs['units']).magnitude
 
     ground_dist_range = ground_dist_range * unit_registry.parse_expression(ground_range_units)
-    ground_dist_range = ground_dist_range.to(temp_obj[range_name].attrs['units']).magnitude
+    ground_dist_range = ground_dist_range.to(obj[range_name].attrs['units']).magnitude
 
+    number_of_sweeps = obj['sweep_start_ray_index'].values.size
+    height = np.empty(number_of_sweeps, dtype=np.float32)
+    found_value = np.full(number_of_sweeps, False)
+    range_index = []
+    time_index = []
     true_range = None
-    for elev in elevation:
-        result = calc_ground_range_and_height(temp_obj[range_name], elev)
-        index = np.nanargmin(np.abs(result['ground_range'].values - ground_dist))
+    true_azimuth = None
+
+    for sweep_number in range(0, number_of_sweeps):
+        index = np.arange(obj['sweep_start_ray_index'].values[sweep_number],
+                          obj['sweep_end_ray_index'].values[sweep_number] + 1, dtype=int)
+
+        index = index[0] + np.argmin(np.abs(obj[azimuth_name].values[index] - azimuth))
+        matched_azimuth = obj[azimuth_name].values[index]
+        matched_elevation = obj[elevation_name].values[index]
+
+        result = calc_ground_range_and_height(obj[range_name], matched_elevation)
+        rng_index = np.nanargmin(np.abs(result['ground_range'].values - ground_dist))
         if true_range is None:
-            true_range = result['ground_range'].values[index]
+            true_range = result['ground_range'].values[rng_index]
 
-        range_index.append(index)
-        height.append(result['height'].values[index])
+        range_index.append(rng_index)
+        height[sweep_number] = result['height'].values[rng_index]
+        time_index.append(index)
 
+        if np.abs(matched_azimuth - azimuth) <= azimuth_range:
+            found_value[sweep_number] = True
+
+            if true_azimuth is None:
+                true_azimuth = matched_azimuth
+
+    # Check if azimuth values are within range
+    if not np.all(found_value):
+        return profile_obj
+
+    # Check if the distance is within range
     if not np.abs(ground_dist - true_range) <= ground_dist_range:
         return profile_obj
 
+    temp_obj = obj.isel(time=time_index)
+    write_time = [temp_obj['time'].values[0] + (temp_obj['time'].values[-1] - temp_obj['time'].values[0]) / 2]
+
     profile_obj = xr.Dataset()
-    profile_obj['time'] = temp_obj['time']
+    profile_obj = profile_obj.assign_coords(time=write_time)
     profile_obj = profile_obj.assign_coords(height=height)
 
     for var_name in variables:
-        data = temp_obj[var_name].values[:, range_index]
+        data = np.full((1, len(range_index)), np.nan)
+        for ii, _ in enumerate(range_index):
+            if not found_value[sweep_number]:
+                continue
+
+            data[0, ii] = temp_obj[var_name].values[ii, range_index[ii]]
+
         profile_obj[var_name] = xr.DataArray(data=data, dims=['time', 'height'],
-                                             attrs=temp_obj[var_name].attrs)
+                                             attrs=obj[var_name].attrs)
 
     # Adding attributes for coordinate variables after subsetting data because
     # setting values to DataArray with dims defined clears the attributes.
@@ -339,7 +352,7 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
         lon_value = lon_value[0]
 
     # Calcualte new lat/lon values from radar location and azimuth and range
-    result = destination_azimuth_distance(lat_value, lon_value, azimuth_value, true_range,
+    result = destination_azimuth_distance(lat_value, lon_value, true_azimuth, true_range,
                                           dist_units=temp_obj[range_name].attrs['units'])
 
     # Copy over DataArray for attributes
@@ -360,8 +373,6 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
         profile_obj[lon_name].values = result[1]
 
     del temp_obj
-    del profile_obj[elevation_name]
-    del profile_obj[azimuth_name]
 
     if isinstance(append_obj, xr.core.dataset.Dataset):
         profile_obj = xr.concat([append_obj, profile_obj], dim='time')
