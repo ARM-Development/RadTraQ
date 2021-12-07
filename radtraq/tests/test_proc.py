@@ -35,8 +35,8 @@ def test_extract_profile():
     obj = act.io.armfiles.read_netcdf(f, drop_variables=drop_variables)
     profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124, ground_dist=13094,
                                                        ground_range_units='m')
-    assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 0.7470845)
-    assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), 5.9618464)
+    assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 0.168616)
+    assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), 1.6327)
 
     variables = ['reflectivity', 'co_to_crosspol_correlation_coeff', 'mean_doppler_velocity']
     profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124,
@@ -51,8 +51,8 @@ def test_extract_profile_at_lat_lon():
     f = radtraq.tests.sample_files.EXAMPLE_PPI
     obj = act.io.armfiles.read_netcdf(f, drop_variables=drop_variables)
     profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(obj, 29.68, -95.08)
-    assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 2.6366916)
-    assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), -11.544132)
+    assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 0.683899)
+    assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), -3.03363)
 
     variables = ['reflectivity', 'co_to_crosspol_correlation_coeff', 'mean_doppler_velocity']
     profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(obj, 29.68, -95.08,
@@ -70,5 +70,6 @@ def test_extract_rhi_profile():
     assert np.isclose(np.nansum(extracted_obj['elevation'].values), 540.11)
     assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -201440.19)
 
-    extracted_obj = radtraq.proc.profile.extract_rhi_profile(obj, extracted_obj, variables='reflectivity')
+    extracted_obj = radtraq.proc.profile.extract_rhi_profile(obj, extracted_obj,
+                                                             variables='reflectivity')
     assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -402880.38)
