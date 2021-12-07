@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.extract_profile &mdash; RadTraq 0.post1+gd7cd874 documentation</title>
+  <title>radtraq.proc.extract_profile &mdash; RadTraq 0.post1+g16007ec documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -38,7 +38,7 @@
             <a href="../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+gd7cd874
+                0.post1+g16007ec
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -109,8 +109,8 @@ giving azimuth direction and ground range distance</p>
 <li><p><strong>ground_dist</strong> (<em>float</em>) – Horizontal ground distance to extract profile</p></li>
 <li><p><strong>append_obj</strong> (<em>Xarray.Dataset</em>) – Xarray Dataset to return with new profile appened.</p></li>
 <li><p><strong>variables</strong> (<em>str, list, None</em>) – List of variables to extract profile</p></li>
-<li><p><strong>azimuth_range</strong> (<em>float, None</em>) – Range to use for tollerance in selecting azimuth to extract profile. If set to None
-will use the mode of azimuth differences. Assumed to be in degrees.</p></li>
+<li><p><strong>azimuth_range</strong> (<em>float, None</em>) – Range to used to determine if close to correct profile location. If set to None will
+calculate using mode of difference. Assumed to be in degrees.</p></li>
 <li><p><strong>ground_dist_range</strong> (<em>float</em>) – Distance range window size allowed to extract profile. If the profile location is
 off from lat/lon location by more than this distance, will not extract a profile
 and will return None.</p></li>
