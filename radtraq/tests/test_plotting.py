@@ -50,8 +50,7 @@ def test_self_consistency():
                 'differential_phase': {'variable': 'reflectivity', 'bin_width': [1, 2.0]},
                 'mean_doppler_velocity': {'variable': 'reflectivity', 'bin_width': [1, 0.5]}}
 
-    display = plot_self_consistency(obj, variables=var_dict, thresh=thresh)
-
+    plot_self_consistency(obj, variables=var_dict, thresh=thresh)
     fig = plt.gcf()
     return fig
 
