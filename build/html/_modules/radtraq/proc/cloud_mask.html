@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.cloud_mask &mdash; RadTraq 0.post1+g764607b documentation</title>
+  <title>radtraq.proc.cloud_mask &mdash; RadTraq 0.post1+g5fa814a documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g764607b
+                0.post1+g5fa814a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -90,10 +90,10 @@
 <span class="kn">import</span> <span class="nn">dask</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
 
-<span class="kn">from</span> <span class="nn">.noise</span> <span class="k">import</span> <span class="n">calc_noise_floor</span>
-<span class="kn">from</span> <span class="nn">..utils.corrections</span> <span class="k">import</span> <span class="n">range_correction</span>
+<span class="kn">from</span> <span class="nn">.noise</span> <span class="kn">import</span> <span class="n">calc_noise_floor</span>
+<span class="kn">from</span> <span class="nn">..utils.corrections</span> <span class="kn">import</span> <span class="n">range_correction</span>
 
 
 <div class="viewcode-block" id="calc_cloud_mask"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.calc_cloud_mask.html#radtraq.proc.calc_cloud_mask">[docs]</a><span class="k">def</span> <span class="nf">calc_cloud_mask</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">height_variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">noise_threshold</span><span class="o">=-</span><span class="mf">45.</span><span class="p">,</span>

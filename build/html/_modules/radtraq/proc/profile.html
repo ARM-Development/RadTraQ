@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+g764607b documentation</title>
+  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+g5fa814a documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g764607b
+                0.post1+g5fa814a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -88,12 +88,12 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">pint</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
-<span class="kn">from</span> <span class="nn">act.utils.geo_utils</span> <span class="k">import</span> <span class="n">destination_azimuth_distance</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">act.utils.geo_utils</span> <span class="kn">import</span> <span class="n">destination_azimuth_distance</span>
 
-<span class="kn">from</span> <span class="nn">radtraq.proc.cloud_mask</span> <span class="k">import</span> <span class="n">calc_cloud_mask</span>
-<span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="k">import</span> <span class="n">get_height_variable_name</span>
-<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="k">import</span> <span class="p">(</span><span class="n">calc_ground_range_and_height</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">radtraq.proc.cloud_mask</span> <span class="kn">import</span> <span class="n">calc_cloud_mask</span>
+<span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="kn">import</span> <span class="n">get_height_variable_name</span>
+<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">calc_ground_range_and_height</span><span class="p">,</span>
                                  <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">)</span>
 
 

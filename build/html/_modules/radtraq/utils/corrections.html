@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.utils.corrections &mdash; RadTraq 0.post1+g764607b documentation</title>
+  <title>radtraq.utils.corrections &mdash; RadTraq 0.post1+g5fa814a documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g764607b
+                0.post1+g5fa814a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -83,7 +83,7 @@
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 
-<span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="k">import</span> <span class="n">get_height_variable_name</span>
+<span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="kn">import</span> <span class="n">get_height_variable_name</span>
 
 
 <div class="viewcode-block" id="range_correction"><a class="viewcode-back" href="../../../API/generated/radtraq.utils.range_correction.html#radtraq.utils.range_correction">[docs]</a><span class="k">def</span> <span class="nf">range_correction</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">height_variable</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -117,7 +117,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">height_units</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">height_variable</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Height variable &#39;</span><span class="si">{height_variable}</span><span class="s2"> does not have units attribute. &quot;</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Height variable &#39;</span><span class="si">{</span><span class="n">height_variable</span><span class="si">}</span><span class="s2"> does not have units attribute. &quot;</span>
                       <span class="s2">&quot;Assuming units are meters.&quot;</span><span class="p">)</span>
         <span class="n">height_units</span> <span class="o">=</span> <span class="s1">&#39;m&#39;</span>
 

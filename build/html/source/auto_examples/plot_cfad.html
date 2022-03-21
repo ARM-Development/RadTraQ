@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example on how to calculate and plot cfad &mdash; RadTraq 0.post1+g764607b documentation</title>
+  <title>Example on how to calculate and plot cfad &mdash; RadTraq 0.post1+g5fa814a documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -38,7 +38,7 @@
             <a href="../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g764607b
+                0.post1+g5fa814a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -55,6 +55,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_dual_doppler_lobes.html">Dual Doppler Lobe Utility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_cloud_mask.html">Example on how to calculate and plot cloud masks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_self_consistency.html">Self-Consistency Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_mask_vpt.html">Example on how to calculate and plot average profiles</a></li>
 </ul>
 </li>
@@ -97,7 +98,7 @@ to download the full example code</p>
 <span id="sphx-glr-source-auto-examples-plot-cfad-py"></span><h1>Example on how to calculate and plot cfad<a class="headerlink" href="#example-on-how-to-calculate-and-plot-cfad" title="Permalink to this headline"></a></h1>
 <p>This example shows how to calculate and plot a cfad</p>
 <img src="../../_images/sphx_glr_plot_cfad_001.png" srcset="../../_images/sphx_glr_plot_cfad_001.png" alt="plot cfad" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">radtraq</span>
-<span class="kn">from</span> <span class="nn">act.io.armfiles</span> <span class="k">import</span> <span class="n">read_netcdf</span>
+<span class="kn">from</span> <span class="nn">act.io.armfiles</span> <span class="kn">import</span> <span class="n">read_netcdf</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Read in example data</span>
@@ -109,10 +110,10 @@ to download the full example code</p>
 <span class="c1"># Plot CFAD histogram</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dims</span></a> <span class="o">=</span> <span class="n">data_array</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dims</span></a>
 <span class="n">display</span> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">cfad</span><span class="o">.</span><span class="n">plot_cfad</span><span class="p">(</span><span class="n">data_array</span><span class="p">,</span> <span class="n">data_array</span><span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dims</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">data_array</span><span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dims</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.943 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.008 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-cfad-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ba743c325059d26943adc184e85fc1d1/plot_cfad.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_cfad.py</span></code></a></p>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.plotting.corner_reflector &mdash; RadTraq 0.post1+g764607b documentation</title>
+  <title>radtraq.plotting.corner_reflector &mdash; RadTraq 0.post1+g5fa814a documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g764607b
+                0.post1+g5fa814a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -80,7 +80,7 @@
   <h1>Source code for radtraq.plotting.corner_reflector</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">griddata</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 
@@ -294,10 +294,10 @@
                 <span class="n">el_units</span> <span class="o">=</span> <span class="s1">&#39;degree&#39;</span>
 
             <span class="k">if</span> <span class="n">axislabels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">axislabels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;Azimuth (</span><span class="si">{az_units}</span><span class="s2">)&quot;</span>
+                <span class="n">axislabels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Azimuth (</span><span class="si">{</span><span class="n">az_units</span><span class="si">}</span><span class="s2">)&quot;</span>
 
             <span class="k">if</span> <span class="n">axislabels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">axislabels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;Elevation (</span><span class="si">{el_units}</span><span class="s2">)&quot;</span>
+                <span class="n">axislabels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Elevation (</span><span class="si">{</span><span class="n">el_units</span><span class="si">}</span><span class="s2">)&quot;</span>
 
             <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">axislabels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">axislabels</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
