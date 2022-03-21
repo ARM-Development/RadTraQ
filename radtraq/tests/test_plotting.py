@@ -1,7 +1,9 @@
 from radtraq.tests.sample_files import EXAMPLE_KAZR
 from radtraq.tests.sample_files import EXAMPLE_RASTER
+from radtraq.tests.sample_files import EXAMPLE_CSAPR
 from radtraq.plotting.cfad import calc_cfad, plot_cfad
 from radtraq.plotting.corner_reflector import plot_cr_raster
+from radtraq.plotting.self_consistency import plot_self_consistency
 import pytest
 from act.io.armfiles import read_netcdf
 import numpy as np
@@ -38,6 +40,22 @@ def test_corner_reflector():
     return fig
 
 
+@pytest.mark.mpl_image_compare(tolerance=10)
+def test_self_consistency():
+    obj = read_netcdf(EXAMPLE_CSAPR)
+    thresh = {'copol_correlation_coeff': 0.99}
+    # Set up dictionary of variables to plot
+    var_dict = {'differential_reflectivity': {'variable': 'reflectivity', 'bin_width': [1, 0.25], 'linreg': True},
+                'specific_differential_phase': {'variable': 'reflectivity'},
+                'differential_phase': {'variable': 'reflectivity', 'bin_width': [1, 2.0]},
+                'mean_doppler_velocity': {'variable': 'reflectivity', 'bin_width': [1, 0.5]}}
+
+    plot_self_consistency(obj, variables=var_dict, thresh=thresh)
+    fig = plt.gcf()
+    return fig
+
+
 if __name__ == '__main__':
     test_plotting()
     test_corner_reflector()
+    test_self_consistency()

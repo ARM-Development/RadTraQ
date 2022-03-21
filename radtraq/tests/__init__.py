@@ -12,6 +12,8 @@ This module contains sample files used for testing RadTraQ
 
     EXAMPLE_KAZR
     EXAMPLE_RASTER
+    EXAMPLE_RHI
+    EXAMPLE_XSAPR
 """
 
-from .sample_files import (EXAMPLE_KAZR, EXAMPLE_RASTER, EXAMPLE_PPI)
+from .sample_files import (EXAMPLE_KAZR, EXAMPLE_RASTER, EXAMPLE_PPI, EXAMPLE_RHI, EXAMPLE_XSAPR)
