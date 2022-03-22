@@ -509,3 +509,35 @@ def extract_rhi_profile(obj, append_obj=None, variables=None,
             append_obj = obj
 
     return append_obj
+
+
+def calc_zdr_offset(obj, zdr_var=None, thresh=None):
+    """
+    Function for extracting vertical profile over a location from a RHI scan
+
+    Parameters
+    ----------
+    obj : Xarray.Dataset
+        Xarray object with radar data
+
+    Returns
+    -------
+    obj : Xarray.Dataset or None
+        Xarray Dataset with profile extracted and new coordinate variable height added
+        or if unable to find profile returns None.
+
+    """
+    height_var = get_height_variable_name(obj, variable=zdr_var)
+    new = obj
+    for k in thresh:
+        new = new.where(obj[k] >= thresh[k][0])
+        new = new.where(obj[k] <= thresh[k][1])
+    bias = np.nanmean(new[zdr_var].values)
+
+    results = {'bias': bias, 'profile_zdr': new[zdr_var].mean(dim='time').values,
+               'range': new[height_var].values}
+    for k in thresh:
+        if k != height_var:
+            results['profile_' + k] = new[k].mean(dim='time').values
+
+    return results

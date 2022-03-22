@@ -13,6 +13,7 @@ This module contains procedures for creating a cloud mask.
     calc_avg_profile
     calc_cloud_mask
     calc_noise_floor
+    calc_zdr_offset
     extract_profile
     extract_profile_at_lat_lon
 
@@ -23,3 +24,4 @@ from .noise import calc_noise_floor
 from .profile import calc_avg_profile
 from .profile import extract_profile
 from .profile import extract_profile_at_lat_lon
+from .profile import calc_zdr_offset
