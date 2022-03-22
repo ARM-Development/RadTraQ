@@ -73,3 +73,11 @@ def test_extract_rhi_profile():
     extracted_obj = radtraq.proc.profile.extract_rhi_profile(obj, extracted_obj,
                                                              variables='reflectivity')
     assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -402880.38)
+
+
+def test_calc_zdr_offset():
+    obj = act.io.armfiles.read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
+    thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
+    results = radtraq.proc.calc_zdr_offset(obj, zdr_var='differential_reflectivity', thresh=thresh)
+    np.testing.assert_almost_equal(results['bias'], 2.69, decimal=2)
+    np.testing.assert_almost_equal(results['profile_reflectivity'][15], 14.37, decimal=2)
