@@ -118,6 +118,27 @@ Different examples on how to use RadTraq
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate the zdr bias from VPT/Birdbath scans">
+
+.. only:: html
+
+ .. figure:: /source/auto_examples/images/thumb/sphx_glr_plot_zdr_check_thumb.png
+     :alt: ZDR Bias Calculation
+
+     :ref:`sphx_glr_source_auto_examples_plot_zdr_check.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /source/auto_examples/plot_zdr_check
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate and plot average profiles from masked data">
 
 .. only:: html

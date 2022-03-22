@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+g5fa814a documentation</title>
+  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+g3e00dc4 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g5fa814a
+                0.post1+g3e00dc4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -589,6 +589,38 @@
             <span class="n">append_obj</span> <span class="o">=</span> <span class="n">obj</span>
 
     <span class="k">return</span> <span class="n">append_obj</span>
+
+
+<div class="viewcode-block" id="calc_zdr_offset"><a class="viewcode-back" href="../../../API/generated/radtraq.proc.calc_zdr_offset.html#radtraq.proc.calc_zdr_offset">[docs]</a><span class="k">def</span> <span class="nf">calc_zdr_offset</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">zdr_var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function for extracting vertical profile over a location from a RHI scan</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj : Xarray.Dataset</span>
+<span class="sd">        Xarray object with radar data</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    obj : Xarray.Dataset or None</span>
+<span class="sd">        Xarray Dataset with profile extracted and new coordinate variable height added</span>
+<span class="sd">        or if unable to find profile returns None.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">height_var</span> <span class="o">=</span> <span class="n">get_height_variable_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">zdr_var</span><span class="p">)</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">thresh</span><span class="p">:</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thresh</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">bias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="n">zdr_var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bias&#39;</span><span class="p">:</span> <span class="n">bias</span><span class="p">,</span> <span class="s1">&#39;profile_zdr&#39;</span><span class="p">:</span> <span class="n">new</span><span class="p">[</span><span class="n">zdr_var</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+               <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="n">new</span><span class="p">[</span><span class="n">height_var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">thresh</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">height_var</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;profile_&#39;</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="k">return</span> <span class="n">results</span></div>
 </pre></div>
 
            </div>

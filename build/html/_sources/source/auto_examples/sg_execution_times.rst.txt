@@ -5,18 +5,20 @@
 
 Computation times
 =================
-**00:03.953** total execution time for **source_auto_examples** files:
+**00:04.519** total execution time for **source_auto_examples** files:
 
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``plot_cfad.py``)                                       | 00:01.008 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``plot_cfad.py``)                                       | 00:01.069 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_self_consistency.py` (``plot_self_consistency.py``)               | 00:00.998 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_self_consistency.py` (``plot_self_consistency.py``)               | 00:00.975 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py` (``plot_cloud_mask.py``)                           | 00:00.722 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py` (``plot_cloud_mask.py``)                           | 00:00.735 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py` (``plot_mask_vpt.py``)                               | 00:00.708 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py` (``plot_mask_vpt.py``)                               | 00:00.696 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py` (``plot_corner_reflector_raster.py``) | 00:00.448 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_zdr_check.py` (``plot_zdr_check.py``)                             | 00:00.491 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py` (``plot_dual_doppler_lobes.py``)           | 00:00.069 | 0.0 MB |
+| :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py` (``plot_corner_reflector_raster.py``) | 00:00.479 | 0.0 MB |
++------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py` (``plot_dual_doppler_lobes.py``)           | 00:00.074 | 0.0 MB |
 +------------------------------------------------------------------------------------------------------------+-----------+--------+
