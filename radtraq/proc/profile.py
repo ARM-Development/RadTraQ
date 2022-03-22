@@ -519,6 +519,11 @@ def calc_zdr_offset(obj, zdr_var=None, thresh=None):
     ----------
     obj : Xarray.Dataset
         Xarray object with radar data
+    zdr_var : string
+        Variable name for differential reflectivity
+    thresh : dict
+        Disctionary of variables and values following the form of
+        thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
 
     Returns
     -------
