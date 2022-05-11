@@ -1,4 +1,4 @@
-Radar Tracking and Quality (RadTraQ) Documentation
+Radar Tracking of Quality (RadTraQ) Documentation
 ==================================================
 
 .. toctree::
@@ -12,7 +12,7 @@ Radar Tracking and Quality (RadTraQ) Documentation
    GitHub Issue Tracker <https://github.com/AdamTheisen/RadTraQ/issues>
 
 
-Radar Tracking and Quality Toolkit (RadTraQ)
+Radar Tracking of Quality Toolkit (RadTraQ)
 ============================================
 RadTraQ is a python library housing routines related to assessing and monitoring the quality of a radar's quality and calibration. This library is a work in progress, currently housing scipts to plot radar CFADs, plot and analyze corner reflector scans, calculate noise floors, create cloud masks, and plot up average profiles for comparisons.
 
