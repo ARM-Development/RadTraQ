@@ -6,6 +6,7 @@ Radar Tracking of Quality (RadTraQ) Documentation
    :hidden:
    :caption: Documentation
 
+   installation.rst
    source/auto_examples/index.rst
    API/index.rst
    Github Repository <https://github.com/ARM-Development/RadTraQ>
