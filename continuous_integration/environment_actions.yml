@@ -13,3 +13,8 @@ dependencies:
   - act-atmos
   - pint
   - flake8
+  - pytest
+  - pytest-cov
+  - pytest-mpl
+  - coveralls
+  - pip
