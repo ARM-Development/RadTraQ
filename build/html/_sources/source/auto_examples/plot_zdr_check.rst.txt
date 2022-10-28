@@ -35,8 +35,6 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     Zdr Bias: 2.69
@@ -76,28 +74,23 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.485 seconds)
+   **Total running time of the script:** ( 0 minutes  0.463 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_zdr_check.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_zdr_check.py <plot_zdr_check.py>`
 
-     :download:`Download Python source code: plot_zdr_check.py <plot_zdr_check.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_zdr_check.ipynb <plot_zdr_check.ipynb>`
+      :download:`Download Jupyter notebook: plot_zdr_check.ipynb <plot_zdr_check.ipynb>`
 
 
 .. only:: html

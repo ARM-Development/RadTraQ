@@ -62,28 +62,23 @@ This example shows how to create a self-consistency plot
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.969 seconds)
+   **Total running time of the script:** ( 0 minutes  0.899 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_self_consistency.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_self_consistency.py <plot_self_consistency.py>`
 
-     :download:`Download Python source code: plot_self_consistency.py <plot_self_consistency.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_self_consistency.ipynb <plot_self_consistency.ipynb>`
+      :download:`Download Jupyter notebook: plot_self_consistency.ipynb <plot_self_consistency.ipynb>`
 
 
 .. only:: html

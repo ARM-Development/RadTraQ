@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.plotting.plot_cr_raster &mdash; RadTraq 0.post1+g4a47f69 documentation</title>
+  <title>radtraq.plotting.plot_cr_raster &mdash; RadTraq 0.post1+gf0799b2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -20,7 +20,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -38,7 +40,7 @@
             <a href="../../index.html" class="icon icon-home"> RadTraq
           </a>
               <div class="version">
-                0.post1+g4a47f69
+                0.post1+gf0799b2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -57,7 +59,10 @@
 <li class="toctree-l3"><a class="reference internal" href="radtraq.plotting.calc_cfad.html">radtraq.plotting.calc_cfad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="radtraq.plotting.plot_cfad.html">radtraq.plotting.plot_cfad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="radtraq.plotting.plot_avg_profile.html">radtraq.plotting.plot_avg_profile</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">radtraq.plotting.plot_cr_raster</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">radtraq.plotting.plot_cr_raster</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#radtraq.plotting.plot_cr_raster"><code class="docutils literal notranslate"><span class="pre">plot_cr_raster()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="radtraq.plotting.plot_self_consistency.html">radtraq.plotting.plot_self_consistency</a></li>
 </ul>
 </li>
@@ -96,7 +101,7 @@
            <div itemprop="articleBody">
              
   <section id="radtraq-plotting-plot-cr-raster">
-<h1>radtraq.plotting.plot_cr_raster<a class="headerlink" href="#radtraq-plotting-plot-cr-raster" title="Permalink to this headline"></a></h1>
+<h1>radtraq.plotting.plot_cr_raster<a class="headerlink" href="#radtraq-plotting-plot-cr-raster" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="radtraq.plotting.plot_cr_raster">
 <span class="sig-prename descclassname"><span class="pre">radtraq.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_cr_raster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reflectivity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">az_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">el_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axislabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['Azimuth</span> <span class="pre">(degree)',</span> <span class="pre">'Elevation</span> <span class="pre">(degree)']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axislabels_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertical'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">az_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azimuth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">el_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elevation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'range'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/plotting/corner_reflector.html#plot_cr_raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.plotting.plot_cr_raster" title="Permalink to this definition"></a></dt>
