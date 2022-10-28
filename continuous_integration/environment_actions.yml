@@ -12,3 +12,4 @@ dependencies:
   - netcdf4
   - act-atmos
   - pint
+  - flake8
