@@ -1,0 +1,14 @@
+# Basic environment for ACT.
+name: radtraq_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - xarray
+  - matplotlib
+  - cython
+  - netcdf4
+  - act-atmos
+  - pint
