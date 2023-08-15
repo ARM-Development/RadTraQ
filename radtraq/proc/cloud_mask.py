@@ -78,8 +78,12 @@ def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
 
     # Convert masks from numpy arrays to dask arrays, matching the chunksize
     # of data in Xarray dataset.
-    mask1 = dask.array.from_array(mask1, chunks=obj[variable].data.chunksize)
-    mask2 = dask.array.from_array(mask2, chunks=obj[variable].data.chunksize)
+    try:
+        mask1 = dask.array.from_array(mask1, chunks=obj[variable].data.chunksize)
+        mask2 = dask.array.from_array(mask2, chunks=obj[variable].data.chunksize)
+    except:
+        mask1 = dask.array.from_array(mask1)
+        mask2 = dask.array.from_array(mask2)
 
     # Add masks to dataset
     coords = obj[variable].coords
