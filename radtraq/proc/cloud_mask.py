@@ -81,7 +81,7 @@ def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
     try:
         mask1 = dask.array.from_array(mask1, chunks=obj[variable].data.chunksize)
         mask2 = dask.array.from_array(mask2, chunks=obj[variable].data.chunksize)
-    except:
+    except Exception:
         mask1 = dask.array.from_array(mask1)
         mask2 = dask.array.from_array(mask2)
 
