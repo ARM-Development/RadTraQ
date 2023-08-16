@@ -17,7 +17,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'RadTraq'
-copyright = '2020, Adam Theisen'
+copyright = '2020, Argonne National Laboratory'
 author = 'Adam Theisen'
 
 # -- General configuration ---------------------------------------------------
