@@ -26,8 +26,8 @@ jobs:
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           sudo apt-get update
-          pip3 install -r requirements.txt
           pip3 install --upgrade pip
+          pip3 install -r requirements.txt
           pip3 install wheel
           pip3 install setuptools
           pip3 install --upgrade cython numpy pyshp six
@@ -44,9 +44,9 @@ jobs:
           cd docs
           make html
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@4.4.3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
