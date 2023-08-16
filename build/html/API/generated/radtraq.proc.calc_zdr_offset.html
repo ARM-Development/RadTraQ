@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.calc_zdr_offset &mdash; RadTraq 0.post1+g1c5fe94 documentation</title>
+  <title>radtraq.proc.calc_zdr_offset &mdash; RadTraq 0.post1+g7c90dcd documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -17,10 +17,9 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
@@ -37,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> RadTraq
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            RadTraq
           </a>
               <div class="version">
-                0.post1+g1c5fe94
+                0.post1+g7c90dcd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -89,10 +92,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">API Reference</a> &raquo;</li>
-          <li><a href="../proc.html">radtraq.proc</a> &raquo;</li>
-      <li>radtraq.proc.calc_zdr_offset</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../proc.html">radtraq.proc</a></li>
+      <li class="breadcrumb-item active">radtraq.proc.calc_zdr_offset</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/API/generated/radtraq.proc.calc_zdr_offset.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,7 +112,7 @@
 <span class="sig-prename descclassname"><span class="pre">radtraq.proc.</span></span><span class="sig-name descname"><span class="pre">calc_zdr_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zdr_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/radtraq/proc/profile.html#calc_zdr_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#radtraq.proc.calc_zdr_offset" title="Permalink to this definition"></a></dt>
 <dd><p>Function for extracting vertical profile over a location from a RHI scan</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> (<em>Xarray.Dataset</em>) – Xarray object with radar data</p></li>
 <li><p><strong>zdr_var</strong> (<em>string</em>) – Variable name for differential reflectivity</p></li>
@@ -117,11 +120,11 @@
 thresh = {‘cross_correlation_ratio_hv’: [0.995, 1], ‘reflectivity’: [10, 30], ‘range’: [1000, 3000]}</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>obj</strong> – Xarray Dataset with profile extracted and new coordinate variable height added
 or if unable to find profile returns None.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Xarray.Dataset or None</p>
 </dd>
 </dl>
@@ -140,7 +143,7 @@ or if unable to find profile returns None.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Adam Theisen.</p>
+    <p>&#169; Copyright 2020, Argonne National Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

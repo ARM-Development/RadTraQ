@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_source_auto_examples_plot_zdr_check.py>`
+        :ref:`Go to the end <sphx_glr_download_source_auto_examples_plot_zdr_check.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -54,10 +54,10 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
     import matplotlib.pyplot as plt
 
     # Read in example data
-    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
+    ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
     thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
     # Call RadTraQ function
-    results = radtraq.proc.calc_zdr_offset(obj, zdr_var='differential_reflectivity', thresh=thresh)
+    results = radtraq.proc.calc_zdr_offset(ds, zdr_var='differential_reflectivity', thresh=thresh)
 
     print('Zdr Bias: ' + '%.2f' % results['bias'])
 
@@ -74,7 +74,7 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.608 seconds)
+   **Total running time of the script:** ( 0 minutes  0.487 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_zdr_check.py:
@@ -82,6 +82,8 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

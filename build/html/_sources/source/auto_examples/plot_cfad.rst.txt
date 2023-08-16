@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_source_auto_examples_plot_cfad.py>`
+        :ref:`Go to the end <sphx_glr_download_source_auto_examples_plot_cfad.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -44,10 +44,10 @@ This example shows how to calculate and plot a cfad
     import matplotlib.pyplot as plt
 
     # Read in example data
-    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+    ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
     # Calculate CFAD histogram
-    data_array = radtraq.plotting.cfad.calc_cfad(obj, 'reflectivity_copol')
+    data_array = radtraq.plotting.cfad.calc_cfad(ds, 'reflectivity_copol')
 
     # Plot CFAD histogram
     dims = data_array.dims
@@ -57,7 +57,7 @@ This example shows how to calculate and plot a cfad
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.294 seconds)
+   **Total running time of the script:** ( 0 minutes  1.047 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cfad.py:
@@ -65,6 +65,8 @@ This example shows how to calculate and plot a cfad
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

@@ -11,10 +11,10 @@ from act.io.armfiles import read_netcdf
 import matplotlib.pyplot as plt
 
 # Read in example data
-obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
+ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
 thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
 # Call RadTraQ function
-results = radtraq.proc.calc_zdr_offset(obj, zdr_var='differential_reflectivity', thresh=thresh)
+results = radtraq.proc.calc_zdr_offset(ds, zdr_var='differential_reflectivity', thresh=thresh)
 
 print('Zdr Bias: ' + '%.2f' % results['bias'])
 

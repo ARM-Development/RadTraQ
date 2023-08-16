@@ -11,10 +11,10 @@ from act.io.armfiles import read_netcdf
 import matplotlib.pyplot as plt
 
 # Read in example data
-obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 # Calculate CFAD histogram
-data_array = radtraq.plotting.cfad.calc_cfad(obj, 'reflectivity_copol')
+data_array = radtraq.plotting.cfad.calc_cfad(ds, 'reflectivity_copol')
 
 # Plot CFAD histogram
 dims = data_array.dims

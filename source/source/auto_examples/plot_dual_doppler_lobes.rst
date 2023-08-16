@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_source_auto_examples_plot_dual_doppler_lobes.py>`
+        :ref:`Go to the end <sphx_glr_download_source_auto_examples_plot_dual_doppler_lobes.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -70,7 +70,7 @@ code-block:: python
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.092 seconds)
+   **Total running time of the script:** ( 0 minutes  0.074 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_dual_doppler_lobes.py:
@@ -78,6 +78,8 @@ code-block:: python
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

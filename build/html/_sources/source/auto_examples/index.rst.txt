@@ -19,7 +19,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_corner_reflector_raster_thumb.png
-    :alt: Example on how to plot out a corner reflector raster
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py`
 
@@ -36,7 +36,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_cfad_thumb.png
-    :alt: Example on how to calculate and plot cfad
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_cfad.py`
 
@@ -53,7 +53,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_dual_doppler_lobes_thumb.png
-    :alt: Dual Doppler Lobe Utility
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py`
 
@@ -70,7 +70,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_cloud_mask_thumb.png
-    :alt: Example on how to calculate and plot cloud masks
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py`
 
@@ -87,7 +87,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_self_consistency_thumb.png
-    :alt: Self-Consistency Plot
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_self_consistency.py`
 
@@ -104,7 +104,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_zdr_check_thumb.png
-    :alt: ZDR Bias Calculation
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_zdr_check.py`
 
@@ -121,7 +121,7 @@ Different examples on how to use RadTraq
 .. only:: html
 
   .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_mask_vpt_thumb.png
-    :alt: Example on how to calculate and plot average profiles
+    :alt:
 
   :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py`
 

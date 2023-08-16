@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Self-Consistency Plot &mdash; RadTraq 0.post1+g1c5fe94 documentation</title>
+  <title>Self-Consistency Plot &mdash; RadTraq 0.post1+g7c90dcd documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -17,10 +17,9 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
@@ -37,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> RadTraq
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            RadTraq
           </a>
               <div class="version">
-                0.post1+g1c5fe94
+                0.post1+g7c90dcd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -81,9 +84,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">RadTraq Example Gallery</a> &raquo;</li>
-      <li>Self-Consistency Plot</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">RadTraq Example Gallery</a></li>
+      <li class="breadcrumb-item active">Self-Consistency Plot</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/source/auto_examples/plot_self_consistency.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,7 +98,7 @@
              
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-source-auto-examples-plot-self-consistency-py"><span class="std std-ref">here</span></a>
+<p><a class="reference internal" href="#sphx-glr-download-source-auto-examples-plot-self-consistency-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="self-consistency-plot">
@@ -106,7 +109,7 @@ to download the full example code</p>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Read in example data</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radtraq</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">sample_files</span><span class="o">.</span><span class="n">EXAMPLE_CSAPR</span></a><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radtraq</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">sample_files</span><span class="o">.</span><span class="n">EXAMPLE_CSAPR</span></a><span class="p">)</span>
 
 <span class="c1"># Set thresholds of RhoHv &gt; 0.99</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;copol_correlation_coeff&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">}</span>
@@ -118,11 +121,11 @@ to download the full example code</p>
             <span class="s1">&#39;mean_doppler_velocity&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_width&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]}}</span>
 
 <span class="c1"># Call RadTraQ function</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span></a> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_self_consistency</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">var_dict</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span></a> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_self_consistency</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">var_dict</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a><span class="p">)</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.135 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.006 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-self-consistency-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/c33baaf2f9d9dd83c493b92f76565b37/plot_self_consistency.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_self_consistency.py</span></code></a></p>
@@ -145,7 +148,7 @@ to download the full example code</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Adam Theisen.</p>
+    <p>&#169; Copyright 2020, Argonne National Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

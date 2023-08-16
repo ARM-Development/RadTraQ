@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_source_auto_examples_plot_self_consistency.py>`
+        :ref:`Go to the end <sphx_glr_download_source_auto_examples_plot_self_consistency.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -44,7 +44,7 @@ This example shows how to create a self-consistency plot
     import matplotlib.pyplot as plt
 
     # Read in example data
-    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_CSAPR)
+    ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_CSAPR)
 
     # Set thresholds of RhoHv > 0.99
     thresh = {'copol_correlation_coeff': 0.99}
@@ -56,13 +56,13 @@ This example shows how to create a self-consistency plot
                 'mean_doppler_velocity': {'variable': 'reflectivity', 'bin_width': [1, 0.5]}}
 
     # Call RadTraQ function
-    display = radtraq.plotting.plot_self_consistency(obj, variables=var_dict, thresh=thresh)
+    display = radtraq.plotting.plot_self_consistency(ds, variables=var_dict, thresh=thresh)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.135 seconds)
+   **Total running time of the script:** ( 0 minutes  1.006 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_self_consistency.py:
@@ -70,6 +70,8 @@ This example shows how to create a self-consistency plot
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python
