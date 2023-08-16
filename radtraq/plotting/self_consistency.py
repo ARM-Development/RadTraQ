@@ -48,7 +48,7 @@ def plot_self_consistency(obj, variables=None, thresh=None):
     new_obj = new_obj.dropna(dim='z')
     if thresh is not None:
         for k in thresh:
-            new_obj = new_obj.where(new_obj[k] > thresh[k], drop=True)
+            new_obj = new_obj.where(new_obj[k].compute() > thresh[k], drop=True)
 
     # Set up plots
     n_plots = len(variables.keys())
