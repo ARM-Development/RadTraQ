@@ -240,7 +240,9 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
 
     if azimuth_range is None:
         azimuth_range = np.floor(np.abs(np.diff(obj[azimuth_name].values)))
-        azimuth_range = stats.mode(azimuth_range).mode[0]
+        azimuth_range = stats.mode(azimuth_range).mode
+        if isinstance(azimuth_range, list):
+            azimuth_range = azimuth_range[0]
 
     ground_dist = ground_dist * unit_registry.parse_expression(ground_range_units)
     ground_dist = ground_dist.to(obj[range_name].attrs['units']).magnitude
