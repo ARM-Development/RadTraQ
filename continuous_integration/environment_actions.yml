@@ -1,4 +1,4 @@
-# Basic environment for ACT.
+# Basic environment for RadTraQ.
 name: radtraq_env
 channels:
   - conda-forge
