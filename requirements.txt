@@ -1,9 +1,10 @@
 # List required packages in this file, one per line
+pandas<2.0
+act-atmos
 numpy
 scipy
 xarray
 matplotlib
 cython
 netcdf4
-act-atmos
 pint
