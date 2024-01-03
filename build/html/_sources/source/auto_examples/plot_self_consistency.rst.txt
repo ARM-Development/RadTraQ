@@ -73,7 +73,7 @@ This example shows how to create a self-consistency plot
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.738 seconds)
+   **Total running time of the script:** (0 minutes 0.742 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_self_consistency.py:
