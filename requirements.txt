@@ -1,5 +1,5 @@
 # List required packages in this file, one per line
-pandas<2.0
+pandas
 act-atmos
 numpy
 scipy
