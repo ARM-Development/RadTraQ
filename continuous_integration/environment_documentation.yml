@@ -1,0 +1,25 @@
+# documentation environment for RadTraQ.
+name: radtraq_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - act-atmos
+  - ipython
+  - numpy
+  - scipy
+  - xarray
+  - matplotlib
+  - netcdf4
+  - pint
+  - flake8
+  - pytest
+  - pytest-cov
+  - pytest-mpl
+  - coveralls
+  - pip
+  - sphinx
+  - sphinx-copybutton
+  - sphinx-gallery
+  - sphinx-rtd-theme
+  - urllib3
