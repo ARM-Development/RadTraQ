@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.utils.utils &mdash; RadTraq 0.post1+g7c90dcd documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>radtraq.utils.utils &mdash; RadTraq 0.post1+gc74b06e documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
-        <script src="../../../_static/clipboard.min.js"></script>
-        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=0449d4fe"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -40,7 +42,7 @@
             RadTraq
           </a>
               <div class="version">
-                0.post1+g7c90dcd
+                0.post1+gc74b06e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -89,7 +91,9 @@
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 
 
-<div class="viewcode-block" id="calc_ground_range_and_height"><a class="viewcode-back" href="../../../API/generated/radtraq.utils.calc_ground_range_and_height.html#radtraq.utils.calc_ground_range_and_height">[docs]</a><span class="k">def</span> <span class="nf">calc_ground_range_and_height</span><span class="p">(</span><span class="n">slant_range</span><span class="p">,</span> <span class="n">elevation</span><span class="p">):</span>
+<div class="viewcode-block" id="calc_ground_range_and_height">
+<a class="viewcode-back" href="../../../API/generated/radtraq.utils.calc_ground_range_and_height.html#radtraq.utils.calc_ground_range_and_height">[docs]</a>
+<span class="k">def</span> <span class="nf">calc_ground_range_and_height</span><span class="p">(</span><span class="n">slant_range</span><span class="p">,</span> <span class="n">elevation</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for calculating height and ground range from a slant range path</span>
 
@@ -148,7 +152,10 @@
     <span class="k">return</span> <span class="n">return_dataset</span></div>
 
 
-<div class="viewcode-block" id="calculate_azimuth_distance_from_lat_lon"><a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html#radtraq.utils.calculate_azimuth_distance_from_lat_lon">[docs]</a><span class="k">def</span> <span class="nf">calculate_azimuth_distance_from_lat_lon</span><span class="p">(</span><span class="n">curr_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">curr_lon</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+
+<div class="viewcode-block" id="calculate_azimuth_distance_from_lat_lon">
+<a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html#radtraq.utils.calculate_azimuth_distance_from_lat_lon">[docs]</a>
+<span class="k">def</span> <span class="nf">calculate_azimuth_distance_from_lat_lon</span><span class="p">(</span><span class="n">curr_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">curr_lon</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                             <span class="n">target_lon</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns dictionary of distance and direction between two pairs of lat/lon values.</span>
@@ -203,7 +210,10 @@
     <span class="k">return</span> <span class="n">doc</span></div>
 
 
-<div class="viewcode-block" id="calculate_dual_dop_lobes"><a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_dual_dop_lobes.html#radtraq.utils.calculate_dual_dop_lobes">[docs]</a><span class="k">def</span> <span class="nf">calculate_dual_dop_lobes</span><span class="p">(</span><span class="n">coord_dict</span><span class="p">,</span> <span class="n">min_crossing_angle</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+
+<div class="viewcode-block" id="calculate_dual_dop_lobes">
+<a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_dual_dop_lobes.html#radtraq.utils.calculate_dual_dop_lobes">[docs]</a>
+<span class="k">def</span> <span class="nf">calculate_dual_dop_lobes</span><span class="p">(</span><span class="n">coord_dict</span><span class="p">,</span> <span class="n">min_crossing_angle</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns lat/lon of each dual dop lobe at 1 deg resolution</span>
 
@@ -264,6 +274,7 @@
             <span class="n">ct</span> <span class="o">+=</span> <span class="mi">2</span>
 
     <span class="k">return</span> <span class="n">data</span></div>
+
 </pre></div>
 
            </div>

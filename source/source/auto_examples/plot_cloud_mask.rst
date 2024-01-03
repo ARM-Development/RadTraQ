@@ -33,10 +33,21 @@ This example shows how to calculate a cloud mask and plot data
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_cloud_mask.py:15: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+      ds = act.io.armfiles.read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 
 
-.. code-block:: default
+
+
+
+|
+
+.. code-block:: Python
 
 
 
@@ -65,7 +76,7 @@ This example shows how to calculate a cloud mask and plot data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.599 seconds)
+   **Total running time of the script:** (0 minutes 0.610 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cloud_mask.py:
@@ -74,16 +85,13 @@ This example shows how to calculate a cloud mask and plot data
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_cloud_mask.ipynb <plot_cloud_mask.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_cloud_mask.py <plot_cloud_mask.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_cloud_mask.ipynb <plot_cloud_mask.ipynb>`
 
 
 .. only:: html

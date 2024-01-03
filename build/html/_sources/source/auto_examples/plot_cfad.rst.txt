@@ -33,10 +33,21 @@ This example shows how to calculate and plot a cfad
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_cfad.py:14: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+      ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 
 
-.. code-block:: default
+
+
+
+|
+
+.. code-block:: Python
 
 
     import radtraq
@@ -57,7 +68,7 @@ This example shows how to calculate and plot a cfad
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.047 seconds)
+   **Total running time of the script:** (0 minutes 0.828 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cfad.py:
@@ -66,16 +77,13 @@ This example shows how to calculate and plot a cfad
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_cfad.ipynb <plot_cfad.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_cfad.py <plot_cfad.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_cfad.ipynb <plot_cfad.ipynb>`
 
 
 .. only:: html

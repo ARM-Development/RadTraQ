@@ -34,10 +34,21 @@ from masked data
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_mask_vpt.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+      obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 
 
-.. code-block:: default
+
+
+
+|
+
+.. code-block:: Python
 
 
 
@@ -85,7 +96,7 @@ from masked data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.730 seconds)
+   **Total running time of the script:** (0 minutes 0.627 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_mask_vpt.py:
@@ -94,16 +105,13 @@ from masked data
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_mask_vpt.ipynb <plot_mask_vpt.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_mask_vpt.py <plot_mask_vpt.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_mask_vpt.ipynb <plot_mask_vpt.ipynb>`
 
 
 .. only:: html

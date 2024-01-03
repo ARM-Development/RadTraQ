@@ -45,7 +45,7 @@ code-block:: python
 
 
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -70,7 +70,7 @@ code-block:: python
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.074 seconds)
+   **Total running time of the script:** (0 minutes 0.068 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_dual_doppler_lobes.py:
@@ -79,16 +79,13 @@ code-block:: python
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_dual_doppler_lobes.ipynb <plot_dual_doppler_lobes.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_dual_doppler_lobes.py <plot_dual_doppler_lobes.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_dual_doppler_lobes.ipynb <plot_dual_doppler_lobes.ipynb>`
 
 
 .. only:: html
