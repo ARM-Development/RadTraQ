@@ -353,9 +353,9 @@ def get_root() -> str:
     pyproject_toml = os.path.join(root, "pyproject.toml")
     versioneer_py = os.path.join(root, "versioneer.py")
     if not (
-        os.path.exists(setup_py)
-        or os.path.exists(pyproject_toml)
-        or os.path.exists(versioneer_py)
+        os.path.exists(setup_py) or
+        os.path.exists(pyproject_toml) or
+        os.path.exists(versioneer_py)
     ):
         # allow 'python path/to/setup.py COMMAND'
         root = os.path.dirname(os.path.realpath(os.path.abspath(sys.argv[0])))
@@ -363,9 +363,9 @@ def get_root() -> str:
         pyproject_toml = os.path.join(root, "pyproject.toml")
         versioneer_py = os.path.join(root, "versioneer.py")
     if not (
-        os.path.exists(setup_py)
-        or os.path.exists(pyproject_toml)
-        or os.path.exists(versioneer_py)
+        os.path.exists(setup_py) or
+        os.path.exists(pyproject_toml) or
+        os.path.exists(versioneer_py)
     ):
         err = ("Versioneer was unable to run the project root directory. "
                "Versioneer requires setup.py to be executed from "
