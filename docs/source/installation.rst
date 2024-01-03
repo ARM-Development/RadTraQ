@@ -25,9 +25,6 @@ __ http://www.scipy.org
 * Xarray__
 __ https://xarray.dev
 
-* Cython__
-__ https://cython.readthedocs.io/en/latest/
-
 * matplotlib__
 __ http://matplotlib.org/
 

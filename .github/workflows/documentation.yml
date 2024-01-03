@@ -28,7 +28,7 @@ jobs:
           pip3 install -r requirements.txt
           pip3 install wheel
           pip3 install setuptools
-          pip3 install --upgrade cython numpy pyshp six
+          pip3 install --upgrade numpy pyshp six
           pip3 install ipython
           pip3 install requests
           pip3 install urllib3

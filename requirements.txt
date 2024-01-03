@@ -5,6 +5,5 @@ numpy
 scipy
 xarray
 matplotlib
-cython
 netcdf4
 pint
