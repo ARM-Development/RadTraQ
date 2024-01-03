@@ -1,9 +1,10 @@
 name: Documentation
 
 on:
-  push:
-    branches:
-      - main
+    push:
+      branches: [ main ]
+    pull_request:
+      branches: [ main ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -12,36 +13,38 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        # Ensures environment gets sourced right
+        shell: bash -l {0}  
     strategy:
       matrix:
-        python-version: ["3.10"]
+        PYTHON_VERISON: ["3.10"]
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      # setup conda-forge with micromamba
+      - name: Setup Python
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-file: continuous_integration/environment_documentation.yml
+          create-args: >-
+            python=${{ matrix.PYTHON_VERISON }}
+          environment-name: docs
+          cache-environment: true
+
+      - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
-          sudo apt-get update
-          pip3 install --upgrade pip
-          pip3 install -r requirements.txt
-          pip3 install wheel
-          pip3 install setuptools
-          pip3 install --upgrade numpy pyshp six
-          pip3 install ipython
-          pip3 install requests
-          pip3 install urllib3
-          #sudo apt-get install python3-sphinx
-          pip3 install sphinx
-          pip3 install sphinx-rtd-theme
-          pip3 install sphinx-gallery
-          pip3 install sphinx-copybutton
-          #pip3 install pyproj
-          sudo python3 setup.py install
+          set -e
+          python -m pip install . --no-deps
           cd docs
           make html
+
       - name: Deploy 🚀
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
