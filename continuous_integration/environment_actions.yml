@@ -9,7 +9,6 @@ dependencies:
   - scipy
   - xarray
   - matplotlib
-  - cython
   - netcdf4
   - pint
   - flake8
