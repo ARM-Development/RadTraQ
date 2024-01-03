@@ -12,7 +12,7 @@ import act
 import matplotlib.pyplot as plt
 
 # Read in sample data using ACT
-ds = act.io.armfiles.read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+ds = act.io.arm.read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 # Resample data for ease of processing
 ds = ds.resample(time='1min').nearest()

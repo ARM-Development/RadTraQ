@@ -9,12 +9,12 @@ from masked data
 
 
 import radtraq
-from act.io.armfiles import read_netcdf
+from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
 import numpy as np
 
 # Read in Example KAZR File using ACT
-obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+obj = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 # Resample to 1-minute to simplify processing
 obj = obj.resample(time='1min').nearest()
