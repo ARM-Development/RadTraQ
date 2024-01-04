@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>radtraq.proc.profile &mdash; RadTraq 0.post1+g9d9f0be documentation</title>
+  <title>radtraq.proc.profile &mdash; RadTraq 0.0.post1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
@@ -20,7 +20,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c75c7b45"></script>
+        <script src="../../../_static/documentation_options.js?v=3469de9b"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -42,7 +42,7 @@
             RadTraq
           </a>
               <div class="version">
-                0.post1+g9d9f0be
+                0.0.post1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -92,25 +92,36 @@
 
 <span class="sd">Module for various processing of profiles</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pint</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">from</span> <span class="nn">act.utils.geo_utils</span> <span class="kn">import</span> <span class="n">destination_azimuth_distance</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 
 <span class="kn">from</span> <span class="nn">radtraq.proc.cloud_mask</span> <span class="kn">import</span> <span class="n">calc_cloud_mask</span>
 <span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="kn">import</span> <span class="n">get_height_variable_name</span>
-<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">calc_ground_range_and_height</span><span class="p">,</span>
-                                 <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">calc_ground_range_and_height</span><span class="p">,</span>
+    <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="calc_avg_profile">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.calc_avg_profile.html#radtraq.proc.calc_avg_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">calc_avg_profile</span><span class="p">(</span><span class="n">_obj</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask_variable</span><span class="o">=</span><span class="s1">&#39;cloud_mask_2&#39;</span><span class="p">,</span>
-                     <span class="n">mask_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask_meaning</span><span class="o">=</span><span class="s1">&#39;cloud&#39;</span><span class="p">,</span> <span class="n">first_height</span><span class="o">=</span><span class="mf">500.</span><span class="p">,</span>
-                     <span class="n">last_height</span><span class="o">=</span><span class="mf">15000.</span><span class="p">,</span> <span class="n">step_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-                     <span class="n">height_variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ygrid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">calc_avg_profile</span><span class="p">(</span>
+    <span class="n">_obj</span><span class="p">,</span>
+    <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">mask_variable</span><span class="o">=</span><span class="s1">&#39;cloud_mask_2&#39;</span><span class="p">,</span>
+    <span class="n">mask_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">mask_meaning</span><span class="o">=</span><span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+    <span class="n">first_height</span><span class="o">=</span><span class="mf">500.0</span><span class="p">,</span>
+    <span class="n">last_height</span><span class="o">=</span><span class="mf">15000.0</span><span class="p">,</span>
+    <span class="n">step_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height_variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ygrid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for calculating average profiles from data after</span>
 <span class="sd">    applying the cloud mask</span>
@@ -225,14 +236,21 @@
 
         <span class="c1"># Add data back to the object</span>
         <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">RuntimeWarning</span><span class="p">,</span>
-                                    <span class="n">message</span><span class="o">=</span><span class="s1">&#39;.*invalid value encountered in true_divide.*&#39;</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+                <span class="s1">&#39;ignore&#39;</span><span class="p">,</span>
+                <span class="n">category</span><span class="o">=</span><span class="ne">RuntimeWarning</span><span class="p">,</span>
+                <span class="n">message</span><span class="o">=</span><span class="s1">&#39;.*invalid value encountered in true_divide.*&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="n">prof_name</span> <span class="o">=</span> <span class="n">var</span> <span class="o">+</span> <span class="s1">&#39;_avg_prof&#39;</span>
             <span class="n">prof_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prof_name</span><span class="p">)</span>
             <span class="n">long_name</span> <span class="o">=</span> <span class="s1">&#39;Average profile of &#39;</span> <span class="o">+</span> <span class="n">var</span>
             <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="n">long_name</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]}</span>
-            <span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">prof</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="n">height_variable</span><span class="p">],</span>
-                              <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="n">obj</span><span class="p">[</span><span class="n">height_variable</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">],</span> <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="n">prof</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="n">height_variable</span><span class="p">],</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="n">obj</span><span class="p">[</span><span class="n">height_variable</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">],</span>
+                <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="n">obj</span><span class="p">[</span><span class="n">prof_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">da</span>
 
     <span class="n">obj</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;_prof_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prof_names</span>
@@ -270,10 +288,19 @@
 
 <div class="viewcode-block" id="extract_profile">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile.html#radtraq.proc.extract_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">extract_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">,</span> <span class="n">ground_dist</span><span class="p">,</span> <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                    <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
-                    <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">):</span>
-
+<span class="k">def</span> <span class="nf">extract_profile</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">,</span>
+    <span class="n">azimuth</span><span class="p">,</span>
+    <span class="n">ground_dist</span><span class="p">,</span>
+    <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
+    <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span>
+    <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
+    <span class="n">elevation_name</span><span class="o">=</span><span class="s1">&#39;elevation&#39;</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for extracting vertical profile over a location from a PPI scan</span>
 <span class="sd">    giving azimuth direction and ground range distance</span>
@@ -322,8 +349,10 @@
     <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">variables</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span>
-                    <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">range_name</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">range_name</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="p">):</span>
                 <span class="n">variables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var_name</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -352,8 +381,11 @@
     <span class="n">true_azimuth</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">for</span> <span class="n">sweep_number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_sweeps</span><span class="p">):</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;sweep_start_ray_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">sweep_number</span><span class="p">],</span>
-                          <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;sweep_end_ray_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">sweep_number</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+            <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;sweep_start_ray_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">sweep_number</span><span class="p">],</span>
+            <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;sweep_end_ray_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">sweep_number</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">azimuth_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">-</span> <span class="n">azimuth</span><span class="p">))</span>
         <span class="n">matched_azimuth</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">azimuth_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
@@ -383,7 +415,9 @@
         <span class="k">return</span> <span class="n">profile_obj</span>
 
     <span class="n">temp_obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time_index</span><span class="p">)</span>
-    <span class="n">write_time</span> <span class="o">=</span> <span class="p">[</span><span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">write_time</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="p">]</span>
 
     <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
     <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">profile_obj</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">write_time</span><span class="p">)</span>
@@ -397,15 +431,18 @@
 
             <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">range_index</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span>
 
-        <span class="n">profile_obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">],</span>
-                                             <span class="n">attrs</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span>
+        <span class="n">profile_obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="n">attrs</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span>
+        <span class="p">)</span>
 
     <span class="c1"># Adding attributes for coordinate variables after subsetting data because</span>
     <span class="c1"># setting values to DataArray with dims defined clears the attributes.</span>
     <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="n">temp_obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span>
-    <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Height above ground&#39;</span><span class="p">,</span>
-                                   <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
-                                   <span class="s1">&#39;standard_name&#39;</span><span class="p">:</span> <span class="s1">&#39;height&#39;</span><span class="p">}</span>
+    <span class="n">profile_obj</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Height above ground&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;standard_name&#39;</span><span class="p">:</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
 
     <span class="c1"># Add location variables</span>
     <span class="c1"># Get latitude variable name</span>
@@ -447,8 +484,13 @@
         <span class="n">lon_value</span> <span class="o">=</span> <span class="n">lon_value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Calcualte new lat/lon values from radar location and azimuth and range</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">destination_azimuth_distance</span><span class="p">(</span><span class="n">lat_value</span><span class="p">,</span> <span class="n">lon_value</span><span class="p">,</span> <span class="n">true_azimuth</span><span class="p">,</span> <span class="n">true_range</span><span class="p">,</span>
-                                          <span class="n">dist_units</span><span class="o">=</span><span class="n">temp_obj</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">])</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">destination_azimuth_distance</span><span class="p">(</span>
+        <span class="n">lat_value</span><span class="p">,</span>
+        <span class="n">lon_value</span><span class="p">,</span>
+        <span class="n">true_azimuth</span><span class="p">,</span>
+        <span class="n">true_range</span><span class="p">,</span>
+        <span class="n">dist_units</span><span class="o">=</span><span class="n">temp_obj</span><span class="p">[</span><span class="n">range_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
+    <span class="p">)</span>
 
     <span class="c1"># Copy over DataArray for attributes</span>
     <span class="n">profile_obj</span><span class="p">[</span><span class="n">lat_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_obj</span><span class="p">[</span><span class="n">lat_name</span><span class="p">]</span>
@@ -478,11 +520,20 @@
 
 <div class="viewcode-block" id="extract_profile_at_lat_lon">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile_at_lat_lon.html#radtraq.proc.extract_profile_at_lat_lon">[docs]</a>
-<span class="k">def</span> <span class="nf">extract_profile_at_lat_lon</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">desired_lat</span><span class="p">,</span> <span class="n">desired_lon</span><span class="p">,</span> <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
-                               <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">,</span> <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lat_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
-                               <span class="n">lon_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">):</span>
-
+<span class="k">def</span> <span class="nf">extract_profile_at_lat_lon</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">,</span>
+    <span class="n">desired_lat</span><span class="p">,</span>
+    <span class="n">desired_lon</span><span class="p">,</span>
+    <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">azimuth_name</span><span class="o">=</span><span class="s1">&#39;azimuth&#39;</span><span class="p">,</span>
+    <span class="n">range_name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">,</span>
+    <span class="n">elevation_name</span><span class="o">=</span><span class="s1">&#39;elevation&#39;</span><span class="p">,</span>
+    <span class="n">azimuth_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ground_dist_range</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">lat_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+    <span class="n">lon_name_in_obj</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for extracting vertical profile over a location defined by latitude</span>
 <span class="sd">    and longitude from a PPI scan</span>
@@ -534,12 +585,19 @@
 
     <span class="n">result</span> <span class="o">=</span> <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">desired_lat</span><span class="p">,</span> <span class="n">desired_lon</span><span class="p">)</span>
 
-    <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">extract_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">],</span>
-                                  <span class="n">append_obj</span><span class="o">=</span><span class="n">append_obj</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
-                                  <span class="n">azimuth_range</span><span class="o">=</span><span class="n">azimuth_range</span><span class="p">,</span> <span class="n">azimuth_name</span><span class="o">=</span><span class="n">azimuth_name</span><span class="p">,</span>
-                                  <span class="n">range_name</span><span class="o">=</span><span class="n">range_name</span><span class="p">,</span> <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
-                                  <span class="n">elevation_name</span><span class="o">=</span><span class="n">elevation_name</span><span class="p">,</span>
-                                  <span class="n">ground_dist_range</span><span class="o">=</span><span class="n">ground_dist_range</span><span class="p">)</span>
+    <span class="n">profile_obj</span> <span class="o">=</span> <span class="n">extract_profile</span><span class="p">(</span>
+        <span class="n">obj</span><span class="p">,</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;azimuth&#39;</span><span class="p">],</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">],</span>
+        <span class="n">append_obj</span><span class="o">=</span><span class="n">append_obj</span><span class="p">,</span>
+        <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+        <span class="n">azimuth_range</span><span class="o">=</span><span class="n">azimuth_range</span><span class="p">,</span>
+        <span class="n">azimuth_name</span><span class="o">=</span><span class="n">azimuth_name</span><span class="p">,</span>
+        <span class="n">range_name</span><span class="o">=</span><span class="n">range_name</span><span class="p">,</span>
+        <span class="n">ground_range_units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
+        <span class="n">elevation_name</span><span class="o">=</span><span class="n">elevation_name</span><span class="p">,</span>
+        <span class="n">ground_dist_range</span><span class="o">=</span><span class="n">ground_dist_range</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">profile_obj</span></div>
 
@@ -547,9 +605,14 @@
 
 <div class="viewcode-block" id="extract_rhi_profile">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_rhi_profile.html#radtraq.proc.extract_rhi_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">extract_rhi_profile</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                        <span class="n">elevation_range</span><span class="o">=</span><span class="p">[</span><span class="mi">89</span><span class="p">,</span> <span class="mi">91</span><span class="p">],</span> <span class="n">elevation_name</span><span class="o">=</span><span class="s2">&quot;elevation&quot;</span><span class="p">,</span>
-                        <span class="n">sweep_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sweep_start_ray_index&#39;</span><span class="p">,</span> <span class="s1">&#39;sweep_end_ray_index&#39;</span><span class="p">]):</span>
+<span class="k">def</span> <span class="nf">extract_rhi_profile</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">,</span>
+    <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">elevation_range</span><span class="o">=</span><span class="p">[</span><span class="mi">89</span><span class="p">,</span> <span class="mi">91</span><span class="p">],</span>
+    <span class="n">elevation_name</span><span class="o">=</span><span class="s1">&#39;elevation&#39;</span><span class="p">,</span>
+    <span class="n">sweep_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sweep_start_ray_index&#39;</span><span class="p">,</span> <span class="s1">&#39;sweep_end_ray_index&#39;</span><span class="p">],</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for extracting vertical profile over a location from a RHI scan</span>
 
@@ -584,10 +647,11 @@
 
     <span class="n">extract_index</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span>
-                          <span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+            <span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="n">sweep_variables</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span>
+        <span class="p">)</span>
 
-        <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">elevation_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">-</span> <span class="mf">90.</span><span class="p">))</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">elevation_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">-</span> <span class="mf">90.0</span><span class="p">))</span>
         <span class="n">elevation</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">elevation_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">elevation</span> <span class="o">&gt;=</span> <span class="n">elevation_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">elevation</span> <span class="o">&lt;=</span> <span class="n">elevation_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">extract_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
@@ -643,8 +707,11 @@
         <span class="n">new</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">bias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="n">zdr_var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bias&#39;</span><span class="p">:</span> <span class="n">bias</span><span class="p">,</span> <span class="s1">&#39;profile_zdr&#39;</span><span class="p">:</span> <span class="n">new</span><span class="p">[</span><span class="n">zdr_var</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-               <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="n">new</span><span class="p">[</span><span class="n">height_var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;bias&#39;</span><span class="p">:</span> <span class="n">bias</span><span class="p">,</span>
+        <span class="s1">&#39;profile_zdr&#39;</span><span class="p">:</span> <span class="n">new</span><span class="p">[</span><span class="n">zdr_var</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="n">new</span><span class="p">[</span><span class="n">height_var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="p">}</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">thresh</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">height_var</span><span class="p">:</span>
             <span class="n">results</span><span class="p">[</span><span class="s1">&#39;profile_&#39;</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -660,7 +727,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Argonne National Laboratory.</p>
+    <p>&#169; Copyright 2023, Argonne National Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

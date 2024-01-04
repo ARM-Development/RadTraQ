@@ -23,7 +23,7 @@ Example on how to calculate and plot cfad
 
 This example shows how to calculate and plot a cfad
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-23
+.. GENERATED FROM PYTHON SOURCE LINES 8-24
 
 
 
@@ -37,7 +37,7 @@ This example shows how to calculate and plot a cfad
 
  .. code-block:: none
 
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_cfad.py:14: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_cfad.py:15: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
       ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 
@@ -50,9 +50,10 @@ This example shows how to calculate and plot a cfad
 .. code-block:: Python
 
 
-    import radtraq
-    from act.io.armfiles import read_netcdf
     import matplotlib.pyplot as plt
+    from act.io.armfiles import read_netcdf
+
+    import radtraq
 
     # Read in example data
     ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
@@ -68,7 +69,7 @@ This example shows how to calculate and plot a cfad
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.860 seconds)
+   **Total running time of the script:** (0 minutes 0.801 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cfad.py:

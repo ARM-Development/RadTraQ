@@ -32,7 +32,7 @@ code-block:: python
     ax.add_image(tiler, 8)
     ax.coastlines('10m')
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-36
+.. GENERATED FROM PYTHON SOURCE LINES 17-39
 
 
 
@@ -49,11 +49,14 @@ code-block:: python
 
 
 
-    import radtraq
     import matplotlib.pyplot as plt
 
-    d = {'Cullman': {'lat': 34.26274649951493, 'lon': -86.85874523934974},
-         'Courtland': {'lat': 34.658302981847655, 'lon': -87.34389529761859}}
+    import radtraq
+
+    d = {
+        'Cullman': {'lat': 34.26274649951493, 'lon': -86.85874523934974},
+        'Courtland': {'lat': 34.658302981847655, 'lon': -87.34389529761859},
+    }
 
     data = radtraq.utils.calculate_dual_dop_lobes(d)
 
@@ -70,7 +73,7 @@ code-block:: python
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.066 seconds)
+   **Total running time of the script:** (0 minutes 0.055 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_dual_doppler_lobes.py:

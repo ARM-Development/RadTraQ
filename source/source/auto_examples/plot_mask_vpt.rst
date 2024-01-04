@@ -24,7 +24,7 @@ Example on how to calculate and plot average profiles
 This example shows how to calculate and plot average profiles
 from masked data
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-51
+.. GENERATED FROM PYTHON SOURCE LINES 9-55
 
 
 
@@ -38,7 +38,7 @@ from masked data
 
  .. code-block:: none
 
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_mask_vpt.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_mask_vpt.py:18: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
       obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
 
@@ -52,10 +52,11 @@ from masked data
 
 
 
-    import radtraq
-    from act.io.armfiles import read_netcdf
     import matplotlib.pyplot as plt
     import numpy as np
+    from act.io.armfiles import read_netcdf
+
+    import radtraq
 
     # Read in Example KAZR File using ACT
     obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
@@ -70,19 +71,22 @@ from masked data
     variable = ['reflectivity_copol', 'mean_doppler_velocity_copol', 'reflectivity_xpol']
 
     # Create a grid to interpolate data onto - Needed for different radars
-    first_height = 1500.
+    first_height = 1500.0
     ygrid = np.arange(first_height, 15000, 50)
 
     # Calculate average profiles
-    obj = radtraq.proc.profile.calc_avg_profile(obj, variable=variable, first_height=first_height, ygrid=ygrid)
+    obj = radtraq.proc.profile.calc_avg_profile(
+        obj, variable=variable, first_height=first_height, ygrid=ygrid
+    )
 
     # Showing how to do this for multiple radars
     # Set up dictionary for profile comparison plotting
-    rad_dict = {'sgpkazrgeC1.b1': {'object': obj, 'variable': variable[0]},
-                'sgpkazrge2C1.b1': {'object': obj, 'variable': variable[0]},
-                'sgpkazrmdC1.b1': {'object': obj, 'variable': 'reflectivity_xpol'},
-                'sgpkazrmd2C1.b1': {'object': obj, 'variable': 'reflectivity_xpol'}
-                }
+    rad_dict = {
+        'sgpkazrgeC1.b1': {'object': obj, 'variable': variable[0]},
+        'sgpkazrge2C1.b1': {'object': obj, 'variable': variable[0]},
+        'sgpkazrmdC1.b1': {'object': obj, 'variable': 'reflectivity_xpol'},
+        'sgpkazrmd2C1.b1': {'object': obj, 'variable': 'reflectivity_xpol'},
+    }
 
     # Plot up profiles and perform comparisons from data in dictionary
     display = radtraq.plotting.plot_avg_profile(rad_dict)
@@ -96,7 +100,7 @@ from masked data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.572 seconds)
+   **Total running time of the script:** (0 minutes 0.630 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_mask_vpt.py:
