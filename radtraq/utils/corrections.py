@@ -1,6 +1,7 @@
+import warnings
+
 import numpy as np
 import pint
-import warnings
 import xarray as xr
 
 from radtraq.utils.dataset_utils import get_height_variable_name
@@ -37,8 +38,10 @@ def range_correction(obj, variable, height_variable=None):
     try:
         height_units = obj[height_variable].attrs['units']
     except KeyError:
-        warnings.warn(f"Height variable '{height_variable} does not have units attribute. "
-                      "Assuming units are meters.")
+        warnings.warn(
+            f"Height variable '{height_variable} does not have units attribute. "
+            'Assuming units are meters.'
+        )
         height_units = 'm'
 
     height = obj[height_variable].values
@@ -52,8 +55,9 @@ def range_correction(obj, variable, height_variable=None):
     data = obj[variable]
 
     with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=RuntimeWarning,
-                                message='.*divide by zero encountered.*')
-        data = data - 20. * np.log10(height / 1000.)
+        warnings.filterwarnings(
+            'ignore', category=RuntimeWarning, message='.*divide by zero encountered.*'
+        )
+        data = data - 20.0 * np.log10(height / 1000.0)
 
     return data

@@ -1,10 +1,10 @@
 name: Documentation
 
 on:
-    push:
-      branches: [ main ]
-    pull_request:
-      branches: [ main ]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,7 +16,7 @@ jobs:
     defaults:
       run:
         # Ensures environment gets sourced right
-        shell: bash -l {0}  
+        shell: bash -l {0}
     strategy:
       matrix:
         PYTHON_VERISON: ["3.10"]

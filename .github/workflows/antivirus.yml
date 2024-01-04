@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: AV scan
     steps:
-    - uses: actions/checkout@v3
-    - name: Git AV Scan
-      uses: djdefi/gitavscan@main
-      with:
-        full: '--full'
+      - uses: actions/checkout@v3
+      - name: Git AV Scan
+        uses: djdefi/gitavscan@main
+        with:
+          full: "--full"
