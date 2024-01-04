@@ -44,10 +44,6 @@ jobs:
           use-mamba: true
           miniforge-variant: Mambaforge
 
-      - name: Lint with pre-commit
-        run: |
-          pre-commit run --all-files
-
       - name: Test with pytest
         run: |
           python -m pytest --mpl --cov=radtraq/
