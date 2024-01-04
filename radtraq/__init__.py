@@ -1,12 +1,13 @@
-from . import proc
-from . import utils
-from . import plotting
-from . import tests
-from ._version import get_versions
+"""
+RadTraQ
+=======
+"""
+from . import plotting, proc, tests, utils  # noqa
+import importlib.metadata as _importlib_metadata
 
-# Version for source builds
-vdict = get_versions()
-__version__ = vdict["version"]
-
-from . import _version
-__version__ = _version.get_versions()['version']
+# Get the version
+try:
+    __version__ = _importlib_metadata.version('radtraq')
+except _importlib_metadata.PackageNotFoundError:
+    # package is not installed
+    __version__ = '0.0.0'

@@ -64,7 +64,7 @@ def calc_noise_floor(obj, variable, height_variable=None):
     return result
 
 
-def cloud_threshold(data, n_avg=1., nffts=None):
+def cloud_threshold(data, n_avg=1.0, nffts=None):
     """
     Calculates the noise floor
 
@@ -94,23 +94,23 @@ def cloud_threshold(data, n_avg=1., nffts=None):
     if nffts is None:
         nffts = data.size
 
-    data = 10. ** (data.values / 10.)
+    data = 10.0 ** (data.values / 10.0)
     data = np.sort(data)
 
-    nthld = 10. ** -10.
-    dsum = 0.
-    sumSq = 0.
-    n = 0.
+    nthld = 10.0**-10.0
+    dsum = 0.0
+    sumSq = 0.0
+    n = 0.0
     numNs = []
     sqrt_n_avg = np.sqrt(n_avg)
     for i in range(nffts):
         if data[i] > nthld:
             dsum += data[i]
             sumSq += data[i] ** 2.0
-            n += 1.
+            n += 1.0
             a3 = dsum * dsum
             a1 = sqrt_n_avg * (n * sumSq - a3)
-            if n > nffts / 4.:
+            if n > nffts / 4.0:
                 if a1 <= a3:
                     sumNs = dsum
                     numNs = [n]
@@ -123,9 +123,9 @@ def cloud_threshold(data, n_avg=1., nffts=None):
     else:
         n_mean = np.nan
 
-    if n_mean == 0.:
+    if n_mean == 0.0:
         value = np.nan
     else:
-        value = 10. * np.log10(n_mean)
+        value = 10.0 * np.log10(n_mean)
 
     return value

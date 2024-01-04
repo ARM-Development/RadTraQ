@@ -13,11 +13,14 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import sphinx_rtd_theme
+
+import radtraq
 
 # -- Project information -----------------------------------------------------
 
 project = 'RadTraq'
-copyright = '2020, Argonne National Laboratory'
+copyright = '2023, Argonne National Laboratory'
 author = 'Adam Theisen'
 
 # -- General configuration ---------------------------------------------------
@@ -38,12 +41,9 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_gallery.gen_gallery',
     'sphinx.ext.napoleon',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
 ]
-sphinx_gallery_conf = {
-    'examples_dirs': '../../examples',
-    'gallery_dirs': 'source/auto_examples'
-}
+sphinx_gallery_conf = {'examples_dirs': '../../examples', 'gallery_dirs': 'source/auto_examples'}
 
 # Configuration options for plot_directive. See:
 # https://github.com/matplotlib/matplotlib/blob/f3ed922d935751e08494e5fb5311d3050a3b637b/lib/matplotlib/sphinxext/plot_directive.py#L81
@@ -52,7 +52,7 @@ plot_html_show_formats = False
 
 # Generate the API documentation when building
 autosummary_generate = True
-autoclass_content = "both"
+autoclass_content = 'both'
 napoleon_use_ivar = True
 napoleon_include_init_with_doc = False
 napoleon_use_param = False
@@ -74,7 +74,6 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-import radtraq
 # The short X.Y version.
 version = radtraq.__version__
 # The full version, including alpha/beta/rc tags.
@@ -91,7 +90,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-import sphinx_rtd_theme
+
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme_options = {

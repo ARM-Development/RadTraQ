@@ -1,10 +1,13 @@
-import radtraq
 import numpy as np
+
+import radtraq
 
 
 def test_calculate_dual_dop_lobes():
-    d = {'Cullman': {'lat': 34.26274649951493, 'lon': -86.85874523934974},
-         'Courtland': {'lat': 34.658302981847655, 'lon': -87.34389529761859}}
+    d = {
+        'Cullman': {'lat': 34.26274649951493, 'lon': -86.85874523934974},
+        'Courtland': {'lat': 34.658302981847655, 'lon': -87.34389529761859},
+    }
 
     data = radtraq.utils.calculate_dual_dop_lobes(d)
 

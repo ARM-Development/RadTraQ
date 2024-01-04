@@ -7,10 +7,11 @@ an act object as input
 
 """
 
-import dask
-import numpy as np
 import warnings
+
+import dask
 import matplotlib.pyplot as plt
+import numpy as np
 import xarray as xr
 
 from radtraq.utils.dataset_utils import get_height_variable_name
@@ -82,12 +83,13 @@ def calc_cfad(obj, variable, height_variable=None, xbins=None):
 
     hist = dask.compute(*dsk)
     with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=RuntimeWarning,
-                                message='.*divide by zero encountered in log10.*')
+        warnings.filterwarnings(
+            'ignore', category=RuntimeWarning, message='.*divide by zero encountered in log10.*'
+        )
         hist = np.log10(np.array(hist))
 
     coords = {'x': xbins[:-1], height_variable: height}
-    dims = [height_variable, "x"]
+    dims = [height_variable, 'x']
     attrs = {'long_name': f'CFAD for {variable}', 'units': '1'}
 
     data_array = xr.DataArray(data=hist, dims=dims, coords=coords, attrs=attrs)

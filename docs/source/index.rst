@@ -21,4 +21,3 @@ RadTraQ is a python library housing routines related to assessing and monitoring
 Check out the `documentation <https://arm-development.github.io/RadTraQ/build/html/index.html>`_ and `example gallery <https://arm-development.github.io/RadTraQ/build/html/source/auto_examples/index.html>`_ for more details.
 
 Papers that these routines are based on will be listed in the documentation for each relevant function.
-

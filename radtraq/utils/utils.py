@@ -1,5 +1,5 @@
-import pint
 import numpy as np
+import pint
 import xarray as xr
 
 
@@ -31,10 +31,12 @@ def calc_ground_range_and_height(slant_range, elevation):
     range_dist_values = range_dist_values.to(desired_units).magnitude
 
     # Calculate height values
-    earth_radius = np.array(4. / 3. * 6374., dtype=np.float64)  # Effective earth radius in km.
-    height = np.sqrt(earth_radius**2.0 +
-                     range_dist_values**2.0 -
-                     2.0 * earth_radius * range_dist_values * np.cos(np.deg2rad(elevation + 90.)))
+    earth_radius = np.array(4.0 / 3.0 * 6374.0, dtype=np.float64)  # Effective earth radius in km.
+    height = np.sqrt(
+        earth_radius**2.0
+        + range_dist_values**2.0
+        - 2.0 * earth_radius * range_dist_values * np.cos(np.deg2rad(elevation + 90.0))
+    )
 
     # Calculate ground range values
     term_1 = earth_radius**2.0 + height**2.0 - range_dist_values**2.0
@@ -54,16 +56,20 @@ def calc_ground_range_and_height(slant_range, elevation):
 
     # Create Dataset to return including attributes.
     return_dataset = xr.Dataset()
-    return_dataset['ground_range'] = xr.DataArray(data=ground_range,
-                                                  attrs={'long_name': 'Range along ground', 'units': range_units})
-    return_dataset['height'] = xr.DataArray(data=height, attrs={'long_name': 'Height above ground',
-                                                                'units': range_units, 'standard_name': 'height'})
+    return_dataset['ground_range'] = xr.DataArray(
+        data=ground_range, attrs={'long_name': 'Range along ground', 'units': range_units}
+    )
+    return_dataset['height'] = xr.DataArray(
+        data=height,
+        attrs={'long_name': 'Height above ground', 'units': range_units, 'standard_name': 'height'},
+    )
 
     return return_dataset
 
 
-def calculate_azimuth_distance_from_lat_lon(curr_lat=None, curr_lon=None, target_lat=None,
-                                            target_lon=None):
+def calculate_azimuth_distance_from_lat_lon(
+    curr_lat=None, curr_lon=None, target_lat=None, target_lon=None
+):
     """
     Returns dictionary of distance and direction between two pairs of lat/lon values.
 
@@ -100,8 +106,10 @@ def calculate_azimuth_distance_from_lat_lon(curr_lat=None, curr_lon=None, target
     delta_lon = lon1 - lon2
 
     # Calcualte distance
-    y = np.sqrt((np.cos(lat2) * np.sin(delta_lon))**2 +
-                (np.cos(lat1) * np.sin(lat2) - np.sin(lat1) * np.cos(lat2) * np.cos(delta_lon))**2)
+    y = np.sqrt(
+        (np.cos(lat2) * np.sin(delta_lon)) ** 2
+        + (np.cos(lat1) * np.sin(lat2) - np.sin(lat1) * np.cos(lat2) * np.cos(delta_lon)) ** 2
+    )
     x = np.sin(lat1) * np.sin(lat2) + np.cos(lat1) * np.cos(lat2) * np.cos(delta_lon)
 
     dist_angle = np.arctan2(y, x)
@@ -156,16 +164,16 @@ def calculate_dual_dop_lobes(coord_dict, min_crossing_angle=20):
 
             phi = np.arctan(dy / dx)
 
-            lon_midpoint = (lon1 + lon2) / 2.
-            lat_midpoint = (lat1 + lat2) / 2.
-            midpoint = np.sqrt((lon2 - lon1) ** 2. + (lat2 - lat1) ** 2.) / 2.
+            lon_midpoint = (lon1 + lon2) / 2.0
+            lat_midpoint = (lat1 + lat2) / 2.0
+            midpoint = np.sqrt((lon2 - lon1) ** 2.0 + (lat2 - lat1) ** 2.0) / 2.0
 
-            h = midpoint / np.tanh(theta_r / 2.)
-            h2 = midpoint * np.tanh(theta_r / 2.)
-            radius = (h + h2) / 2.
+            h = midpoint / np.tanh(theta_r / 2.0)
+            h2 = midpoint * np.tanh(theta_r / 2.0)
+            radius = (h + h2) / 2.0
 
             ycenter = radius - h2
-            ycenter2 = -1. * radius + h2
+            ycenter2 = -1.0 * radius + h2
 
             t = np.arange(-3.5, 3.5, 0.1)
             lobe1_lon = (-1 * ycenter * np.sin(phi)) + lon_midpoint + (radius * np.cos(t))

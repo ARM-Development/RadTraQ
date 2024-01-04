@@ -7,9 +7,10 @@ This example shows how to calculate a cloud mask and plot data
 """
 
 
-import radtraq
 import act
 import matplotlib.pyplot as plt
+
+import radtraq
 
 # Read in sample data using ACT
 ds = act.io.armfiles.read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
