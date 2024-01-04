@@ -4,23 +4,34 @@ radtraq.proc.profile
 
 Module for various processing of profiles
 """
-import xarray as xr
-import numpy as np
 import warnings
+
+import numpy as np
 import pint
-from scipy import stats
+import xarray as xr
 from act.utils.geo_utils import destination_azimuth_distance
+from scipy import stats
 
 from radtraq.proc.cloud_mask import calc_cloud_mask
 from radtraq.utils.dataset_utils import get_height_variable_name
-from radtraq.utils.utils import (calc_ground_range_and_height,
-                                 calculate_azimuth_distance_from_lat_lon)
+from radtraq.utils.utils import (
+    calc_ground_range_and_height,
+    calculate_azimuth_distance_from_lat_lon,
+)
 
 
-def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
-                     mask_value=None, mask_meaning='cloud', first_height=500.,
-                     last_height=15000., step_height=50,
-                     height_variable=None, ygrid=None):
+def calc_avg_profile(
+    _obj,
+    variable=None,
+    mask_variable='cloud_mask_2',
+    mask_value=None,
+    mask_meaning='cloud',
+    first_height=500.0,
+    last_height=15000.0,
+    step_height=50,
+    height_variable=None,
+    ygrid=None,
+):
     """
     Function for calculating average profiles from data after
     applying the cloud mask
@@ -135,14 +146,21 @@ def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
 
         # Add data back to the object
         with warnings.catch_warnings():
-            warnings.filterwarnings("ignore", category=RuntimeWarning,
-                                    message='.*invalid value encountered in true_divide.*')
+            warnings.filterwarnings(
+                'ignore',
+                category=RuntimeWarning,
+                message='.*invalid value encountered in true_divide.*',
+            )
             prof_name = var + '_avg_prof'
             prof_names.append(prof_name)
             long_name = 'Average profile of ' + var
             attrs = {'long_name': long_name, 'units': obj[var].attrs['units']}
-            da = xr.DataArray(prof.values, dims=[height_variable],
-                              coords=[obj[height_variable].values], attrs=attrs)
+            da = xr.DataArray(
+                prof.values,
+                dims=[height_variable],
+                coords=[obj[height_variable].values],
+                attrs=attrs,
+            )
             obj[prof_name] = da
 
     obj.attrs['_prof_names'] = prof_names
@@ -177,10 +195,19 @@ def calc_avg_profile(_obj, variable=None, mask_variable='cloud_mask_2',
     return obj
 
 
-def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
-                    azimuth_range=None, ground_dist_range=200, azimuth_name='azimuth',
-                    range_name='range', ground_range_units='m', elevation_name="elevation"):
-
+def extract_profile(
+    obj,
+    azimuth,
+    ground_dist,
+    append_obj=None,
+    variables=None,
+    azimuth_range=None,
+    ground_dist_range=200,
+    azimuth_name='azimuth',
+    range_name='range',
+    ground_range_units='m',
+    elevation_name='elevation',
+):
     """
     Function for extracting vertical profile over a location from a PPI scan
     giving azimuth direction and ground range distance
@@ -229,8 +256,10 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
     if variables is None:
         variables = []
         for var_name in list(obj.keys()):
-            if (len(obj[var_name].dims) == 2 and
-                    len(set(obj[var_name].dims) - set(['time', range_name])) == 0):
+            if (
+                len(obj[var_name].dims) == 2
+                and len(set(obj[var_name].dims) - set(['time', range_name])) == 0
+            ):
                 variables.append(var_name)
 
     elif isinstance(variables, str):
@@ -259,8 +288,11 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
     true_azimuth = None
 
     for sweep_number in range(0, number_of_sweeps):
-        index = np.arange(obj['sweep_start_ray_index'].values[sweep_number],
-                          obj['sweep_end_ray_index'].values[sweep_number] + 1, dtype=int)
+        index = np.arange(
+            obj['sweep_start_ray_index'].values[sweep_number],
+            obj['sweep_end_ray_index'].values[sweep_number] + 1,
+            dtype=int,
+        )
 
         index = index[0] + np.argmin(np.abs(obj[azimuth_name].values[index] - azimuth))
         matched_azimuth = obj[azimuth_name].values[index]
@@ -290,7 +322,9 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
         return profile_obj
 
     temp_obj = obj.isel(time=time_index)
-    write_time = [temp_obj['time'].values[0] + (temp_obj['time'].values[-1] - temp_obj['time'].values[0]) / 2]
+    write_time = [
+        temp_obj['time'].values[0] + (temp_obj['time'].values[-1] - temp_obj['time'].values[0]) / 2
+    ]
 
     profile_obj = xr.Dataset()
     profile_obj = profile_obj.assign_coords(time=write_time)
@@ -304,15 +338,18 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
 
             data[0, ii] = temp_obj[var_name].values[ii, range_index[ii]]
 
-        profile_obj[var_name] = xr.DataArray(data=data, dims=['time', 'height'],
-                                             attrs=obj[var_name].attrs)
+        profile_obj[var_name] = xr.DataArray(
+            data=data, dims=['time', 'height'], attrs=obj[var_name].attrs
+        )
 
     # Adding attributes for coordinate variables after subsetting data because
     # setting values to DataArray with dims defined clears the attributes.
     profile_obj['time'].attrs = temp_obj['time'].attrs
-    profile_obj['height'].attrs = {'long_name': 'Height above ground',
-                                   'units': temp_obj[range_name].attrs['units'],
-                                   'standard_name': 'height'}
+    profile_obj['height'].attrs = {
+        'long_name': 'Height above ground',
+        'units': temp_obj[range_name].attrs['units'],
+        'standard_name': 'height',
+    }
 
     # Add location variables
     # Get latitude variable name
@@ -354,8 +391,13 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
         lon_value = lon_value[0]
 
     # Calcualte new lat/lon values from radar location and azimuth and range
-    result = destination_azimuth_distance(lat_value, lon_value, true_azimuth, true_range,
-                                          dist_units=temp_obj[range_name].attrs['units'])
+    result = destination_azimuth_distance(
+        lat_value,
+        lon_value,
+        true_azimuth,
+        true_range,
+        dist_units=temp_obj[range_name].attrs['units'],
+    )
 
     # Copy over DataArray for attributes
     profile_obj[lat_name] = temp_obj[lat_name]
@@ -382,11 +424,20 @@ def extract_profile(obj, azimuth, ground_dist, append_obj=None, variables=None,
     return profile_obj
 
 
-def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, append_obj=None, azimuth_name='azimuth',
-                               range_name='range', elevation_name="elevation", azimuth_range=None,
-                               ground_dist_range=200, variables=None, lat_name_in_obj='lat',
-                               lon_name_in_obj='lon'):
-
+def extract_profile_at_lat_lon(
+    obj,
+    desired_lat,
+    desired_lon,
+    append_obj=None,
+    azimuth_name='azimuth',
+    range_name='range',
+    elevation_name='elevation',
+    azimuth_range=None,
+    ground_dist_range=200,
+    variables=None,
+    lat_name_in_obj='lat',
+    lon_name_in_obj='lon',
+):
     """
     Function for extracting vertical profile over a location defined by latitude
     and longitude from a PPI scan
@@ -438,19 +489,31 @@ def extract_profile_at_lat_lon(obj, desired_lat, desired_lon, append_obj=None, a
 
     result = calculate_azimuth_distance_from_lat_lon(lat, lon, desired_lat, desired_lon)
 
-    profile_obj = extract_profile(obj, result['azimuth'], result['distance'],
-                                  append_obj=append_obj, variables=variables,
-                                  azimuth_range=azimuth_range, azimuth_name=azimuth_name,
-                                  range_name=range_name, ground_range_units='m',
-                                  elevation_name=elevation_name,
-                                  ground_dist_range=ground_dist_range)
+    profile_obj = extract_profile(
+        obj,
+        result['azimuth'],
+        result['distance'],
+        append_obj=append_obj,
+        variables=variables,
+        azimuth_range=azimuth_range,
+        azimuth_name=azimuth_name,
+        range_name=range_name,
+        ground_range_units='m',
+        elevation_name=elevation_name,
+        ground_dist_range=ground_dist_range,
+    )
 
     return profile_obj
 
 
-def extract_rhi_profile(obj, append_obj=None, variables=None,
-                        elevation_range=[89, 91], elevation_name="elevation",
-                        sweep_variables=['sweep_start_ray_index', 'sweep_end_ray_index']):
+def extract_rhi_profile(
+    obj,
+    append_obj=None,
+    variables=None,
+    elevation_range=[89, 91],
+    elevation_name='elevation',
+    sweep_variables=['sweep_start_ray_index', 'sweep_end_ray_index'],
+):
     """
     Function for extracting vertical profile over a location from a RHI scan
 
@@ -485,10 +548,11 @@ def extract_rhi_profile(obj, append_obj=None, variables=None,
 
     extract_index = []
     for ii, _ in enumerate(obj[sweep_variables[0]].values):
-        index = np.arange(obj[sweep_variables[0]].values[ii],
-                          obj[sweep_variables[1]].values[ii], dtype=int)
+        index = np.arange(
+            obj[sweep_variables[0]].values[ii], obj[sweep_variables[1]].values[ii], dtype=int
+        )
 
-        index = index[0] + np.argmin(np.abs(obj[elevation_name].values[index] - 90.))
+        index = index[0] + np.argmin(np.abs(obj[elevation_name].values[index] - 90.0))
         elevation = obj[elevation_name].values[index]
         if elevation >= elevation_range[0] and elevation <= elevation_range[1]:
             extract_index.append(index)
@@ -541,8 +605,11 @@ def calc_zdr_offset(obj, zdr_var=None, thresh=None):
         new = new.where(obj[k] <= thresh[k][1])
     bias = np.nanmean(new[zdr_var].values)
 
-    results = {'bias': bias, 'profile_zdr': new[zdr_var].mean(dim='time').values,
-               'range': new[height_var].values}
+    results = {
+        'bias': bias,
+        'profile_zdr': new[zdr_var].mean(dim='time').values,
+        'range': new[height_var].values,
+    }
     for k in thresh:
         if k != height_var:
             results['profile_' + k] = new[k].mean(dim='time').values

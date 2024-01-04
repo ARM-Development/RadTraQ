@@ -36,6 +36,6 @@ def get_height_variable_name(obj, variable=None):
             height_variable = height_variable[0]
 
     if height_variable is None:
-        raise RuntimeError(f"Unable to determine height variable name for {variable}.")
+        raise RuntimeError(f'Unable to determine height variable name for {variable}.')
 
     return height_variable

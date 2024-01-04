@@ -12,12 +12,18 @@ import numpy as np
 import xarray as xr
 from scipy import signal
 
-from .noise import calc_noise_floor
 from ..utils.corrections import range_correction
+from .noise import calc_noise_floor
 
 
-def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
-                    threshold_offset=5., counts_threshold=12):
+def calc_cloud_mask(
+    obj,
+    variable,
+    height_variable=None,
+    noise_threshold=-45.0,
+    threshold_offset=5.0,
+    counts_threshold=12,
+):
     """
     Main function for calculating the cloud mask
 
@@ -60,8 +66,10 @@ def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
 
     noise = calc_noise_floor(obj, variable, height_variable)
 
-    noise_thresh = np.nanmin(np.vstack([noise, np.full(np.shape(obj[variable])[0],
-                             noise_threshold)]), axis=0) + threshold_offset
+    noise_thresh = (
+        np.nanmin(np.vstack([noise, np.full(np.shape(obj[variable])[0], noise_threshold)]), axis=0)
+        + threshold_offset
+    )
 
     data = range_correction(obj, variable, height_variable=height_variable)
 
@@ -88,20 +96,29 @@ def calc_cloud_mask(obj, variable, height_variable=None, noise_threshold=-45.,
     # Add masks to dataset
     coords = obj[variable].coords
     obj['cloud_mask_1'] = xr.DataArray(
-        mask1, coords=coords,
-        attrs={'long_name': 'Cloud mask 1 (linear profile)',
-               'units': '1',
-               'comment': 'The mask is calculated with a '
-               'linear mask along each time profile.',
-               'flag_values': [0, 1], 'flag_meanings': ['no_cloud', 'cloud'],
-               'variable_used': variable})
+        mask1,
+        coords=coords,
+        attrs={
+            'long_name': 'Cloud mask 1 (linear profile)',
+            'units': '1',
+            'comment': 'The mask is calculated with a ' 'linear mask along each time profile.',
+            'flag_values': [0, 1],
+            'flag_meanings': ['no_cloud', 'cloud'],
+            'variable_used': variable,
+        },
+    )
     obj['cloud_mask_2'] = xr.DataArray(
-        mask2, coords=coords,
-        attrs={'long_name': 'Cloud mask 2 (2D box)', 'units': '1',
-               'comment': 'The mask uses a 2D box to '
-               'filter out noise.', 'flag_values': [0, 1],
-               'flag_meanings': ['no_cloud', 'cloud'],
-               'variable_used': variable})
+        mask2,
+        coords=coords,
+        attrs={
+            'long_name': 'Cloud mask 2 (2D box)',
+            'units': '1',
+            'comment': 'The mask uses a 2D box to ' 'filter out noise.',
+            'flag_values': [0, 1],
+            'flag_meanings': ['no_cloud', 'cloud'],
+            'variable_used': variable,
+        },
+    )
 
     return obj
 
