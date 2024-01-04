@@ -15,7 +15,7 @@ RadTraQ only supports Python 3.x. Please upgrade your Python version.
 
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'README.md'), encoding='utf-8') as readme_file:
+with open(path.join(here, 'README.rst'), encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
 with open(path.join(here, 'requirements.txt')) as requirements_file:
