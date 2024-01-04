@@ -2,6 +2,7 @@
 RadTraQ
 =======
 """
+from . import plotting, proc, tests, utils  # noqa
 import importlib.metadata as _importlib_metadata
 
 # Get the version
