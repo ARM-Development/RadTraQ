@@ -24,4 +24,4 @@ dependencies:
   - sphinx-rtd-theme
   - urllib3
   - pip:
-    - git+https://github.com/openradar/open-radar-data
+      - git+https://github.com/openradar/open-radar-data

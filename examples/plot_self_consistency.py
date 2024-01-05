@@ -6,8 +6,8 @@ This example shows how to create a self-consistency plot
 
 """
 
-from act.io.armfiles import read_netcdf
 import matplotlib.pyplot as plt
+from act.io.armfiles import read_netcdf
 from open_radar_data import DATASETS
 
 import radtraq

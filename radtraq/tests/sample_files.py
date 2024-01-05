@@ -18,7 +18,6 @@ be used for testing ACT.
 """
 from open_radar_data import DATASETS
 
-
 EXAMPLE_KAZR = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
 EXAMPLE_RASTER = DATASETS.fetch('sgpkasacrcrrasterC1.a1.20130419.012153.nc')
 EXAMPLE_PPI = DATASETS.fetch('houkasacrcfrM1.a1.20210922.150006.nc')

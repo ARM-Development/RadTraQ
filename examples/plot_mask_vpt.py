@@ -8,9 +8,9 @@ from masked data
 """
 
 
-from act.io.armfiles import read_netcdf
 import matplotlib.pyplot as plt
 import numpy as np
+from act.io.armfiles import read_netcdf
 from open_radar_data import DATASETS
 
 import radtraq
