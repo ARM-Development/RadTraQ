@@ -10,7 +10,6 @@ dependencies:
   - xarray
   - matplotlib
   - netcdf4
-  - open-radar-data
   - pint
   - flake8
   - pytest
