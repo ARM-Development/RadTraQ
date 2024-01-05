@@ -7,3 +7,4 @@ xarray
 matplotlib
 netcdf4
 pint
+open_radar_data

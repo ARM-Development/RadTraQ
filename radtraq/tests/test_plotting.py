@@ -4,15 +4,15 @@ import pytest
 from act.io.armfiles import read_netcdf
 from matplotlib.figure import Figure
 
+import radtraq
 from radtraq.plotting.cfad import calc_cfad, plot_cfad
 from radtraq.plotting.corner_reflector import plot_cr_raster
 from radtraq.plotting.self_consistency import plot_self_consistency
-from radtraq.tests.sample_files import EXAMPLE_CSAPR, EXAMPLE_KAZR, EXAMPLE_RASTER
 
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_plotting():
-    obj = read_netcdf(EXAMPLE_KAZR)
+    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
 
     np.seterr(divide='ignore')
     data_array = calc_cfad(obj, 'reflectivity_copol')
@@ -23,7 +23,7 @@ def test_plotting():
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_corner_reflector():
-    obj = read_netcdf(EXAMPLE_RASTER)
+    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
     data = plot_cr_raster(obj, target_range=478.0, el_limits=[-0.5, 2.5], noplot=False)
 
     np.testing.assert_almost_equal(data['max'], 12.09, decimal=2)
@@ -41,7 +41,7 @@ def test_corner_reflector():
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_self_consistency():
-    obj = read_netcdf(EXAMPLE_CSAPR)
+    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_CSAPR)
     thresh = {'copol_correlation_coeff': 0.99}
     # Set up dictionary of variables to plot
     var_dict = {
