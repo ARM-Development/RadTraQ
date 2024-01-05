@@ -11,6 +11,7 @@ dependencies:
   - xarray
   - matplotlib
   - netcdf4
+  - open-radar-data
   - pint
   - flake8
   - pytest
@@ -23,3 +24,5 @@ dependencies:
   - sphinx-gallery
   - sphinx-rtd-theme
   - urllib3
+  - pip:
+    - git+https://github.com/openradar/open-radar-data
