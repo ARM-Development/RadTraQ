@@ -23,7 +23,7 @@ ZDR Bias Calculation
 
 This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-31
+.. GENERATED FROM PYTHON SOURCE LINES 8-33
 
 
 
@@ -37,8 +37,8 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
  .. code-block:: none
 
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_zdr_check.py:15: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-      ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_zdr_check.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+      ds = read_netcdf(filename)
     Zdr Bias: 2.69
 
 
@@ -53,11 +53,13 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
     import matplotlib.pyplot as plt
     from act.io.armfiles import read_netcdf
+    from open_radar_data import DATASETS
 
     import radtraq
 
     # Read in example data
-    ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
+    filename = DATASETS.fetch('sgpxsaprcfrvptI4.a1.20200205.100827.nc')
+    ds = read_netcdf(filename)
     thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
     # Call RadTraQ function
     results = radtraq.proc.calc_zdr_offset(ds, zdr_var='differential_reflectivity', thresh=thresh)
@@ -77,7 +79,7 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.371 seconds)
+   **Total running time of the script:** (0 minutes 0.369 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_zdr_check.py:

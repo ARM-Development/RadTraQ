@@ -25,7 +25,7 @@ This example shows how to plot out a corner reflector
 raster scan which also analyzes the data and returns
 the corner reflector location information
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-26
+.. GENERATED FROM PYTHON SOURCE LINES 10-27
 
 
 
@@ -39,8 +39,8 @@ the corner reflector location information
 
  .. code-block:: none
 
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_corner_reflector_raster.py:18: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-      ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
+    /home/runner/work/RadTraQ/RadTraQ/examples/plot_corner_reflector_raster.py:19: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+      ds = read_netcdf(filename)
 
 
 
@@ -52,14 +52,15 @@ the corner reflector location information
 .. code-block:: Python
 
 
-
     import matplotlib.pyplot as plt
     from act.io.armfiles import read_netcdf
+    from open_radar_data import DATASETS
 
     import radtraq
 
     # Read in sample data using ACT
-    ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
+    filename = DATASETS.fetch('sgpkasacrcrrasterC1.a1.20130419.012153.nc')
+    ds = read_netcdf(filename)
 
     # Process and plot raster file
     data = radtraq.plotting.corner_reflector.plot_cr_raster(
@@ -71,7 +72,7 @@ the corner reflector location information
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.039 seconds)
+   **Total running time of the script:** (0 minutes 0.960 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_corner_reflector_raster.py:

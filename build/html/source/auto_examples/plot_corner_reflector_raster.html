@@ -108,8 +108,8 @@ to download the full example code</p>
 <p>This example shows how to plot out a corner reflector
 raster scan which also analyzes the data and returns
 the corner reflector location information</p>
-<img src="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" srcset="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" alt="Corner Reflector Reflectivity 2013-04-19 01:21:53" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_corner_reflector_raster.py:18: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-  ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
+<img src="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" srcset="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" alt="Corner Reflector Reflectivity 2013-04-19 01:21:53" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_corner_reflector_raster.py:19: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+  ds = read_netcdf(filename)
 </pre></div>
 </div>
 <div class="line-block">
@@ -117,11 +117,13 @@ the corner reflector location information</p>
 </div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">act.io.armfiles</span> <span class="kn">import</span> <span class="n">read_netcdf</span>
+<span class="kn">from</span> <span class="nn">open_radar_data</span> <span class="kn">import</span> <span class="n">DATASETS</span>
 
 <span class="kn">import</span> <span class="nn">radtraq</span>
 
 <span class="c1"># Read in sample data using ACT</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radtraq</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">sample_files</span><span class="o">.</span><span class="n">EXAMPLE_RASTER</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpkasacrcrrasterC1.a1.20130419.012153.nc&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 
 <span class="c1"># Process and plot raster file</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">corner_reflector</span><span class="o">.</span><span class="n">plot_cr_raster</span><span class="p">(</span>
@@ -131,7 +133,7 @@ the corner reflector location information</p>
 <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.039 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.960 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-corner-reflector-raster-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a8dcd1d5262e69b1171d2fdfcca66307/plot_corner_reflector_raster.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_corner_reflector_raster.ipynb</span></code></a></p>

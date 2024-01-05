@@ -106,8 +106,8 @@ to download the full example code</p>
 <section class="sphx-glr-example-title" id="example-on-how-to-calculate-and-plot-cloud-masks">
 <span id="sphx-glr-source-auto-examples-plot-cloud-mask-py"></span><h1>Example on how to calculate and plot cloud masks<a class="headerlink" href="#example-on-how-to-calculate-and-plot-cloud-masks" title="Link to this heading"></a></h1>
 <p>This example shows how to calculate a cloud mask and plot data</p>
-<img src="../../_images/sphx_glr_plot_cloud_mask_001.png" srcset="../../_images/sphx_glr_plot_cloud_mask_001.png" alt="sgpkazrgeC1.a1 reflectivity_copol on 20190529" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_cloud_mask.py:16: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-  ds = act.io.armfiles.read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+<img src="../../_images/sphx_glr_plot_cloud_mask_001.png" srcset="../../_images/sphx_glr_plot_cloud_mask_001.png" alt="sgpkazrgeC1.a1 reflectivity_copol on 20190529" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_cloud_mask.py:18: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
+  ds = act.io.armfiles.read_netcdf(filename)
 </pre></div>
 </div>
 <div class="line-block">
@@ -115,11 +115,13 @@ to download the full example code</p>
 </div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">act</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">open_radar_data</span> <span class="kn">import</span> <span class="n">DATASETS</span>
 
 <span class="kn">import</span> <span class="nn">radtraq</span>
 
 <span class="c1"># Read in sample data using ACT</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radtraq</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">sample_files</span><span class="o">.</span><span class="n">EXAMPLE_KAZR</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpkazrgeC1.a1.20190529.000002.cdf&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 
 <span class="c1"># Resample data for ease of processing</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest</span><span class="p">()</span>
@@ -137,7 +139,7 @@ to download the full example code</p>
 <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.570 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.538 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-cloud-mask-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3f519d3e8a5042ebdd24b69a599a91d3/plot_cloud_mask.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_cloud_mask.ipynb</span></code></a></p>

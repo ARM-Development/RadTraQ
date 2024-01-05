@@ -8,11 +8,13 @@ This example shows how to create a self-consistency plot
 
 import matplotlib.pyplot as plt
 from act.io.armfiles import read_netcdf
+from open_radar_data import DATASETS
 
 import radtraq
 
 # Read in example data
-ds = read_netcdf(radtraq.tests.sample_files.EXAMPLE_CSAPR)
+filename = DATASETS.fetch('csapr.nc')
+ds = read_netcdf(filename)
 
 # Set thresholds of RhoHv > 0.99
 thresh = {'copol_correlation_coeff': 0.99}
