@@ -93,7 +93,6 @@ def test_extract_rhi_profile():
 
 
 def test_calc_zdr_offset():
-
     obj = act.io.arm.read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
     thresh = {
         'cross_correlation_ratio_hv': [0.995, 1],

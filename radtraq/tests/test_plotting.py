@@ -15,7 +15,6 @@ from radtraq.plotting.self_consistency import plot_self_consistency
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_plotting():
     obj = read_arm_netcdf(EXAMPLE_KAZR)
-
     np.seterr(divide='ignore')
     data_array = calc_cfad(obj, 'reflectivity_copol')
     dims = data_array.dims
@@ -43,7 +42,6 @@ def test_corner_reflector():
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_self_consistency():
-
     obj = read_arm_netcdf(EXAMPLE_CSAPR)
     thresh = {'copol_correlation_coeff': 0.99}
     # Set up dictionary of variables to plot
