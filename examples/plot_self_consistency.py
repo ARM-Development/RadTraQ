@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 from open_radar_data import DATASETS
 
 # Read in example data
-
 filename = DATASETS.fetch('csapr.nc')
 ds = read_arm_netcdf(filename)
 

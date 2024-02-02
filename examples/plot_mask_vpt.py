@@ -7,8 +7,6 @@ from masked data
 
 """
 
-
-
 import radtraq
 from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
