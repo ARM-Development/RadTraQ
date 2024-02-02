@@ -1,7 +1,6 @@
-import numpy as np
 import pytest
-from act.io.arm import read_arm_netcdf
 import numpy as np
+from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 
