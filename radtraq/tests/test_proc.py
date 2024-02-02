@@ -39,10 +39,10 @@ def test_extract_profile():
     ]
     drop_variables = []
     f = radtraq.tests.sample_files.EXAMPLE_PPI
-
-    obj = act.io.arm.read_arm_netcdf(f, drop_variables=drop_variables)
-    profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124, ground_dist=13094,
-   
+    obj = act.io.armfiles.read_netcdf(f, drop_variables=drop_variables)
+    profile_obj = radtraq.proc.profile.extract_profile(
+        obj, azimuth=124, ground_dist=13094, ground_range_units='m'
+    )
     assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 0.168616)
     assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), 1.6327)
 
