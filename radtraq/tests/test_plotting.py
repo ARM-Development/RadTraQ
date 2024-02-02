@@ -3,7 +3,6 @@ import numpy as np
 from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
-
 import radtraq
 from radtraq.plotting.cfad import calc_cfad, plot_cfad
 from radtraq.plotting.corner_reflector import plot_cr_raster
@@ -23,7 +22,7 @@ def test_plotting():
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_corner_reflector():
     ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
-    data = plot_cr_raster(ds, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
+    data = plot_cr_raster(ds, target_range=478.0, el_limits=[-0.5, 2.5], noplot=False)
     np.testing.assert_almost_equal(data['max'], 12.09, decimal=2)
     np.testing.assert_almost_equal(data['min'], -64.89, decimal=2)
     np.testing.assert_almost_equal(data['az_max'], 2.30, decimal=2)
