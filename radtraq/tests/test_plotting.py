@@ -14,9 +14,9 @@ from radtraq.plotting.self_consistency import plot_self_consistency
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_plotting():
-    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+    ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
     np.seterr(divide='ignore')
-    data_array = calc_cfad(obj, 'reflectivity_copol')
+    data_array = calc_cfad(ds, 'reflectivity_copol')
     dims = data_array.dims
     display = plot_cfad(data_array, data_array[dims[1]], data_array[dims[0]])
     return display.figure
@@ -24,8 +24,8 @@ def test_plotting():
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_corner_reflector():
-    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
-    data = plot_cr_raster(obj, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
+    ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
+    data = plot_cr_raster(ds, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
 
     np.testing.assert_almost_equal(data['max'], 12.09, decimal=2)
     np.testing.assert_almost_equal(data['min'], -64.89, decimal=2)
@@ -42,7 +42,7 @@ def test_corner_reflector():
 
 @pytest.mark.mpl_image_compare(tolerance=10)
 def test_self_consistency():
-    obj = read_netcdf(radtraq.tests.sample_files.EXAMPLE_CSAPR)
+    ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_CSAPR)
     thresh = {'copol_correlation_coeff': 0.99}
     # Set up dictionary of variables to plot
     var_dict = {
@@ -56,7 +56,7 @@ def test_self_consistency():
         'mean_doppler_velocity': {'variable': 'reflectivity', 'bin_width': [1, 0.5]},
     }
 
-    plot_self_consistency(obj, variables=var_dict, thresh=thresh)
+    plot_self_consistency(ds, variables=var_dict, thresh=thresh)
     fig = plt.gcf()
     return fig
 
