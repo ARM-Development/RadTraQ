@@ -7,17 +7,16 @@ from masked data
 
 """
 
-
 import matplotlib.pyplot as plt
 import numpy as np
-from act.io.armfiles import read_netcdf
+from act.io.arm import read_arm_netcdf
 from open_radar_data import DATASETS
 
 import radtraq
 
 # Read in Example KAZR File using ACT
 filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
-ds = read_netcdf(filename)
+ds = read_arm_netcdf(filename)
 
 # Resample to 1-minute to simplify processing
 ds = ds.resample(time='1min').nearest()
