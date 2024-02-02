@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 from act.io.arm import read_arm_netcdf
@@ -59,9 +58,3 @@ def test_self_consistency():
     plot_self_consistency(ds, variables=var_dict, thresh=thresh)
     fig = plt.gcf()
     return fig
-
-
-if __name__ == '__main__':
-    test_plotting()
-    test_corner_reflector()
-    test_self_consistency()
