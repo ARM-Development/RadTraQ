@@ -73,7 +73,7 @@ def test_extract_profile_at_lat_lon():
     profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(
         obj, 29.68, -95.08, variables=variables
     )
-
+    
     assert (set(profile_obj.keys()) - set(variables)) == set(['lat', 'lon', 'alt'])
     assert profile_obj['height'].attrs['units'] == 'm'
 
