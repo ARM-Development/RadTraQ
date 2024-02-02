@@ -24,16 +24,13 @@ def test_plotting():
 def test_corner_reflector():
     ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_RASTER)
     data = plot_cr_raster(ds, target_range=478., el_limits=[-0.5, 2.5], noplot=False)
-
     np.testing.assert_almost_equal(data['max'], 12.09, decimal=2)
     np.testing.assert_almost_equal(data['min'], -64.89, decimal=2)
     np.testing.assert_almost_equal(data['az_max'], 2.30, decimal=2)
     np.testing.assert_almost_equal(data['el_max'], 0.90, decimal=2)
     np.testing.assert_almost_equal(data['el_top'], 1.38, decimal=2)
     np.testing.assert_almost_equal(data['range'], 478.01, decimal=2)
-
     assert isinstance(data['fig'], (Figure,))
-
     fig = plt.gcf()
     return fig
 
@@ -53,7 +50,6 @@ def test_self_consistency():
         'differential_phase': {'variable': 'reflectivity', 'bin_width': [1, 2.0]},
         'mean_doppler_velocity': {'variable': 'reflectivity', 'bin_width': [1, 0.5]},
     }
-
     plot_self_consistency(ds, variables=var_dict, thresh=thresh)
     fig = plt.gcf()
     return fig
