@@ -20,10 +20,10 @@ This module contains procedures for creating a cloud mask.
 
 """
 
-from .cloud_mask import calc_cloud_mask
-from .noise import calc_noise_floor
-from .profile import calc_avg_profile
-from .profile import extract_profile
-from .profile import extract_profile_at_lat_lon
-from .profile import extract_rhi_profile
-from .profile import calc_zdr_offset
+from .cloud_mask import calc_cloud_mask  # noqa
+from .noise import calc_noise_floor  # noqa
+from .profile import calc_avg_profile  # noqa
+from .profile import extract_profile  # noqa
+from .profile import extract_profile_at_lat_lon  # noqa
+from .profile import extract_rhi_profile  # noqa
+from .profile import calc_zdr_offset  # noqa

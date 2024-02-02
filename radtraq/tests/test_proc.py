@@ -1,7 +1,8 @@
-import radtraq
-import pytest
 import act
 import numpy as np
+import pytest
+
+import radtraq
 
 
 @pytest.mark.mpl_image_compare(tolerance=10)
@@ -28,25 +29,39 @@ def test_calc_avg_profile():
 
 
 def test_extract_profile():
-    drop_variables = ['base_time', 'time_offset', 'longitude', 'latitude',
-                      'altitued', 'altitude_agl']
+    drop_variables = [
+        'base_time',
+        'time_offset',
+        'longitude',
+        'latitude',
+        'altitued',
+        'altitude_agl',
+    ]
     drop_variables = []
     f = radtraq.tests.sample_files.EXAMPLE_PPI
+
     obj = act.io.arm.read_arm_netcdf(f, drop_variables=drop_variables)
     profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124, ground_dist=13094,
-                                                       ground_range_units='m')
+   
     assert np.isclose(np.nansum(profile_obj['co_to_crosspol_correlation_coeff'].values), 0.168616)
     assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), 1.6327)
 
     variables = ['reflectivity', 'co_to_crosspol_correlation_coeff', 'mean_doppler_velocity']
-    profile_obj = radtraq.proc.profile.extract_profile(obj, azimuth=124,
-                                                       ground_dist=13094, variables=variables)
+    profile_obj = radtraq.proc.profile.extract_profile(
+        obj, azimuth=124, ground_dist=13094, variables=variables
+    )
     assert (set(profile_obj.keys()) - set(variables)) == set(['lat', 'lon', 'alt'])
 
 
 def test_extract_profile_at_lat_lon():
-    drop_variables = ['base_time', 'time_offset', 'longitude', 'latitude',
-                      'altitued', 'altitude_agl']
+    drop_variables = [
+        'base_time',
+        'time_offset',
+        'longitude',
+        'latitude',
+        'altitued',
+        'altitude_agl',
+    ]
     drop_variables = []
     f = radtraq.tests.sample_files.EXAMPLE_PPI
     obj = act.io.arm.read_arm_netcdf(f, drop_variables=drop_variables)
@@ -55,8 +70,9 @@ def test_extract_profile_at_lat_lon():
     assert np.isclose(np.nansum(profile_obj['mean_doppler_velocity'].values), -3.03363)
 
     variables = ['reflectivity', 'co_to_crosspol_correlation_coeff', 'mean_doppler_velocity']
-    profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(obj, 29.68, -95.08,
-                                                                  variables=variables)
+    profile_obj = radtraq.proc.profile.extract_profile_at_lat_lon(
+        obj, 29.68, -95.08, variables=variables
+    )
 
     assert (set(profile_obj.keys()) - set(variables)) == set(['lat', 'lon', 'alt'])
     assert profile_obj['height'].attrs['units'] == 'm'
@@ -70,14 +86,20 @@ def test_extract_rhi_profile():
     assert np.isclose(np.nansum(extracted_obj['elevation'].values), 540.11)
     assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -201440.19)
 
-    extracted_obj = radtraq.proc.profile.extract_rhi_profile(obj, extracted_obj,
-                                                             variables='reflectivity')
+    extracted_obj = radtraq.proc.profile.extract_rhi_profile(
+        obj, extracted_obj, variables='reflectivity'
+    )
     assert np.isclose(np.nansum(extracted_obj['reflectivity'].values), -402880.38)
 
 
 def test_calc_zdr_offset():
+
     obj = act.io.arm.read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
-    thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
+    thresh = {
+        'cross_correlation_ratio_hv': [0.995, 1],
+        'reflectivity': [10, 30],
+        'range': [1000, 3000],
+    }
     results = radtraq.proc.calc_zdr_offset(obj, zdr_var='differential_reflectivity', thresh=thresh)
     np.testing.assert_almost_equal(results['bias'], 2.69, decimal=2)
     np.testing.assert_almost_equal(results['profile_reflectivity'][15], 14.37, decimal=2)

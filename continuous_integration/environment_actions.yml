@@ -16,4 +16,7 @@ dependencies:
   - pytest-cov
   - pytest-mpl
   - coveralls
+  - pre-commit
   - pip
+  - pip:
+      - git+https://github.com/openradar/open-radar-data

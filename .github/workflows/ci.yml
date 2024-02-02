@@ -1,0 +1,49 @@
+name: Python Package using Conda
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel concurrent runs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ${{ matrix.os }}-${{ matrix.python-version }}
+    if: github.repository == 'ARM-Development/RadTraQ'
+    runs-on: ${{ matrix.os }}-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        os: [macOS, ubuntu, Windows]
+        inlcude:
+          - os: macos-latest
+            PLAT: arm64
+            INTERFACE64: ""
+            platform: [x64]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Conda Environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          environment-file: ./continuous_integration/environment_actions.yml
+          activate-environment: radtraq_env
+          auto-activate-base: False
+          mamba-version: "*"
+          use-mamba: true
+          miniforge-variant: Mambaforge
+
+      - name: Test with pytest
+        run: |
+          python -m pytest --mpl --cov=radtraq/

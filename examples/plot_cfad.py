@@ -6,12 +6,15 @@ This example shows how to calculate and plot a cfad
 
 """
 
+
 import radtraq
 from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
+from open_radar_data import DATASETS
 
 # Read in example data
-ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
+ds = read_arm_netcdf(filename)
 
 # Calculate CFAD histogram
 data_array = radtraq.plotting.cfad.calc_cfad(ds, 'reflectivity_copol')

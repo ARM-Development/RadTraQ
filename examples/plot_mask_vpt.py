@@ -8,37 +8,43 @@ from masked data
 """
 
 
+
 import radtraq
 from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
 import numpy as np
+from open_radar_data import DATASETS
 
 # Read in Example KAZR File using ACT
-obj = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_KAZR)
+filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
+ds = read_arm_netcdf(filename)
 
 # Resample to 1-minute to simplify processing
-obj = obj.resample(time='1min').nearest()
+ds = ds.resample(time='1min').nearest()
 
 # Process cloud mask in order to properly produce average VPT profiles through cloud
-obj = radtraq.proc.cloud_mask.calc_cloud_mask(obj, 'reflectivity_copol')
+ds = radtraq.proc.cloud_mask.calc_cloud_mask(ds, 'reflectivity_copol')
 
 # Variables to calculate average profiles
 variable = ['reflectivity_copol', 'mean_doppler_velocity_copol', 'reflectivity_xpol']
 
 # Create a grid to interpolate data onto - Needed for different radars
-first_height = 1500.
+first_height = 1500.0
 ygrid = np.arange(first_height, 15000, 50)
 
 # Calculate average profiles
-obj = radtraq.proc.profile.calc_avg_profile(obj, variable=variable, first_height=first_height, ygrid=ygrid)
+ds = radtraq.proc.profile.calc_avg_profile(
+    ds, variable=variable, first_height=first_height, ygrid=ygrid
+)
 
 # Showing how to do this for multiple radars
 # Set up dictionary for profile comparison plotting
-rad_dict = {'sgpkazrgeC1.b1': {'object': obj, 'variable': variable[0]},
-            'sgpkazrge2C1.b1': {'object': obj, 'variable': variable[0]},
-            'sgpkazrmdC1.b1': {'object': obj, 'variable': 'reflectivity_xpol'},
-            'sgpkazrmd2C1.b1': {'object': obj, 'variable': 'reflectivity_xpol'}
-            }
+rad_dict = {
+    'sgpkazrgeC1.b1': {'object': ds, 'variable': variable[0]},
+    'sgpkazrge2C1.b1': {'object': ds, 'variable': variable[0]},
+    'sgpkazrmdC1.b1': {'object': ds, 'variable': 'reflectivity_xpol'},
+    'sgpkazrmd2C1.b1': {'object': ds, 'variable': 'reflectivity_xpol'},
+}
 
 # Plot up profiles and perform comparisons from data in dictionary
 display = radtraq.plotting.plot_avg_profile(rad_dict)
@@ -47,4 +53,4 @@ display = radtraq.plotting.plot_avg_profile(rad_dict)
 plt.show()
 
 # Close out object
-obj.close()
+ds.close()

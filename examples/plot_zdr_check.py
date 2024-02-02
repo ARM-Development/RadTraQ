@@ -6,13 +6,18 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 """
 
+
 import radtraq
 from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
+from open_radar_data import DATASETS
 
 # Read in example data
-ds = read_arm_netcdf(radtraq.tests.sample_files.EXAMPLE_XSAPR)
+filename = DATASETS.fetch('sgpxsaprcfrvptI4.a1.20200205.100827.nc')
+ds = read_arm_netcdf(filename)
+
 thresh = {'cross_correlation_ratio_hv': [0.995, 1], 'reflectivity': [10, 30], 'range': [1000, 3000]}
+
 # Call RadTraQ function
 results = radtraq.proc.calc_zdr_offset(ds, zdr_var='differential_reflectivity', thresh=thresh)
 

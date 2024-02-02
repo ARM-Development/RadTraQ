@@ -7,8 +7,8 @@ Module for plotting self-consistency histograms
 """
 
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import scipy
 
 from radtraq.utils.dataset_utils import get_height_variable_name
@@ -53,7 +53,7 @@ def plot_self_consistency(obj, variables=None, thresh=None):
     # Set up plots
     n_plots = len(variables.keys())
     nc = 2
-    nr = int(np.ceil(n_plots / 2.))
+    nr = int(np.ceil(n_plots / 2.0))
     fig, ax = plt.subplots(nc, nr, figsize=(5 * nr, 4.25 * nc))
 
     # Cycle through each plot and create comparison
@@ -70,14 +70,20 @@ def plot_self_consistency(obj, variables=None, thresh=None):
 
         ax[i, j].set_xlabel(new_obj[comp_var].attrs['long_name'])
         ax[i, j].set_ylabel(new_obj[k].attrs['long_name'])
-        ax[i, j].set_title(new_obj[k].attrs['long_name'].split(',')[0] + ' vs \n' +
-                           new_obj[comp_var].attrs['long_name'])
+        ax[i, j].set_title(
+            new_obj[k].attrs['long_name'].split(',')[0]
+            + ' vs \n'
+            + new_obj[comp_var].attrs['long_name']
+        )
         if 'linreg' in variables[k]:
             results = scipy.stats.linregress(new_obj[comp_var], new_obj[k])
             text = '%.2f' % results.intercept + ' + ' + '%.2f' % results.slope + 'x'
             ax[0, 0].text(new_obj[comp_var].max(), new_obj[k].max(), text, ha='right', va='top')
-            ax[0, 0].plot(new_obj[comp_var].values, new_obj[comp_var].values * results.slope +
-                          results.intercept, 'r')
+            ax[0, 0].plot(
+                new_obj[comp_var].values,
+                new_obj[comp_var].values * results.slope + results.intercept,
+                'r',
+            )
 
         j += 1
         if j >= nc:
