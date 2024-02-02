@@ -16,6 +16,7 @@ code-block:: python
 """
 
 import matplotlib.pyplot as plt
+
 import radtraq
 
 d = {

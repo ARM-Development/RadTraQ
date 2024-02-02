@@ -6,10 +6,11 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 """
 
-import radtraq
-from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
+from act.io.arm import read_arm_netcdf
 from open_radar_data import DATASETS
+
+import radtraq
 
 # Read in example data
 filename = DATASETS.fetch('sgpxsaprcfrvptI4.a1.20200205.100827.nc')

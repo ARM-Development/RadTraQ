@@ -6,10 +6,11 @@ This example shows how to calculate and plot a cfad
 
 """
 
-import radtraq
-from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
+from act.io.arm import read_arm_netcdf
 from open_radar_data import DATASETS
+
+import radtraq
 
 # Read in example data
 filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')

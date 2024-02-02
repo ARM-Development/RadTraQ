@@ -6,10 +6,11 @@ This example shows how to create a self-consistency plot
 
 """
 
-import radtraq
-from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
+from act.io.arm import read_arm_netcdf
 from open_radar_data import DATASETS
+
+import radtraq
 
 # Read in example data
 filename = DATASETS.fetch('csapr.nc')

@@ -1,8 +1,9 @@
-import pytest
-import numpy as np
-from act.io.arm import read_arm_netcdf
 import matplotlib.pyplot as plt
+import numpy as np
+import pytest
+from act.io.arm import read_arm_netcdf
 from matplotlib.figure import Figure
+
 import radtraq
 from radtraq.plotting.cfad import calc_cfad, plot_cfad
 from radtraq.plotting.corner_reflector import plot_cr_raster
