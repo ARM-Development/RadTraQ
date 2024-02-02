@@ -29,7 +29,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Example on how to calculate and plot cfad" href="plot_cfad.html" />
+    <link rel="next" title="Dual Doppler Lobe Utility" href="plot_dual_doppler_lobes.html" />
     <link rel="prev" title="RadTraq Example Gallery" href="index.html" /> 
 </head>
 
@@ -60,8 +60,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">RadTraq Example Gallery</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Example on how to plot out a corner reflector raster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_cfad.html">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_dual_doppler_lobes.html">Dual Doppler Lobe Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_cfad.html">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_cloud_mask.html">Example on how to calculate and plot cloud masks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_self_consistency.html">Self-Consistency Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_zdr_check.html">ZDR Bias Calculation</a></li>
@@ -108,22 +108,15 @@ to download the full example code</p>
 <p>This example shows how to plot out a corner reflector
 raster scan which also analyzes the data and returns
 the corner reflector location information</p>
-<img src="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" srcset="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" alt="Corner Reflector Reflectivity 2013-04-19 01:21:53" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_corner_reflector_raster.py:19: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-  ds = read_netcdf(filename)
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">act.io.armfiles</span> <span class="kn">import</span> <span class="n">read_netcdf</span>
+<img src="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" srcset="../../_images/sphx_glr_plot_corner_reflector_raster_001.png" alt="Corner Reflector Reflectivity 2013-04-19 01:21:53" class = "sphx-glr-single-img"/><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">act.io.arm</span> <span class="kn">import</span> <span class="n">read_arm_netcdf</span>
 <span class="kn">from</span> <span class="nn">open_radar_data</span> <span class="kn">import</span> <span class="n">DATASETS</span>
 
 <span class="kn">import</span> <span class="nn">radtraq</span>
 
 <span class="c1"># Read in sample data using ACT</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpkasacrcrrasterC1.a1.20130419.012153.nc&#39;</span><span class="p">)</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">read_arm_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 
 <span class="c1"># Process and plot raster file</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">corner_reflector</span><span class="o">.</span><span class="n">plot_cr_raster</span><span class="p">(</span>
@@ -133,7 +126,7 @@ the corner reflector location information</p>
 <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.960 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.019 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-corner-reflector-raster-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a8dcd1d5262e69b1171d2fdfcca66307/plot_corner_reflector_raster.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_corner_reflector_raster.ipynb</span></code></a></p>
@@ -150,7 +143,7 @@ the corner reflector location information</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="RadTraq Example Gallery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_cfad.html" class="btn btn-neutral float-right" title="Example on how to calculate and plot cfad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_dual_doppler_lobes.html" class="btn btn-neutral float-right" title="Dual Doppler Lobe Utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

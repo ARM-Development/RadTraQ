@@ -60,8 +60,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">RadTraq Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_corner_reflector_raster.html">Example on how to plot out a corner reflector raster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_cfad.html">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_dual_doppler_lobes.html">Dual Doppler Lobe Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_cfad.html">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_cloud_mask.html">Example on how to calculate and plot cloud masks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_self_consistency.html">Self-Consistency Plot</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ZDR Bias Calculation</a></li>
@@ -106,24 +106,24 @@ to download the full example code</p>
 <section class="sphx-glr-example-title" id="zdr-bias-calculation">
 <span id="sphx-glr-source-auto-examples-plot-zdr-check-py"></span><h1>ZDR Bias Calculation<a class="headerlink" href="#zdr-bias-calculation" title="Link to this heading"></a></h1>
 <p>This example shows how to calculate the zdr bias from VPT/Birdbath scans</p>
-<img src="../../_images/sphx_glr_plot_zdr_check_001.png" srcset="../../_images/sphx_glr_plot_zdr_check_001.png" alt="plot zdr check" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_zdr_check.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-  ds = read_netcdf(filename)
-Zdr Bias: 2.69
+<img src="../../_images/sphx_glr_plot_zdr_check_001.png" srcset="../../_images/sphx_glr_plot_zdr_check_001.png" alt="plot zdr check" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Zdr Bias: 2.69
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">act.io.armfiles</span> <span class="kn">import</span> <span class="n">read_netcdf</span>
+<span class="kn">from</span> <span class="nn">act.io.arm</span> <span class="kn">import</span> <span class="n">read_arm_netcdf</span>
 <span class="kn">from</span> <span class="nn">open_radar_data</span> <span class="kn">import</span> <span class="n">DATASETS</span>
 
 <span class="kn">import</span> <span class="nn">radtraq</span>
 
 <span class="c1"># Read in example data</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpxsaprcfrvptI4.a1.20200205.100827.nc&#39;</span><span class="p">)</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">read_arm_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cross_correlation_ratio_hv&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.995</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;reflectivity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">]}</span>
+
 <span class="c1"># Call RadTraQ function</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">calc_zdr_offset</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">zdr_var</span><span class="o">=</span><span class="s1">&#39;differential_reflectivity&#39;</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">thresh</span></a><span class="p">)</span>
 
@@ -140,7 +140,7 @@ Zdr Bias: 2.69
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.369 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.337 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-zdr-check-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/54db3605a180105eb70a910f4e9676df/plot_zdr_check.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_zdr_check.ipynb</span></code></a></p>

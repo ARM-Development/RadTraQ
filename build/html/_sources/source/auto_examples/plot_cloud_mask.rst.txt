@@ -23,7 +23,7 @@ Example on how to calculate and plot cloud masks
 
 This example shows how to calculate a cloud mask and plot data
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-34
+.. GENERATED FROM PYTHON SOURCE LINES 8-33
 
 
 
@@ -33,22 +33,10 @@ This example shows how to calculate a cloud mask and plot data
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_cloud_mask.py:18: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-      ds = act.io.armfiles.read_netcdf(filename)
 
 
-
-
-
-
-|
 
 .. code-block:: Python
-
 
 
     import act
@@ -59,7 +47,7 @@ This example shows how to calculate a cloud mask and plot data
 
     # Read in sample data using ACT
     filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
-    ds = act.io.armfiles.read_netcdf(filename)
+    ds = act.io.arm.read_arm_netcdf(filename)
 
     # Resample data for ease of processing
     ds = ds.resample(time='1min').nearest()
@@ -79,7 +67,7 @@ This example shows how to calculate a cloud mask and plot data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.538 seconds)
+   **Total running time of the script:** (0 minutes 0.500 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cloud_mask.py:

@@ -29,8 +29,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Dual Doppler Lobe Utility" href="plot_dual_doppler_lobes.html" />
-    <link rel="prev" title="Example on how to plot out a corner reflector raster" href="plot_corner_reflector_raster.html" /> 
+    <link rel="next" title="Example on how to calculate and plot cloud masks" href="plot_cloud_mask.html" />
+    <link rel="prev" title="Dual Doppler Lobe Utility" href="plot_dual_doppler_lobes.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,8 +60,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">RadTraq Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_corner_reflector_raster.html">Example on how to plot out a corner reflector raster</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_dual_doppler_lobes.html">Dual Doppler Lobe Utility</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Example on how to calculate and plot cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_cloud_mask.html">Example on how to calculate and plot cloud masks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_self_consistency.html">Self-Consistency Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_zdr_check.html">ZDR Bias Calculation</a></li>
@@ -106,22 +106,15 @@ to download the full example code</p>
 <section class="sphx-glr-example-title" id="example-on-how-to-calculate-and-plot-cfad">
 <span id="sphx-glr-source-auto-examples-plot-cfad-py"></span><h1>Example on how to calculate and plot cfad<a class="headerlink" href="#example-on-how-to-calculate-and-plot-cfad" title="Link to this heading"></a></h1>
 <p>This example shows how to calculate and plot a cfad</p>
-<img src="../../_images/sphx_glr_plot_cfad_001.png" srcset="../../_images/sphx_glr_plot_cfad_001.png" alt="plot cfad" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/RadTraQ/RadTraQ/examples/plot_cfad.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-  ds = read_netcdf(filename)
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">act.io.armfiles</span> <span class="kn">import</span> <span class="n">read_netcdf</span>
+<img src="../../_images/sphx_glr_plot_cfad_001.png" srcset="../../_images/sphx_glr_plot_cfad_001.png" alt="plot cfad" class = "sphx-glr-single-img"/><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">act.io.arm</span> <span class="kn">import</span> <span class="n">read_arm_netcdf</span>
 <span class="kn">from</span> <span class="nn">open_radar_data</span> <span class="kn">import</span> <span class="n">DATASETS</span>
 
 <span class="kn">import</span> <span class="nn">radtraq</span>
 
 <span class="c1"># Read in example data</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpkazrgeC1.a1.20190529.000002.cdf&#39;</span><span class="p">)</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">read_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">read_arm_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 
 <span class="c1"># Calculate CFAD histogram</span>
 <span class="n">data_array</span> <span class="o">=</span> <span class="n">radtraq</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">cfad</span><span class="o">.</span><span class="n">calc_cfad</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="s1">&#39;reflectivity_copol&#39;</span><span class="p">)</span>
@@ -132,7 +125,7 @@ to download the full example code</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.815 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.789 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-cfad-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e6d60e55857d6e2f394552fd406b547d/plot_cfad.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_cfad.ipynb</span></code></a></p>
@@ -148,8 +141,8 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_corner_reflector_raster.html" class="btn btn-neutral float-left" title="Example on how to plot out a corner reflector raster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_dual_doppler_lobes.html" class="btn btn-neutral float-right" title="Dual Doppler Lobe Utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_dual_doppler_lobes.html" class="btn btn-neutral float-left" title="Dual Doppler Lobe Utility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_cloud_mask.html" class="btn btn-neutral float-right" title="Example on how to calculate and plot cloud masks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

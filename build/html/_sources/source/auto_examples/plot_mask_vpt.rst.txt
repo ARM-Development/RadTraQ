@@ -24,7 +24,7 @@ Example on how to calculate and plot average profiles
 This example shows how to calculate and plot average profiles
 from masked data
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-57
+.. GENERATED FROM PYTHON SOURCE LINES 9-56
 
 
 
@@ -34,34 +34,22 @@ from masked data
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_mask_vpt.py:20: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-      ds = read_netcdf(filename)
 
 
-
-
-
-
-|
 
 .. code-block:: Python
 
 
-
     import matplotlib.pyplot as plt
     import numpy as np
-    from act.io.armfiles import read_netcdf
+    from act.io.arm import read_arm_netcdf
     from open_radar_data import DATASETS
 
     import radtraq
 
     # Read in Example KAZR File using ACT
     filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
-    ds = read_netcdf(filename)
+    ds = read_arm_netcdf(filename)
 
     # Resample to 1-minute to simplify processing
     ds = ds.resample(time='1min').nearest()
@@ -102,7 +90,7 @@ from masked data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.604 seconds)
+   **Total running time of the script:** (0 minutes 0.595 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_mask_vpt.py:

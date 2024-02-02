@@ -33,32 +33,21 @@ This example shows how to create a self-consistency plot
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_self_consistency.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-      ds = read_netcdf(filename)
 
 
-
-
-
-
-|
 
 .. code-block:: Python
 
 
     import matplotlib.pyplot as plt
-    from act.io.armfiles import read_netcdf
+    from act.io.arm import read_arm_netcdf
     from open_radar_data import DATASETS
 
     import radtraq
 
     # Read in example data
     filename = DATASETS.fetch('csapr.nc')
-    ds = read_netcdf(filename)
+    ds = read_arm_netcdf(filename)
 
     # Set thresholds of RhoHv > 0.99
     thresh = {'copol_correlation_coeff': 0.99}
@@ -82,7 +71,7 @@ This example shows how to create a self-consistency plot
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.778 seconds)
+   **Total running time of the script:** (0 minutes 0.729 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_self_consistency.py:

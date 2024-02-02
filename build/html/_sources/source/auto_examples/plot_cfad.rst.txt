@@ -33,32 +33,21 @@ This example shows how to calculate and plot a cfad
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/RadTraQ/RadTraQ/examples/plot_cfad.py:17: DeprecationWarning: act.io.armfiles.read_netcdf will be replaced in version 2.0.0 by act.io.arm.read_arm_netcdf()
-      ds = read_netcdf(filename)
 
 
-
-
-
-
-|
 
 .. code-block:: Python
 
 
     import matplotlib.pyplot as plt
-    from act.io.armfiles import read_netcdf
+    from act.io.arm import read_arm_netcdf
     from open_radar_data import DATASETS
 
     import radtraq
 
     # Read in example data
     filename = DATASETS.fetch('sgpkazrgeC1.a1.20190529.000002.cdf')
-    ds = read_netcdf(filename)
+    ds = read_arm_netcdf(filename)
 
     # Calculate CFAD histogram
     data_array = radtraq.plotting.cfad.calc_cfad(ds, 'reflectivity_copol')
@@ -71,7 +60,7 @@ This example shows how to calculate and plot a cfad
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.815 seconds)
+   **Total running time of the script:** (0 minutes 0.789 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cfad.py:
