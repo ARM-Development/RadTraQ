@@ -88,7 +88,7 @@ def calc_cfad(obj, variable, height_variable=None, xbins=None):
         )
         hist = np.log10(np.array(hist))
 
-    coords = {'x': xbins[:-1], height_variable: height}
+    coords = {'x': xbins[:-1], height_variable: height.values}
     dims = [height_variable, 'x']
     attrs = {'long_name': f'CFAD for {variable}', 'units': '1'}
 
