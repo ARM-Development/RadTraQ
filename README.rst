@@ -2,13 +2,16 @@
 Radar Tracking of Quality Toolkit (RadTraQ)
 ===========================================
 
-|Build| |Docs|
+|Build| |Docs| |DOI|
 
 .. |Docs| image:: https://github.com/ARM-Development/RadTraQ/actions/workflows/documentation.yml/badge.svg
     :target: https://github.com/ARM-Development/RadTraQ/actions/workflows/documentation.yml
 
 .. |Build| image:: https://github.com/ARM-Development/RadTraQ/actions/workflows/ci.yml/badge.svg
     :target: https://github.com/ARM-Development/RadTraQ/actions/workflows/ci.yml
+
+.. |DOI| image:: https://zenodo.org/badge/281182712.svg
+    :target: https://zenodo.org/doi/10.5281/zenodo.8253245
 
 RadTraQ is a python library housing routines related to assessing and monitoring
 the quality of a radar's quality and calibration. This library is a work in progress,
@@ -40,6 +43,10 @@ Installation
 RadTraQ is installable using pip::
 
     pip install radtraq
+
+and Conda::
+
+    conda install -c conda-forge radtraq
 
 Contributing
 ~~~~~~~~~~~~
