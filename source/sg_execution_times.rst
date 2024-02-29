@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:03.769** total execution time for 7 files **from all galleries**:
+**00:03.764** total execution time for 7 files **from all galleries**:
 
 .. container::
 
@@ -33,19 +33,19 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py` (``../../examples/plot_corner_reflector_raster.py``)
-     - 00:00.967
+     - 00:00.966
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_self_consistency.py` (``../../examples/plot_self_consistency.py``)
-     - 00:00.736
+     - 00:00.733
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``../../examples/plot_cfad.py``)
-     - 00:00.648
+     - 00:00.646
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py` (``../../examples/plot_mask_vpt.py``)
-     - 00:00.561
+     - 00:00.559
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py` (``../../examples/plot_cloud_mask.py``)
-     - 00:00.456
+     - 00:00.461
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_zdr_check.py` (``../../examples/plot_zdr_check.py``)
      - 00:00.347
