@@ -31,10 +31,10 @@ jobs:
             platform: [x64]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Conda Environment
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v3
         with:
           python-version: ${{ matrix.python-version }}
           environment-file: ./continuous_integration/environment_actions.yml
