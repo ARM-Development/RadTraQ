@@ -60,7 +60,7 @@ This example shows how to calculate and plot a cfad
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.663 seconds)
+   **Total running time of the script:** (0 minutes 0.665 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cfad.py:
