@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_source_auto_examples_plot_zdr_check.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -79,7 +79,7 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.365 seconds)
+   **Total running time of the script:** (0 minutes 0.350 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_zdr_check.py:
