@@ -15,7 +15,7 @@ Different examples on how to use RadTraq
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot out a corner reflector raster scan which also analyzes the data ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to plot out a corner reflector raster scan which also analyzes the data and returns the corner reflector location information">
 
 .. only:: html
 
@@ -49,7 +49,7 @@ Different examples on how to use RadTraq
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Example for using the utily to plot up dual doppler lobes. Can easily be used on cartopy maps u...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Example for using the utily to plot up dual doppler lobes. Can easily be used on cartopy maps using">
 
 .. only:: html
 

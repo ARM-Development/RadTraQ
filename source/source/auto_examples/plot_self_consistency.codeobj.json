@@ -1,0 +1,132 @@
+{
+ "DATASETS.fetch": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pooch.core",
+   "module_short": "pooch",
+   "name": "Pooch.fetch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pooch",
+   "module_short": "pooch",
+   "name": "Pooch.fetch"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "open_radar_data.DATASETS",
+   "module_short": "open_radar_data.DATASETS",
+   "name": "fetch"
+  }
+ ],
+ "display": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "ds": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "xarray.core.dataset",
+   "module_short": "xarray.core.dataset",
+   "name": "Dataset"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "xarray.core",
+   "module_short": "xarray.core",
+   "name": "Dataset"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "xarray",
+   "module_short": "xarray",
+   "name": "Dataset"
+  }
+ ],
+ "filename": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "plt.show": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.pyplot",
+   "module_short": "matplotlib.pyplot",
+   "name": "show"
+  }
+ ],
+ "radtraq.plotting.plot_self_consistency": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "radtraq.plotting",
+   "module_short": "radtraq.plotting",
+   "name": "plot_self_consistency"
+  }
+ ],
+ "read_arm_netcdf": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "act.io.arm",
+   "module_short": "act.io",
+   "name": "read_arm_netcdf"
+  }
+ ],
+ "thresh": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "dict"
+  }
+ ],
+ "var_dict": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "dict"
+  }
+ ]
+}

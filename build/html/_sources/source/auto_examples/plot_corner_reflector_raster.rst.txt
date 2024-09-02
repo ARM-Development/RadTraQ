@@ -61,7 +61,7 @@ the corner reflector location information
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.978 seconds)
+   **Total running time of the script:** (0 minutes 0.971 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_corner_reflector_raster.py:
@@ -77,6 +77,10 @@ the corner reflector location information
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_corner_reflector_raster.py <plot_corner_reflector_raster.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_corner_reflector_raster.zip <plot_corner_reflector_raster.zip>`
 
 
 .. only:: html

@@ -90,7 +90,7 @@ from masked data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.480 seconds)
+   **Total running time of the script:** (0 minutes 0.572 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_mask_vpt.py:
@@ -106,6 +106,10 @@ from masked data
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_mask_vpt.py <plot_mask_vpt.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_mask_vpt.zip <plot_mask_vpt.zip>`
 
 
 .. only:: html
