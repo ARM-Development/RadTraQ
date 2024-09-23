@@ -67,7 +67,7 @@ This example shows how to calculate a cloud mask and plot data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.466 seconds)
+   **Total running time of the script:** (0 minutes 0.484 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_cloud_mask.py:
