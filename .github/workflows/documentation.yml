@@ -28,7 +28,7 @@ jobs:
 
       # setup conda-forge with micromamba
       - name: Setup Python
-        uses: mamba-org/setup-micromamba@v1
+        uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: continuous_integration/environment_documentation.yml
           create-args: >-
