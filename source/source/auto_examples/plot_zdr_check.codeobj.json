@@ -3,16 +3,9 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "pooch.core",
-   "module_short": "pooch",
-   "name": "Pooch.fetch"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "pooch",
-   "module_short": "pooch",
-   "name": "Pooch.fetch"
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
   },
   {
    "is_class": false,
