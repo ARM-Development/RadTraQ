@@ -32,7 +32,6 @@ jobs:
         uses: mamba-org/setup-micromamba@v2.0.4
         with:
           environment-file: ./continuous_integration/environment_actions.yml
-          activate-environment: radtraq_env
           init-shell: >-
             bash
           cache-downloads: true
@@ -41,7 +40,7 @@ jobs:
 
       - name: Fetch all history for all tags and branches
         run: |
-           git fetch --prune --unshallow
+          git fetch --prune --unshallow
 
       - name: Test with pytest
         run: |
