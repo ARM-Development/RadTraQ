@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:04.753** total execution time for 7 files **from source/auto_examples**:
+**00:04.648** total execution time for 7 files **from source/auto_examples**:
 
 .. container::
 
@@ -33,23 +33,23 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_source_auto_examples_plot_self_consistency.py` (``plot_self_consistency.py``)
-     - 00:01.929
-     - 0.0
-   * - :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``plot_cfad.py``)
-     - 00:00.779
+     - 00:01.849
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_corner_reflector_raster.py` (``plot_corner_reflector_raster.py``)
-     - 00:00.682
+     - 00:00.698
+     - 0.0
+   * - :ref:`sphx_glr_source_auto_examples_plot_cfad.py` (``plot_cfad.py``)
+     - 00:00.683
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_mask_vpt.py` (``plot_mask_vpt.py``)
-     - 00:00.518
+     - 00:00.535
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_cloud_mask.py` (``plot_cloud_mask.py``)
-     - 00:00.403
+     - 00:00.417
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_zdr_check.py` (``plot_zdr_check.py``)
-     - 00:00.387
+     - 00:00.411
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plot_dual_doppler_lobes.py` (``plot_dual_doppler_lobes.py``)
-     - 00:00.054
+     - 00:00.055
      - 0.0

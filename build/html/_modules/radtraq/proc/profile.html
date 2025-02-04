@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>radtraq.proc.profile &mdash; RadTraq 0.0.post1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -87,17 +87,17 @@
 
 <span class="sd">Module for various processing of profiles</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pint</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">act.utils.geo_utils</span> <span class="kn">import</span> <span class="n">destination_azimuth_distance</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">act.utils.geo_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">destination_azimuth_distance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 
-<span class="kn">from</span> <span class="nn">radtraq.proc.cloud_mask</span> <span class="kn">import</span> <span class="n">calc_cloud_mask</span>
-<span class="kn">from</span> <span class="nn">radtraq.utils.dataset_utils</span> <span class="kn">import</span> <span class="n">get_height_variable_name</span>
-<span class="kn">from</span> <span class="nn">radtraq.utils.utils</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">radtraq.proc.cloud_mask</span><span class="w"> </span><span class="kn">import</span> <span class="n">calc_cloud_mask</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">radtraq.utils.dataset_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_height_variable_name</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">radtraq.utils.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">calc_ground_range_and_height</span><span class="p">,</span>
     <span class="n">calculate_azimuth_distance_from_lat_lon</span><span class="p">,</span>
 <span class="p">)</span>
@@ -105,7 +105,7 @@
 
 <div class="viewcode-block" id="calc_avg_profile">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.calc_avg_profile.html#radtraq.proc.calc_avg_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">calc_avg_profile</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_avg_profile</span><span class="p">(</span>
     <span class="n">_obj</span><span class="p">,</span>
     <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">mask_variable</span><span class="o">=</span><span class="s1">&#39;cloud_mask_2&#39;</span><span class="p">,</span>
@@ -283,7 +283,7 @@
 
 <div class="viewcode-block" id="extract_profile">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile.html#radtraq.proc.extract_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">extract_profile</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_profile</span><span class="p">(</span>
     <span class="n">obj</span><span class="p">,</span>
     <span class="n">azimuth</span><span class="p">,</span>
     <span class="n">ground_dist</span><span class="p">,</span>
@@ -515,7 +515,7 @@
 
 <div class="viewcode-block" id="extract_profile_at_lat_lon">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_profile_at_lat_lon.html#radtraq.proc.extract_profile_at_lat_lon">[docs]</a>
-<span class="k">def</span> <span class="nf">extract_profile_at_lat_lon</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_profile_at_lat_lon</span><span class="p">(</span>
     <span class="n">obj</span><span class="p">,</span>
     <span class="n">desired_lat</span><span class="p">,</span>
     <span class="n">desired_lon</span><span class="p">,</span>
@@ -600,7 +600,7 @@
 
 <div class="viewcode-block" id="extract_rhi_profile">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.extract_rhi_profile.html#radtraq.proc.extract_rhi_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">extract_rhi_profile</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_rhi_profile</span><span class="p">(</span>
     <span class="n">obj</span><span class="p">,</span>
     <span class="n">append_obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -674,7 +674,7 @@
 
 <div class="viewcode-block" id="calc_zdr_offset">
 <a class="viewcode-back" href="../../../API/generated/radtraq.proc.calc_zdr_offset.html#radtraq.proc.calc_zdr_offset">[docs]</a>
-<span class="k">def</span> <span class="nf">calc_zdr_offset</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">zdr_var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_zdr_offset</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">zdr_var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for extracting vertical profile over a location from a RHI scan</span>
 

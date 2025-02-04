@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Example on how to calculate and plot cloud masks &mdash; RadTraq 0.0.post1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Self-Consistency Plot" href="plot_self_consistency.html" />
-    <link rel="prev" title="Example on how to calculate and plot cfad" href="plot_cfad.html" /> 
+    <link rel="prev" title="Dual Doppler Lobe Utility" href="plot_dual_doppler_lobes.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,8 +55,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">RadTraq Example Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_corner_reflector_raster.html">Example on how to plot out a corner reflector raster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_dual_doppler_lobes.html">Dual Doppler Lobe Utility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_cfad.html">Example on how to calculate and plot cfad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_dual_doppler_lobes.html">Dual Doppler Lobe Utility</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Example on how to calculate and plot cloud masks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_self_consistency.html">Self-Consistency Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_zdr_check.html">ZDR Bias Calculation</a></li>
@@ -101,11 +101,11 @@ to download the full example code.</p>
 <section class="sphx-glr-example-title" id="example-on-how-to-calculate-and-plot-cloud-masks">
 <span id="sphx-glr-source-auto-examples-plot-cloud-mask-py"></span><h1>Example on how to calculate and plot cloud masks<a class="headerlink" href="#example-on-how-to-calculate-and-plot-cloud-masks" title="Link to this heading"></a></h1>
 <p>This example shows how to calculate a cloud mask and plot data</p>
-<img src="../../_images/sphx_glr_plot_cloud_mask_001.png" srcset="../../_images/sphx_glr_plot_cloud_mask_001.png" alt="sgpkazrgeC1.a1 reflectivity_copol on 20190529" class = "sphx-glr-single-img"/><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">act</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">open_radar_data</span> <span class="kn">import</span> <span class="n">DATASETS</span>
+<img src="../../_images/sphx_glr_plot_cloud_mask_001.png" srcset="../../_images/sphx_glr_plot_cloud_mask_001.png" alt="sgpkazrgeC1.a1 reflectivity_copol on 20190529" class = "sphx-glr-single-img"/><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">act</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">open_radar_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DATASETS</span>
 
-<span class="kn">import</span> <span class="nn">radtraq</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">radtraq</span>
 
 <span class="c1"># Read in sample data using ACT</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpkazrgeC1.a1.20190529.000002.cdf&#39;</span><span class="p">)</span>
@@ -127,7 +127,7 @@ to download the full example code.</p>
 <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.403 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.417 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-source-auto-examples-plot-cloud-mask-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3f519d3e8a5042ebdd24b69a599a91d3/plot_cloud_mask.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_cloud_mask.ipynb</span></code></a></p>
@@ -146,7 +146,7 @@ to download the full example code.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_cfad.html" class="btn btn-neutral float-left" title="Example on how to calculate and plot cfad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_dual_doppler_lobes.html" class="btn btn-neutral float-left" title="Dual Doppler Lobe Utility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="plot_self_consistency.html" class="btn btn-neutral float-right" title="Self-Consistency Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

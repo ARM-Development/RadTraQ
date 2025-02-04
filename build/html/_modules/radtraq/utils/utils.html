@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>radtraq.utils.utils &mdash; RadTraq 0.0.post1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -81,14 +81,14 @@
            <div itemprop="articleBody">
              
   <h1>Source code for radtraq.utils.utils</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pint</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
 
 <div class="viewcode-block" id="calc_ground_range_and_height">
 <a class="viewcode-back" href="../../../API/generated/radtraq.utils.calc_ground_range_and_height.html#radtraq.utils.calc_ground_range_and_height">[docs]</a>
-<span class="k">def</span> <span class="nf">calc_ground_range_and_height</span><span class="p">(</span><span class="n">slant_range</span><span class="p">,</span> <span class="n">elevation</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_ground_range_and_height</span><span class="p">(</span><span class="n">slant_range</span><span class="p">,</span> <span class="n">elevation</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for calculating height and ground range from a slant range path</span>
 
@@ -155,7 +155,7 @@
 
 <div class="viewcode-block" id="calculate_azimuth_distance_from_lat_lon">
 <a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_azimuth_distance_from_lat_lon.html#radtraq.utils.calculate_azimuth_distance_from_lat_lon">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_azimuth_distance_from_lat_lon</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_azimuth_distance_from_lat_lon</span><span class="p">(</span>
     <span class="n">curr_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">curr_lon</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_lat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_lon</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -216,7 +216,7 @@
 
 <div class="viewcode-block" id="calculate_dual_dop_lobes">
 <a class="viewcode-back" href="../../../API/generated/radtraq.utils.calculate_dual_dop_lobes.html#radtraq.utils.calculate_dual_dop_lobes">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_dual_dop_lobes</span><span class="p">(</span><span class="n">coord_dict</span><span class="p">,</span> <span class="n">min_crossing_angle</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_dual_dop_lobes</span><span class="p">(</span><span class="n">coord_dict</span><span class="p">,</span> <span class="n">min_crossing_angle</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns lat/lon of each dual dop lobe at 1 deg resolution</span>
 
