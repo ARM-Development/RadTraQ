@@ -24,25 +24,23 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
         os: [macOS, ubuntu, Windows]
-        inlcude:
-          - os: macos-latest
-            PLAT: arm64
-            INTERFACE64: ""
-            platform: [x64]
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Conda Environment
-        uses: conda-incubator/setup-miniconda@v3
+        uses: mamba-org/setup-micromamba@v2.0.4
         with:
-          python-version: ${{ matrix.python-version }}
           environment-file: ./continuous_integration/environment_actions.yml
-          activate-environment: radtraq_env
-          auto-activate-base: False
-          mamba-version: "*"
-          use-mamba: true
-          miniforge-variant: Mambaforge
+          init-shell: >-
+            bash
+          cache-downloads: true
+          post-cleanup: "all"
+          create-args: python=${{ matrix.python-version }}
+
+      - name: Fetch all history for all tags and branches
+        run: |
+          git fetch --prune --unshallow
 
       - name: Test with pytest
         run: |
