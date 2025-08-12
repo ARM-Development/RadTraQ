@@ -19,7 +19,7 @@ jobs:
         shell: bash -l {0}
     strategy:
       matrix:
-        PYTHON_VERISON: ["3.10"]
+        PYTHON_VERISON: ["3.13"]
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
