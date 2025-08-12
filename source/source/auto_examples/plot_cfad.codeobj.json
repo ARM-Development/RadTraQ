@@ -105,15 +105,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "DataArrayArithmetic.dims"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "DataArrayArithmetic.dims"
   },
   {
@@ -189,15 +189,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.ops",
-   "module_short": "xarray.core.ops",
+   "module": "xarray.computation.ops",
+   "module_short": "xarray.computation.ops",
    "name": "IncludeNumpySameMethods.dims"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "IncludeNumpySameMethods.dims"
   },
   {
@@ -210,15 +210,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "SupportsArithmetic.dims"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "SupportsArithmetic.dims"
   },
   {

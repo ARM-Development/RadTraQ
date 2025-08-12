@@ -248,15 +248,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "DatasetArithmetic.close"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "DatasetArithmetic.close"
   },
   {
@@ -325,15 +325,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "SupportsArithmetic.close"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "SupportsArithmetic.close"
   },
   {
@@ -488,15 +488,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "DatasetArithmetic.resample"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "DatasetArithmetic.resample"
   },
   {
@@ -565,15 +565,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "SupportsArithmetic.resample"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "SupportsArithmetic.resample"
   },
   {
@@ -728,15 +728,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "DatasetArithmetic.where"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "DatasetArithmetic.where"
   },
   {
@@ -805,15 +805,15 @@
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core.arithmetic",
-   "module_short": "xarray.core.arithmetic",
+   "module": "xarray.computation.arithmetic",
+   "module_short": "xarray.computation.arithmetic",
    "name": "SupportsArithmetic.where"
   },
   {
    "is_class": false,
    "is_explicit": false,
-   "module": "xarray.core",
-   "module_short": "xarray.core",
+   "module": "xarray.computation",
+   "module_short": "xarray.computation",
    "name": "SupportsArithmetic.where"
   },
   {
