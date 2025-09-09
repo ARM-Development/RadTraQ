@@ -79,7 +79,7 @@ This example shows how to calculate the zdr bias from VPT/Birdbath scans
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.354 seconds)
+   **Total running time of the script:** (0 minutes 0.363 seconds)
 
 
 .. _sphx_glr_download_source_auto_examples_plot_zdr_check.py:

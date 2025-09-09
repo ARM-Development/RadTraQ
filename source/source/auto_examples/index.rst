@@ -32,23 +32,6 @@ Different examples on how to use RadTraq
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate and plot a cfad">
-
-.. only:: html
-
-  .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_cfad_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_source_auto_examples_plot_cfad.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Example on how to calculate and plot cfad</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Example for using the utily to plot up dual doppler lobes. Can easily be used on cartopy maps using">
 
 .. only:: html
@@ -61,6 +44,23 @@ Different examples on how to use RadTraq
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Dual Doppler Lobe Utility</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to calculate and plot a cfad">
+
+.. only:: html
+
+  .. image:: /source/auto_examples/images/thumb/sphx_glr_plot_cfad_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_source_auto_examples_plot_cfad.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Example on how to calculate and plot cfad</div>
     </div>
 
 
@@ -143,8 +143,8 @@ Different examples on how to use RadTraq
    :hidden:
 
    /source/auto_examples/plot_corner_reflector_raster
-   /source/auto_examples/plot_cfad
    /source/auto_examples/plot_dual_doppler_lobes
+   /source/auto_examples/plot_cfad
    /source/auto_examples/plot_cloud_mask
    /source/auto_examples/plot_self_consistency
    /source/auto_examples/plot_zdr_check
