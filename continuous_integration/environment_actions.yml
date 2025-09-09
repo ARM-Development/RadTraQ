@@ -2,7 +2,6 @@
 name: radtraq_env
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - act-atmos
   - numpy
