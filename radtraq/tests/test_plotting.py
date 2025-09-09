@@ -1,3 +1,4 @@
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pytest
@@ -8,6 +9,8 @@ import radtraq
 from radtraq.plotting.cfad import calc_cfad, plot_cfad
 from radtraq.plotting.corner_reflector import plot_cr_raster
 from radtraq.plotting.self_consistency import plot_self_consistency
+
+matplotlib.use('Agg')
 
 
 @pytest.mark.mpl_image_compare(tolerance=10)
