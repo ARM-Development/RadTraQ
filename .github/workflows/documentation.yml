@@ -1,5 +1,8 @@
 name: Documentation
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main]
@@ -11,43 +14,60 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
+    name: Build documentation
     runs-on: ubuntu-latest
     defaults:
       run:
-        # Ensures environment gets sourced right
         shell: bash -l {0}
     strategy:
       matrix:
-        PYTHON_VERISON: ["3.13"]
+        PYTHON_VERSION: ["3.14.9"]
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v6
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      # setup conda-forge with micromamba
-      - name: Setup Python
-        uses: mamba-org/setup-micromamba@v2
+      - name: Setup Python environment
+        uses: mamba-org/setup-micromamba@f457c30a868e4760d3a6fcea5f25dc655b8edf39 # v3.2.1
         with:
           environment-file: continuous_integration/environment_documentation.yml
           create-args: >-
-            python=${{ matrix.PYTHON_VERISON }}
+            python=${{ matrix.PYTHON_VERSION }}
           environment-name: docs
           cache-environment: true
 
-      - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Build
         run: |
-          set -e
+          set -euo pipefail
           python -m pip install . --no-deps
           cd docs
           make html
 
-      - name: Deploy 🚀
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: docs # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          path: docs/_build/html
+
+  deploy:
+    name: Deploy documentation
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
