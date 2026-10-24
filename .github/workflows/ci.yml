@@ -1,5 +1,8 @@
 name: Python Package using Conda
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main]
@@ -22,14 +25,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11", "3.12", "3.13"]
+        python-version: ["3.13", "3.14"]
         os: [macOS, ubuntu, Windows]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup Conda Environment
-        uses: mamba-org/setup-micromamba@v2.0.4
+        uses: mamba-org/setup-micromamba@f457c30a868e4760d3a6fcea5f25dc655b8edf39 # v3.2.1
         with:
           environment-file: ./continuous_integration/environment_actions.yml
           init-shell: >-
