@@ -17,12 +17,13 @@ jobs:
   build:
     name: Build documentation
     runs-on: ubuntu-latest
+    if: github.repository == 'ARM-Development/RadTraQ'
     defaults:
       run:
         shell: bash -l {0}
     strategy:
       matrix:
-        PYTHON_VERSION: ["3.14.9"]
+        PYTHON_VERSION: ["3.14.10"]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -58,7 +59,7 @@ jobs:
     name: Deploy documentation
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'ARM-Development/RadTraQ' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     permissions:
       pages: write
       id-token: write
